@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bxjkor7ro250w"
+path="res://.godot/imported/road-bridge-river.obj-095e2999a67e9092f4fae89247191aba.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-bridge-river.obj-095e2999a67e9092f4fae89247191aba.mesh"]
+
+source_file="res://assets/terrain_tilesets/road-bridge-river.obj"
+dest_files=["res://.godot/imported/road-bridge-river.obj-095e2999a67e9092f4fae89247191aba.mesh", "res://.godot/imported/road-bridge-river.obj-095e2999a67e9092f4fae89247191aba.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

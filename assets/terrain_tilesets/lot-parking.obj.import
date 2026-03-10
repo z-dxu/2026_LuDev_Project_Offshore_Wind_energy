@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dydgh27ktspig"
+path="res://.godot/imported/lot-parking.obj-8c6abce7898e7c7859cb3d7ce68612bc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lot-parking.obj-8c6abce7898e7c7859cb3d7ce68612bc.mesh"]
+
+source_file="res://assets/terrain_tilesets/lot-parking.obj"
+dest_files=["res://.godot/imported/lot-parking.obj-8c6abce7898e7c7859cb3d7ce68612bc.mesh", "res://.godot/imported/lot-parking.obj-8c6abce7898e7c7859cb3d7ce68612bc.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

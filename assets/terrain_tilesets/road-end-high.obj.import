@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dssu1vj1ns65h"
+path="res://.godot/imported/road-end-high.obj-68e33ae6e38c822df804ccbb85415849.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-end-high.obj-68e33ae6e38c822df804ccbb85415849.mesh"]
+
+source_file="res://assets/terrain_tilesets/road-end-high.obj"
+dest_files=["res://.godot/imported/road-end-high.obj-68e33ae6e38c822df804ccbb85415849.mesh", "res://.godot/imported/road-end-high.obj-68e33ae6e38c822df804ccbb85415849.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

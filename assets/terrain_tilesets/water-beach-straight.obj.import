@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://xahu00sg3fni"
+path="res://.godot/imported/water-beach-straight.obj-8f3d1e42fac33cfb1241a3d213c92ebd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/water-beach-straight.obj-8f3d1e42fac33cfb1241a3d213c92ebd.mesh"]
+
+source_file="res://assets/terrain_tilesets/water-beach-straight.obj"
+dest_files=["res://.godot/imported/water-beach-straight.obj-8f3d1e42fac33cfb1241a3d213c92ebd.mesh", "res://.godot/imported/water-beach-straight.obj-8f3d1e42fac33cfb1241a3d213c92ebd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
