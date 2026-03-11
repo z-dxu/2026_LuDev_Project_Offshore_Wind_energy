@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://fow36ex2mg3r"]
+
+[ext_resource type="Script" uid="uid://kvrc3rxx28p" path="res://Scripts/camera_3d.gd" id="1_375tr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_375tr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1cf7"]
+shading_mode = 0
+
+[node name="Camera" type="Camera3D" unique_id=1413821494]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+projection = 1
+size = 100.0
+script = ExtResource("1_375tr")
+drag_speed = null
+zoom_speed = null
+max_zoom = null
+min_zoom = null
+
+[node name="Highlight" type="Node3D" parent="." unique_id=258091076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295, 0.75943613, 14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highlight" unique_id=290046793]
+transform = Transform3D(9.862584, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020751953, 1.5430841, -3.4916277)
+mesh = SubResource("BoxMesh_375tr")
+surface_material_override/0 = SubResource("StandardMaterial3D_f1cf7")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Highlight" unique_id=1378488728]
+transform = Transform3D(9.991735, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020751953, 1.5430841, 5.534233)
+mesh = SubResource("BoxMesh_375tr")
+surface_material_override/0 = SubResource("StandardMaterial3D_f1cf7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Highlight" unique_id=604394574]
+transform = Transform3D(-4.3483945e-07, 0, -1, 0, 1, 0, 9.947967, 0, -4.371139e-08, 4.4925537, 1.5430841, 0.9796419)
+mesh = SubResource("BoxMesh_375tr")
+surface_material_override/0 = SubResource("StandardMaterial3D_f1cf7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Highlight" unique_id=1131947378]
+transform = Transform3D(-4.3258882e-07, 0, -1, 0, 1, 0, 9.896479, 0, -4.371139e-08, -4.5157166, 1.5430841, 0.9796419)
+mesh = SubResource("BoxMesh_375tr")
+surface_material_override/0 = SubResource("StandardMaterial3D_f1cf7")
