@@ -1,0 +1,6 @@
+[gdlint]
+
+ignore=addons/
+
+
+max-line-length=120

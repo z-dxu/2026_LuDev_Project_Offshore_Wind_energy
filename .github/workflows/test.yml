@@ -1,0 +1,29 @@
+name: GDUnit4 Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run GDUnit4 Tests
+        uses: MikeSchulze/gdunit4-action@v1
+        with:
+          godot-version: '4.6'         # matches project.godot config_version
+          paths: 'res://tests'
+          timeout: 10
+          version: 'latest'
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: reports/
