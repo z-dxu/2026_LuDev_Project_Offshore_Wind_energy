@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://qetqw33fuvuq"]
 
 [ext_resource type="MeshLibrary" uid="uid://cnwgx5155wydr" path="res://assets/mesh_lib/terrain_mesh_lib_with_collisions.tres" id="1_26yhd"]
-[ext_resource type="PackedScene" uid="uid://fow36ex2mg3r" path="res://Scenes/camera.tscn" id="2_26yhd"]
+[ext_resource type="PackedScene" path="res://Scenes/camera.tscn" id="2_26yhd"]
+[ext_resource type="Texture2D" uid="uid://dhwn4m4xgbftc" path="res://assets/Arcadia.png" id="3_p3ir5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myvm1"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.23921569)
+albedo_texture = ExtResource("3_p3ir5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_q0mm3"]
+size = Vector2(500, 500)
 
 [node name="Map" type="Node3D" unique_id=1081927198]
 
@@ -19,17 +29,7 @@ transform = Transform3D(0.70710677, -0.5, 0.50000006, 0, 0.7071068, 0.70710677, 
 drag_speed = 0.2
 grid_map = NodePath("../GridMap")
 
-[node name="ArcadiaOverlay" type="MeshInstance3D" parent="." unique_id=798961112]
-transform = Transform3D(20.165201, -1.762898e-06, -8.742273e-08, 1.762898e-06, 8.81449e-07, 0.9999994, -1.7628979e-06, -20.165201, 4.3711374e-08, 259.706, 5, -260.903)
-visible = false
+[node name="ArcadiaOverlay" type="MeshInstance3D" parent="." unique_id=781294390]
+transform = Transform3D(2.025954, 0, 0, 0, 2.6518825e-07, 0.99999994, 0, -2.0222664, 1.3113414e-07, 256.875, 5, -260.86)
 material_override = SubResource("StandardMaterial3D_myvm1")
-cast_shadow = 0
 mesh = SubResource("QuadMesh_q0mm3")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=824560881]
-transform = Transform3D(0.7071068, 0.5, -0.5, 0, 0.7071068, 0.70710677, 0.7071068, -0.5, 0.5, 18.833046, 62.883347, 191.09148)
-shadow_enabled = true
-directional_shadow_max_distance = 500.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=216987838]
-environment = SubResource("Environment_p3ir5")
