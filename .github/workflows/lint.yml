@@ -28,7 +28,7 @@ jobs:
         # No --check: this mutates files in place
 
       - name: Run GDLint 
-        run: uvx --from 'gdtoolkit==4.*' gdlint --config .gdlintrc .
+        run: uvx --from 'gdtoolkit==4.*' gdlint .
 
 
       - name: Commit and push formatting fixes
@@ -38,5 +38,4 @@ jobs:
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           file_pattern: "**/*.gd"
-          skip_fetch: false
           # If no files changed, this step is a no-op — safe to always run
