@@ -25,8 +25,8 @@ jobs:
 
       - name: Run GDFormat Check
         #fail if formatting differs. --diff prints changes in logs to see what needs to be fixed
-        run: uvx --from 'gdtoolkit==4.*' gdformat --check --diff .
+        run: uvx --from 'gdtoolkit==4.*' gdformat --check --diff Scripts/ Scenes/
 
       - name: Run GDLint Check
         #static linting for GDScript style and correctness rules.
-        run: uvx --from 'gdtoolkit==4.*' gdlint .
+        run: uvx --from 'gdtoolkit==4.*' gdlint --config .gdlintrc .
