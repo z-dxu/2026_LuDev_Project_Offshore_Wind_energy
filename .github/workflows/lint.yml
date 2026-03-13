@@ -1,10 +1,12 @@
 name: Lint and Format
 
 on:
+  #validate formatting and linting on direct commits or PRs to main 
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
-    branches: [main, develop]
+    branches: [main]
+
 
 permissions:
   contents: read
@@ -16,17 +18,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
         with:
-          python-version: '3.12'
-          cache: 'pip'
-
-      - name: Install GDToolkit
-        run: pip install "gdtoolkit==4.*"
+          enable-cache: true
 
       - name: Run GDFormat Check
-        run: gdformat --check --diff .
+        #fail if formatting differs. --diff prints changes in logs to see what needs to be fixed
+        run: uvx --from 'gdtoolkit==4.*' gdformat --check --diff .
 
       - name: Run GDLint Check
-        run: gdlint .
+        #static linting for GDScript style and correctness rules.
+        run: uvx --from 'gdtoolkit==4.*' gdlint .
