@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qetqw33fuvuq"]
 
 [ext_resource type="MeshLibrary" uid="uid://cnwgx5155wydr" path="res://assets/mesh_lib/terrain_mesh_lib_with_collisions.tres" id="1_26yhd"]
-[ext_resource type="PackedScene" uid="uid://fow36ex2mg3r" path="res://Scenes/camera.tscn" id="2_26yhd"]
+[ext_resource type="PackedScene" path="res://Scenes/camera.tscn" id="2_26yhd"]
 
 [node name="Map" type="Node3D" unique_id=1081927198]
 

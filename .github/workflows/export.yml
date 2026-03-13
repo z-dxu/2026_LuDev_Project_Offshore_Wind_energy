@@ -3,7 +3,10 @@ name: Export Game
 on:
   push:
     tags:
-      - 'v*'
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
 
 jobs:
   export:
@@ -18,24 +21,16 @@ jobs:
         with:
           lfs: true
 
-      - name: Setup Export Templates
-        run: |
-          mkdir -v -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/* ~/.local/share/godot/export_templates/
-
       - name: Export Windows
-        run: |
-          mkdir -v -p build/windows
-          godot --headless --export-release \"Windows Desktop\" build/windows/game.exe
-
-      - name: Archive Builds
-        run: |
-          apt-get update && apt-get install -y zip
-          cd build/windows && zip -r ../../windows_build.zip . && cd ../..
-
-      - name: Create GitHub Release
-        uses: ncipollo/release-action@v1
+        uses: firebelley/godot-export@v6
         with:
-          artifacts: \"*.zip\"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          godot_executable_download_url: >
+            https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+          godot_export_templates_download_url: >
+            https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz
+          relative_project_path: ./
+          create_release: true
+          export_debug: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
