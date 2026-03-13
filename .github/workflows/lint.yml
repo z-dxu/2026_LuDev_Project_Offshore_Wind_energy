@@ -1,15 +1,13 @@
 name: Lint and Format
 
 on:
-  #validate formatting and linting on direct commits or PRs to main 
   push:
     branches: [main]
   pull_request:
     branches: [main]
 
-
 permissions:
-  contents: read
+  contents: write   
 
 jobs:
   lint:
@@ -17,16 +15,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 
-      - name: Run GDFormat Check
-        #fail if formatting differs. --diff prints changes in logs to see what needs to be fixed
-        run: uvx --from 'gdtoolkit==4.*' gdformat --check --diff Scripts/ Scenes/
+      - name: Run GDFormat
+        run: uvx --from 'gdtoolkit==4.*' gdformat Scripts/ Scenes/
+        # No --check: this mutates files in place
 
-      - name: Run GDLint Check
-        #static linting for GDScript style and correctness rules.
-        run: uvx --from 'gdtoolkit==4.*' gdlint --config .gdlintrc .
+      - name: Run GDLint 
+        run: uvx --from 'gdtoolkit==4.*' gdlint .
+
+
+      - name: Commit and push formatting fixes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "style: auto-format GDScript via gdformat [skip ci]"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          file_pattern: "**/*.gd"
+          # If no files changed, this step is a no-op — safe to always run
