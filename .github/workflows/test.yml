@@ -1,0 +1,35 @@
+name: GDUnit4 Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    #timeout to prevent pipeline from running infinitely if a script deadlocks
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run GDUnit4 Tests
+        uses: godot-gdunit-labs/gdUnit4-action@v1
+        with:
+          godot-version: '4.6'         
+          godot-status: 'stable'           
+          paths: 'res://tests' #directory where the tests are located
+          #timeout for tests
+          timeout: 10
+          version: 'latest'
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        #always upload results even if tests fail so we can analyze the errors
+        if: always()
+        with:
+          name: test-results
+          path: reports/
+          #keeps artifacts for a max of 14 days to stop them from taking up too much storage
+          retention-days: 14

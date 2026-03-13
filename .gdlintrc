@@ -1,0 +1,3 @@
+excluded_directories: !!set
+  addons: null
+max-line-length: 100
