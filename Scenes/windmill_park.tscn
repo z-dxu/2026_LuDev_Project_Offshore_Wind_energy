@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://or4bw3b2hbgn"]
+
+[ext_resource type="PackedScene" uid="uid://ekfat5m8yty" path="res://Scenes/Windmill.tscn" id="1_7glbg"]
+
+[node name="WindmillPark" type="Node3D" unique_id=135821232]
+
+[node name="WindmillRoot" parent="." unique_id=858281976 instance=ExtResource("1_7glbg")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="WindmillRoot2" parent="." unique_id=1266607967 instance=ExtResource("1_7glbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7)
+
+[node name="WindmillRoot3" parent="." unique_id=1800020208 instance=ExtResource("1_7glbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 4)
+
+[node name="WindmillRoot4" parent="." unique_id=814687705 instance=ExtResource("1_7glbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1657864865]
+transform = Transform3D(-0.20003495, 0, 0.9797887, 0, 1, 0, -0.9797887, 0, -0.20003495, 22.32374, 0, -0.8348274)
