@@ -27,10 +27,6 @@ jobs:
         run: uvx --from 'gdtoolkit==4.*' gdformat Scripts/ Scenes/
         # No --check: this mutates files in place
 
-      - name: Run GDLint 
-        run: uvx --from 'gdtoolkit==4.*' gdlint .
-
-
       - name: Commit and push formatting fixes
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
@@ -38,4 +34,9 @@ jobs:
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           file_pattern: "**/*.gd"
+          
+      - name: Run GDLint 
+        run: uvx --from 'gdtoolkit==4.*' gdlint .
+
+
           # If no files changed, this step is a no-op — safe to always run
