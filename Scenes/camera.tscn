@@ -15,6 +15,7 @@ script = ExtResource("1_375tr")
 
 [node name="Highlight" type="Node3D" parent="." unique_id=258091076]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295, 0.75943613, 14)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Highlight" unique_id=290046793]
 transform = Transform3D(9.862584, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020751953, 1.5430841, -3.4916277)

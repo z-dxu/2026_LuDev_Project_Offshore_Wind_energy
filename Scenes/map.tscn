@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://qetqw33fuvuq"]
 
-[ext_resource type="MeshLibrary" uid="uid://0je20k0sot3c" path="res://assets/mesh_lib/terrain_mesh_lib_with_collisions.tres" id="1_26yhd"]
+[ext_resource type="MeshLibrary" uid="uid://cnwgx5155wydr" path="res://assets/mesh_lib/terrain_mesh_lib_with_collisions.tres" id="1_26yhd"]
 [ext_resource type="PackedScene" uid="uid://fow36ex2mg3r" path="res://Scenes/camera.tscn" id="2_26yhd"]
 [ext_resource type="Texture2D" uid="uid://dhwn4m4xgbftc" path="res://assets/Arcadia.png" id="3_p3ir5"]
-[ext_resource type="PackedScene" uid="uid://c4wgx27e1ghlp" path="res://Scenes/gui.tscn" id="4_myvm1"]
+[ext_resource type="PackedScene" path="res://Scenes/gui.tscn" id="4_myvm1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myvm1"]
 transparency = 1
@@ -13,6 +13,11 @@ albedo_texture = ExtResource("3_p3ir5")
 
 [sub_resource type="QuadMesh" id="QuadMesh_q0mm3"]
 size = Vector2(500, 500)
+
+[sub_resource type="BoxMesh" id="BoxMesh_myvm1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0mm3"]
+shading_mode = 0
 
 [node name="Map" type="Node3D" unique_id=1081927198]
 
@@ -25,14 +30,38 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 9, 0)
 
-[node name="Camera" parent="." unique_id=1413821494 node_paths=PackedStringArray("grid_map") instance=ExtResource("2_26yhd")]
-transform = Transform3D(0.70710677, -0.5, 0.50000006, 0, 0.7071068, 0.70710677, -0.7071068, -0.49999997, 0.5, 59, 119.36841, 128.53217)
-drag_speed = 0.2
-grid_map = NodePath("../GridMap")
-
-[node name="ArcadiaOverlay" type="MeshInstance3D" parent="." unique_id=781294390]
+[node name="ArcadiaOverlay" type="MeshInstance3D" parent="GridMap" unique_id=781294390]
 transform = Transform3D(2.025954, 0, 0, 0, 2.6518825e-07, 0.99999994, 0, -2.0222664, 1.3113414e-07, 256.875, 5, -260.86)
 material_override = SubResource("StandardMaterial3D_myvm1")
 mesh = SubResource("QuadMesh_q0mm3")
+
+[node name="Highlight" type="Node3D" parent="GridMap" unique_id=513811767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -297, 0.75943613, 14)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GridMap/Highlight" unique_id=272255595]
+transform = Transform3D(9.862584, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020751953, 1.5430841, -3.4916277)
+mesh = SubResource("BoxMesh_myvm1")
+surface_material_override/0 = SubResource("StandardMaterial3D_q0mm3")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="GridMap/Highlight" unique_id=1971434344]
+transform = Transform3D(9.991735, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020751953, 1.5430841, 5.534233)
+mesh = SubResource("BoxMesh_myvm1")
+surface_material_override/0 = SubResource("StandardMaterial3D_q0mm3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="GridMap/Highlight" unique_id=375239007]
+transform = Transform3D(-4.3483945e-07, 0, -1, 0, 1, 0, 9.947967, 0, -4.371139e-08, 4.4925537, 1.5430841, 0.9796419)
+mesh = SubResource("BoxMesh_myvm1")
+surface_material_override/0 = SubResource("StandardMaterial3D_q0mm3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="GridMap/Highlight" unique_id=275663718]
+transform = Transform3D(-4.3258882e-07, 0, -1, 0, 1, 0, 9.896479, 0, -4.371139e-08, -4.5157166, 1.5430841, 0.9796419)
+mesh = SubResource("BoxMesh_myvm1")
+surface_material_override/0 = SubResource("StandardMaterial3D_q0mm3")
+
+[node name="Camera" parent="." unique_id=1413821494 node_paths=PackedStringArray("grid_map", "highlight") instance=ExtResource("2_26yhd")]
+transform = Transform3D(0.70710677, -0.5, 0.50000006, 0, 0.7071068, 0.70710677, -0.7071068, -0.49999997, 0.5, 313, 119.36841, -59.467834)
+drag_speed = 0.2
+grid_map = NodePath("../GridMap")
+highlight = NodePath("../GridMap/Highlight")
 
 [node name="GUI" parent="." unique_id=1419050564 instance=ExtResource("4_myvm1")]
