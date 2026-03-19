@@ -18,16 +18,16 @@ extends Node3D
 	Color.DIM_GRAY,
 	Color.DARK_GREEN
 ]
-
-@onready var windmill := $Windmill
-@onready var blades := $Windmill/Cube_003
-
-
 var spinning := true
 
 var current_position_index := 0
 var current_size_index := 0
 var current_color_index := 0
+
+@onready var windmill := $Windmill
+@onready var blades := $Windmill/Cube_003
+
+
 
 func next_position():
 	current_position_index = (current_position_index + 1) % allowed_positions.size()
