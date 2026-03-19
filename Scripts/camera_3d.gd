@@ -7,7 +7,6 @@ extends Camera3D
 var dragging := false
 var last_mouse_pos := Vector2.ZERO
 @onready var highlight: Node3D = $Highlight
-var clicked := false
 
 
 func _process(_delta: float) -> void:
