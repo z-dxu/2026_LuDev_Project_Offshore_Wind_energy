@@ -1,8 +1,5 @@
 extends Node3D
 
-@onready var windmill := $Windmill
-@onready var blades := $Windmill/Cube_003
-
 @export var spin_speed := 2.0
 @export var allowed_positions: Array[Vector3] = [
 	
@@ -21,6 +18,10 @@ extends Node3D
 	Color.DIM_GRAY,
 	Color.DARK_GREEN
 ]
+
+@onready var windmill := $Windmill
+@onready var blades := $Windmill/Cube_003
+
 
 var spinning := true
 
