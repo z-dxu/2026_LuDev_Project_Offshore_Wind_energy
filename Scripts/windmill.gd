@@ -1,8 +1,7 @@
 extends Node3D
 
 @export var spin_speed := 2.0
-@export
-var allowed_positions: Array[Vector3] = [Vector3(0, 0, 0), Vector3(6, 0, 0), Vector3(-6, 0, 4)]
+@export var allowed_positions: Array[Vector3] = [Vector3(0, 0, 0), Vector3(6, 0, 0), Vector3(-6, 0, 4)]
 
 @export var size_options: Array[float] = [0.3, 1.0, 2.0]
 
@@ -32,13 +31,21 @@ func next_blade_color():
 
 	var material := StandardMaterial3D.new()
 	material.albedo_color = blade_colors[current_color_index]
-
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED # to make it so the color doesnt change depending on light level # temp thing
 	if blades is MeshInstance3D and blades.mesh:
 		for i in range(blades.mesh.get_surface_count()):
 			blades.set_surface_override_material(i, material)
 
 
 func _ready() -> void:
+	#init materials for windmill
+	var mat = StandardMaterial3D.new()
+	mat.albedo_color = Color.WHITE
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	for child:MeshInstance3D in windmill.get_children():
+		if child is MeshInstance3D and child.mesh:
+			for i in range(child.mesh.get_surface_count()):
+				child.set_surface_override_material(i, mat)
 	pass
 
 
