@@ -4,7 +4,6 @@ extends Node3D
 @onready var blades := $Windmill/Cube_003
 
 @export var spin_speed := 2.0
-var spinning := true
 @export var allowed_positions: Array[Vector3] = [
 	
 	Vector3(0,0,0),
@@ -23,6 +22,7 @@ var spinning := true
 	Color.DARK_GREEN
 ]
 
+var spinning := true
 
 var current_position_index := 0
 var current_size_index := 0
