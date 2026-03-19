@@ -45,6 +45,8 @@ func _input(event):
 	#var cell_pos = grid_map.local_to_map(global_pos)
 	#print("Clicked cell: ", cell_pos)
 	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			clicked = true
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			dragging = event.pressed
 			last_mouse_pos = event.position
