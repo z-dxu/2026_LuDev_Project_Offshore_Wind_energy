@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://qetqw33fuvuq"]
 
-[ext_resource type="MeshLibrary" uid="uid://cnwgx5155wydr" path="res://assets/mesh_lib/terrain_mesh_lib_with_collisions.tres" id="1_26yhd"]
-[ext_resource type="PackedScene" path="res://Scenes/camera.tscn" id="2_26yhd"]
+[ext_resource type="MeshLibrary" uid="uid://0je20k0sot3c" path="res://assets/mesh_lib/terrain_mesh_lib_with_collisions.tres" id="1_26yhd"]
+[ext_resource type="PackedScene" uid="uid://fow36ex2mg3r" path="res://Scenes/camera.tscn" id="2_26yhd"]
 [ext_resource type="Texture2D" uid="uid://dhwn4m4xgbftc" path="res://assets/Arcadia.png" id="3_p3ir5"]
+[ext_resource type="PackedScene" uid="uid://c4wgx27e1ghlp" path="res://Scenes/gui.tscn" id="4_myvm1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myvm1"]
 transparency = 1
@@ -33,3 +34,5 @@ grid_map = NodePath("../GridMap")
 transform = Transform3D(2.025954, 0, 0, 0, 2.6518825e-07, 0.99999994, 0, -2.0222664, 1.3113414e-07, 256.875, 5, -260.86)
 material_override = SubResource("StandardMaterial3D_myvm1")
 mesh = SubResource("QuadMesh_q0mm3")
+
+[node name="GUI" parent="." unique_id=1419050564 instance=ExtResource("4_myvm1")]

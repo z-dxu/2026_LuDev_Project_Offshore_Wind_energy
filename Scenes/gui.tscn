@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://c4wgx27e1ghlp"]
+
+[ext_resource type="Script" uid="uid://dmgaid25ggus1" path="res://Scripts/follow_mouse_pos.gd" id="2_bm56d"]
+[ext_resource type="Script" uid="uid://ckn4iu2l3iwrc" path="res://Scripts/current_day.gd" id="2_q8o8l"]
+
+[sub_resource type="GDScript" id="GDScript_80edf"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="GUI" type="Control" unique_id=1419050564]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="Control" parent="." unique_id=693588554]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Top Panel" type="Panel" parent="Top" unique_id=802650601]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Top" unique_id=573515709]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 12.0
+offset_right = -27.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="Current Day" type="Label" parent="Top/HBoxContainer" unique_id=1697106258]
+layout_direction = 3
+layout_mode = 2
+text = "Current Day: Null"
+script = ExtResource("2_q8o8l")
+
+[node name="follow mouse pos" type="Node2D" parent="." unique_id=1180903324]
+script = ExtResource("2_bm56d")
+
+[node name="Popup" type="Panel" parent="follow mouse pos" unique_id=1828714949]
+visible = false
+offset_left = -53.0
+offset_top = -16.0
+offset_right = 51.0
+offset_bottom = 66.0
+
+[node name="Popup Text" type="Label" parent="follow mouse pos/Popup" unique_id=463078030]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 95.0
+offset_bottom = 51.0
+text = "DATA HERE
+"
+
+[node name="Control" type="Control" parent="." unique_id=393404647]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Ordering" type="HBoxContainer" parent="Control" unique_id=1853284130]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -47.0
+offset_right = -13.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Next Day" type="Button" parent="Control/Ordering" unique_id=1515686552]
+layout_direction = 3
+layout_mode = 2
+action_mode = 0
+text = " Next Day "
+alignment = 2
+autowrap_trim_flags = 0
+script = SubResource("GDScript_80edf")
+
+[connection signal="mouse_exited" from="follow mouse pos/Popup" to="follow mouse pos" method="_on_popup_mouse_exited"]
+[connection signal="pressed" from="Control/Ordering/Next Day" to="Top/HBoxContainer/Current Day" method="_on_next_day_pressed"]
