@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Project wiki
+    url: https://github.com/ludev-nl/2026-09-Offshore_wind_energy_generation_in_Arcadia/wiki
+    about: Read the development process and Definition of Ready before opening a new issue.
