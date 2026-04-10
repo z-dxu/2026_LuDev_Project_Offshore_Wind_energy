@@ -39,7 +39,7 @@ jobs:
         if: always()
         with:
           name: GDUnit4 Test Results
-          path: 'reports/**/test-report.xml'
+          path: "${{ github.workspace }}/reports/**/*test-report.xml"
           reporter: java-junit
           fail-on-error: false
           
