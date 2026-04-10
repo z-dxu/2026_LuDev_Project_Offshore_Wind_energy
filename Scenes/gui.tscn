@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4wgx27e1ghlp"]
 
 [ext_resource type="Script" uid="uid://dmgaid25ggus1" path="res://Scripts/follow_mouse_pos.gd" id="2_bm56d"]
-[ext_resource type="Script" uid="uid://ckn4iu2l3iwrc" path="res://Scripts/current_day.gd" id="2_q8o8l"]
+[ext_resource type="Script" path="res://Scripts/current_day.gd" id="2_q8o8l"]
 
 [sub_resource type="GDScript" id="GDScript_80edf"]
 script/source = "extends Button
@@ -54,15 +54,14 @@ layout_mode = 2
 text = "Current Day: Null"
 script = ExtResource("2_q8o8l")
 
-[node name="follow mouse pos" type="Node2D" parent="." unique_id=1180903324]
+[node name="follow mouse pos" type="Control" parent="." unique_id=1016460331]
+anchors_preset = 0
 script = ExtResource("2_bm56d")
 
 [node name="Popup" type="Panel" parent="follow mouse pos" unique_id=1828714949]
-visible = false
-offset_left = -53.0
-offset_top = -16.0
-offset_right = 51.0
-offset_bottom = 66.0
+layout_mode = 0
+offset_right = 157.0
+offset_bottom = 91.0
 
 [node name="Popup Text" type="Label" parent="follow mouse pos/Popup" unique_id=463078030]
 layout_mode = 0
@@ -70,8 +69,15 @@ offset_left = 8.0
 offset_top = 2.0
 offset_right = 95.0
 offset_bottom = 51.0
-text = "DATA HERE
-"
+text = "Available builds:"
+
+[node name="windmill" type="Button" parent="follow mouse pos/Popup" unique_id=2017499623]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 25.0
+offset_right = 134.0
+offset_bottom = 55.0
+text = "Windmill"
 
 [node name="Control" type="Control" parent="." unique_id=393404647]
 layout_mode = 1

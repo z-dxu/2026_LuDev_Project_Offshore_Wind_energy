@@ -11,25 +11,27 @@ var last_mouse_pos := Vector2.ZERO
 
 
 func _process(_delta: float) -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
+	if GameController.allow_highlighter_move:
+		var mouse_pos = get_viewport().get_mouse_position()
 
-	#cast ray from camera from where the mouse is currently at
-	var from = self.project_ray_origin(mouse_pos)
-	var to = from + self.project_ray_normal(mouse_pos) * 1000
+		#cast ray from camera from where the mouse is currently at
+		var from = self.project_ray_origin(mouse_pos)
+		var to = from + self.project_ray_normal(mouse_pos) * 1000
 
-	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(from, to)
-	#query.exclude = [self] # exclude self to avoid self-intersection
-	query.collision_mask = 2
-	var result = space_state.intersect_ray(query)
-	if result:
-		var hit_pos = result.position
-		var local_pos_gridmap = grid_map.to_local(hit_pos)
-		var cell = grid_map.local_to_map(local_pos_gridmap)  # conver mouse global pos to a cell position
-		highlight.position = grid_map.map_to_local(cell) + Vector3(0, 1, 0)
-		highlight.visible = true
-	else:
-		highlight.visible = false
+		var space_state = get_world_3d().direct_space_state
+		var query = PhysicsRayQueryParameters3D.create(from, to)
+		#query.exclude = [self] # exclude self to avoid self-intersection
+		query.collision_mask = 2
+		var result = space_state.intersect_ray(query)
+		if result:
+			var hit_pos = result.position
+			var local_pos_gridmap = grid_map.to_local(hit_pos)
+			#convert mouse global pos to a cell position
+			var cell = grid_map.local_to_map(local_pos_gridmap)
+			highlight.position = grid_map.map_to_local(cell) + Vector3(0, 1, 0)
+			highlight.visible = true
+		else:
+			highlight.visible = false
 
 
 func _input(event):
@@ -44,13 +46,10 @@ func _input(event):
 	if event is InputEventMouseMotion and dragging:
 		var delta = event.position - last_mouse_pos
 		last_mouse_pos = event.position
-
 		var cam_right = self.global_transform.basis.x
 		var cam_forward = (
 			Vector3(-self.global_transform.basis.z.x, 0, -self.global_transform.basis.z.z)
 			. normalized()
 		)
-
 		var move_dir = cam_right * delta.x + cam_forward * -delta.y
-
 		grid_map.translate(move_dir * drag_speed)
