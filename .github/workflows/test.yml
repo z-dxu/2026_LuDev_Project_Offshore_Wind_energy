@@ -9,6 +9,9 @@ on:
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
     #timeout to prevent pipeline from running infinitely if a script deadlocks
     timeout-minutes: 15
     steps:
@@ -23,13 +26,12 @@ jobs:
           #timeout for tests
           timeout: 10
           version: 'latest'
-
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v4
-        #always upload results even if tests fail so we can analyze the errors
+      - name: Publish Test Report
+        uses: dorny/test-reporter@v3
         if: always()
         with:
-          name: test-results
-          path: reports/
-          #keeps artifacts for a max of 14 days to stop them from taking up too much storage
-          retention-days: 14
+          name: GDUnit4 Test Results
+          path: '**/test-report.xml'
+          reporter: java-junit
+          fail-on-error: false
+
