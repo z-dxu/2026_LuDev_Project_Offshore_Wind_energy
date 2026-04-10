@@ -4,9 +4,7 @@ var follow_node: Node2D
 
 
 func before_test() -> void:
-	follow_node = auto_free(load("res://Scripts/follow_mouse_pos.gd").new())
-	var child_mock = Node2D.new()
-	follow_node.add_child(child_mock)
+	pass
 
 
 func test_input_left_click() -> void:
