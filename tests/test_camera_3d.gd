@@ -1,10 +1,10 @@
-class_name TestCamera3D extends GdUnitTestSuite
-
-var camera_node: Camera3D
+extends GdUnitTestSuite
 
 
+#var camera_node: Camera3D
 func before_test() -> void:
-	camera_node = auto_free(load("res://Scripts/camera_3d.gd").new())
+	#camera_node = auto_free(load("res://Scripts/camera_3d.gd").new())
+	pass
 
 
 func test_zoom_input() -> void:

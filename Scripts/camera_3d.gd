@@ -1,16 +1,20 @@
 extends Camera3D
+
 @export var drag_speed := 0.05
 @export var zoom_speed := 10
 @export var max_zoom := 300.0
 @export var min_zoom := 50
 @export var grid_map: GridMap
 @export var highlight: Node3D
+
 var dragging := false
 var last_mouse_pos := Vector2.ZERO
+
+
 #@onready var highlight: Node3D = $Highlight #old camera implementation
-
-
 func _process(_delta: float) -> void:
+	if GameController.allow_highlighter_move:
+		var mouse_pos = get_viewport().get_mouse_position()
 	if GameController.allow_highlighter_move:
 		var mouse_pos = get_viewport().get_mouse_position()
 
@@ -35,6 +39,11 @@ func _process(_delta: float) -> void:
 
 
 func _input(event):
+	zoom(event)
+	camera_movement(event)
+
+
+func zoom(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			dragging = event.pressed
@@ -43,6 +52,9 @@ func _input(event):
 			self.size = min(max_zoom, self.size + zoom_speed)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			self.size = max(min_zoom, self.size - zoom_speed)
+
+
+func camera_movement(event):
 	if event is InputEventMouseMotion and dragging:
 		var delta = event.position - last_mouse_pos
 		last_mouse_pos = event.position

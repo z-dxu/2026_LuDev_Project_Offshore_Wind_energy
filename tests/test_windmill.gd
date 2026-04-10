@@ -1,4 +1,4 @@
-class_name TestWindmill extends GdUnitTestSuite
+extends GdUnitTestSuite
 
 var windmill_node: Node3D
 

@@ -21,7 +21,11 @@ GameController="*uid://cxoy41sfkufb6"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg", "res://addons/gdUnit4/plugin.cfg")
+
+[gdunit4]
+
+settings/test/test_lookup_folder="tests"
 
 [input]
 

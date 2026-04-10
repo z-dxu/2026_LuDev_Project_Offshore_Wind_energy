@@ -1,4 +1,4 @@
-class_name TestCurrentDay extends GdUnitTestSuite
+extends GdUnitTestSuite
 
 var current_day_node: Label
 
