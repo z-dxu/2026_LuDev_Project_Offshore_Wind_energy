@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://or4bw3b2hbgn"]
 
-[ext_resource type="PackedScene" uid="uid://ekfat5m8yty" path="res://Scenes/Windmill.tscn" id="1_7glbg"]
+[ext_resource type="PackedScene" uid="uid://bamgw5ehmecbd" path="res://Scenes/Windmill.tscn" id="1_7glbg"]
 
 [node name="WindmillPark" type="Node3D" unique_id=135821232]
 

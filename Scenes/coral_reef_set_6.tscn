@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dinxgty5eo6i8"]
+
+[ext_resource type="PackedScene" uid="uid://dfu8inpev4pvh" path="res://assets/windmill_assets/CoralReefSet6.fbx" id="1_bmaph"]
+
+[node name="CoralReefSet6" unique_id=1316644630 instance=ExtResource("1_bmaph")]
+
+[node name="F_CoralReef" parent="." index="0" unique_id=1083138338]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.013183594, 0, 2.3841858e-07)
+
+[node name="F_CoralReef_001" parent="." index="1" unique_id=1911248216]
+visible = false
+
+[node name="F_CoralReef_002" parent="." index="2" unique_id=455525365]
+visible = false
+
+[node name="F_CoralReef_003" parent="." index="3" unique_id=2029829192]
+visible = false
+
+[node name="F_CoralReef_004" parent="." index="4" unique_id=623562460]
+visible = false

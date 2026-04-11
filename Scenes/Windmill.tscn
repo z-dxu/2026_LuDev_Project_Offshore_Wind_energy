@@ -1,11 +1,125 @@
 [gd_scene format=3 uid="uid://bamgw5ehmecbd"]
 
-[ext_resource type="PackedScene" uid="uid://d2i2p5dympfpy" path="res://assets/Windmill.glb" id="1_1wdu4"]
+[ext_resource type="PackedScene" uid="uid://d2i2p5dympfpy" path="res://assets/windmill_assets/Windmill.glb" id="1_1wdu4"]
 [ext_resource type="Script" uid="uid://mtbhulvyyd76" path="res://Scripts/windmill.gd" id="1_wmryr"]
+[ext_resource type="PackedScene" uid="uid://dyulw8crr3yk7" path="res://assets/windmill_assets/Rock Medium.glb" id="3_v1pay"]
+[ext_resource type="PackedScene" uid="uid://catg3tg0m1ph7" path="res://Scenes/coral_reef_set_1.tscn" id="4_itfdh"]
+[ext_resource type="PackedScene" uid="uid://dinxgty5eo6i8" path="res://Scenes/coral_reef_set_6.tscn" id="5_qnk2k"]
+[ext_resource type="PackedScene" uid="uid://c0w8nnoq33b5o" path="res://Scenes/coral_reef_set_3.tscn" id="6_itfdh"]
 
 [node name="WindmillRoot" type="Node3D" unique_id=858281976]
 script = ExtResource("1_wmryr")
 
-[node name="Windmill" parent="." unique_id=746161542 instance=ExtResource("1_1wdu4")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=614595608]
+environment = SubResource("Environment_x8s6u")
+
+[node name="Windmill" parent="." unique_id=312327446 instance=ExtResource("1_1wdu4")]
+
+[node name="Rockbase" type="Node3D" parent="Windmill" unique_id=561090467]
+
+[node name="Rock_1" parent="Windmill/Rockbase" unique_id=1921700394 instance=ExtResource("3_v1pay")]
+transform = Transform3D(0.9999996, 0, 0, 0, 1, 0, 0, 0, 0.9999996, 5.0115757, -4.9913225, -0.10848474)
+
+[node name="Rock_2" parent="Windmill/Rockbase" unique_id=1983035842 instance=ExtResource("3_v1pay")]
+transform = Transform3D(0.65829194, 1.220651e-11, 0.7507447, -8.036424e-12, 1, -9.1631225e-12, -0.7481322, -2.1170674e-15, 0.6605906, 2.8807678, -5.0669985, 1.3725915)
+
+[node name="Rock_3" parent="Windmill/Rockbase" unique_id=1355840759 instance=ExtResource("3_v1pay")]
+transform = Transform3D(-0.12775688, 0, 0.99021536, 0, 1, 0, -0.9867697, 0, -0.12472337, 2.5892653, -5.1426744, -1.5295591)
+
+[node name="Rock_4" parent="Windmill/Rockbase" unique_id=803156378 instance=ExtResource("3_v1pay")]
+transform = Transform3D(0.99999917, 0, 0, 0, 1, 0, 0, 0, 0.99999917, 2.1199665, -4.647214, 0.010089219)
+
+[node name="CoralGroup" type="Node3D" parent="Windmill" unique_id=560298049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1137242, -2.948298, 0)
+
+[node name="CoralReefSet1" parent="Windmill/CoralGroup" unique_id=1947261190 instance=ExtResource("4_itfdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.212275, -0.4457724, 0)
+
+[node name="CoralReefSet2" parent="Windmill/CoralGroup" unique_id=654500178 instance=ExtResource("4_itfdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3414602, -0.6986625, 0.41515088)
+
+[node name="CoralReefSet3" parent="Windmill/CoralGroup" unique_id=1543131281 instance=ExtResource("4_itfdh")]
+transform = Transform3D(0.75865763, 0, -0.6514895, 0, 1, 0, 0.6514895, 0, 0.75865763, 0.20468426, -0.9758117, 0.95892584)
+
+[node name="CoralReefSet4" parent="Windmill/CoralGroup" unique_id=896977972 instance=ExtResource("4_itfdh")]
+transform = Transform3D(0.15112284, 0, -0.98851496, 0, 1, 0, 0.98851496, 0, 0.15112284, -0.2647605, -0.9121623, 1.2853931)
+
+[node name="CoralReefSet5" parent="Windmill/CoralGroup" unique_id=1559527355 instance=ExtResource("4_itfdh")]
+transform = Transform3D(-0.953054, 0.0053265146, -0.30275354, -0.0013831491, 0.99975824, 0.021943409, 0.3027972, 0.021332009, -0.9528161, 0.13376045, -0.73570347, -1.4683073)
+
+[node name="CoralReefSet6" parent="Windmill/CoralGroup" unique_id=1576401311 instance=ExtResource("4_itfdh")]
+transform = Transform3D(0.8166317, -0.00620957, 0.5771258, 0.0065798033, 0.9999772, 0.0014488213, -0.5771216, 0.0026142243, 0.81665367, 1.7667928, -0.47431922, 0.06360689)
+
+[node name="CoralReefSet7" parent="Windmill/CoralGroup" unique_id=905493471 instance=ExtResource("4_itfdh")]
+transform = Transform3D(0.33377528, -0.009771615, 0.9426025, -0.13980962, 0.9883738, 0.059752554, -0.9322272, -0.1517287, 0.3285277, -1.5989194, -0.37810087, 0.7309203)
+
+[node name="CoralReefSet8" parent="Windmill/CoralGroup" unique_id=481692024 instance=ExtResource("4_itfdh")]
+transform = Transform3D(-0.26457205, -0.10168367, 0.9589902, -0.28982863, 0.95683724, 0.021495387, -0.919783, -0.2722553, -0.28262454, -1.1872746, -0.020184994, -0.11500496)
+
+[node name="CoralReefSet9" parent="Windmill/CoralGroup" unique_id=1316644630 instance=ExtResource("5_qnk2k")]
+transform = Transform3D(0.051099177, 0, 0.40611187, 0, 0.5899147, 0, -0.40534496, 0, 0.05119586, 2.1815233, -0.93881106, 0)
+
+[node name="CoralReefSet13" parent="Windmill/CoralGroup" unique_id=345270499 instance=ExtResource("5_qnk2k")]
+transform = Transform3D(-0.09622741, 0, 0.39781037, 0, 0.58991474, 0, -0.39705914, 0, -0.09640952, 0.40774918, -1.2742648, 1.2929313)
+
+[node name="CoralReefSet14" parent="Windmill/CoralGroup" unique_id=2128729473 instance=ExtResource("5_qnk2k")]
+transform = Transform3D(0.20622917, 0, 0.22450376, 0, 0.5387892, 0, -0.21542975, 0, 0.21491557, 0.40774918, -1.072689, 2.0102408)
+
+[node name="CoralReefSet15" parent="Windmill/CoralGroup" unique_id=1350240243 instance=ExtResource("5_qnk2k")]
+transform = Transform3D(-0.20773716, 0, 0.35246235, 0, 0.5899147, 0, -0.35179675, 0, -0.2081303, 1.7540498, -0.6772399, -0.89080334)
+
+[node name="CoralReefSet16" parent="Windmill/CoralGroup" unique_id=3067897 instance=ExtResource("5_qnk2k")]
+transform = Transform3D(-0.40633142, 0, -0.042629942, 0, 0.5899147, 0, 0.042549357, 0, -0.40710026, -1.2767243, -0.38886094, -0.5815511)
+
+[node name="CoralReefSet17" parent="Windmill/CoralGroup" unique_id=204281425 instance=ExtResource("5_qnk2k")]
+transform = Transform3D(-0.2503912, 0, 0.121459946, 0, 0.49360728, 0, -0.13840589, 0, -0.21973418, -0.96299076, -0.6420803, -1.1001616)
+
+[node name="CoralReefSet10" parent="Windmill/CoralGroup" unique_id=1575395623 instance=ExtResource("5_qnk2k")]
+transform = Transform3D(0.0018666796, 0, 0.16753253, 0, 0.34799933, 0, -0.16690934, 0, 0.0019452311, 1.9806671, -0.6340425, -0.24792182)
+
+[node name="CoralReefSet11" parent="Windmill/CoralGroup" unique_id=1773490946 instance=ExtResource("5_qnk2k")]
+transform = Transform3D(-0.023806341, 0, 0.16554427, 0, 0.34799933, 0, -0.1655233, 0, -0.0237301, 1.759778, -0.6977818, 0.43519235)
+
+[node name="CoralReefSet12" parent="Windmill/CoralGroup" unique_id=1223451226 instance=ExtResource("5_qnk2k")]
+transform = Transform3D(-0.02795926, 0, 0.00063861907, 0, 0.12110354, 0, -0.0006362435, 0, -0.027958961, 1.9428296, -0.8546889, -0.57899594)
+
+[node name="CoralReefSet18" parent="Windmill/CoralGroup" unique_id=336400823 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.3273319, 0, 0, 0, 0.37130204, 0, 0, 0, 0.37100655, 0.7456379, -0.5408082, 0)
+
+[node name="CoralReefSet19" parent="Windmill/CoralGroup" unique_id=621446493 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, 0.7456379, -0.5408082, -0.31468827)
+
+[node name="CoralReefSet20" parent="Windmill/CoralGroup" unique_id=469457979 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, 1.71661, -0.5408082, -0.685571)
+
+[node name="CoralReefSet21" parent="Windmill/CoralGroup" unique_id=535697026 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, 0.10095549, -0.73229814, -0.9133393)
+
+[node name="CoralReefSet22" parent="Windmill/CoralGroup" unique_id=1487200733 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -0.9134946, -0.0016143322, -0.9133393)
+
+[node name="CoralReefSet23" parent="Windmill/CoralGroup" unique_id=114531127 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -0.3430245, -0.6509588, -1.7537258)
+
+[node name="CoralReefSet24" parent="Windmill/CoralGroup" unique_id=1730131172 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -0.3430245, -0.38680935, -1.0686399)
+
+[node name="CoralReefSet25" parent="Windmill/CoralGroup" unique_id=386135294 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -0.6145966, -0.5464337, -1.4759979)
+
+[node name="CoralReefSet26" parent="Windmill/CoralGroup" unique_id=872635391 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -2.020477, -0.34790635, 0.013215482)
+
+[node name="CoralReefSet27" parent="Windmill/CoralGroup" unique_id=617910000 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -1.8393202, -0.34790635, -0.38686255)
+
+[node name="CoralReefSet28" parent="Windmill/CoralGroup" unique_id=347446435 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -0.7614403, -0.5727539, 1.5768285)
+
+[node name="CoralReefSet29" parent="Windmill/CoralGroup" unique_id=1786758465 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -0.012678862, -0.6534896, 1.8426927)
+
+[node name="CoralReefSet30" parent="Windmill/CoralGroup" unique_id=1633334829 instance=ExtResource("6_itfdh")]
+transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -0.67280936, -0.48526883, 0.718163)
 
 [editable path="Windmill"]
