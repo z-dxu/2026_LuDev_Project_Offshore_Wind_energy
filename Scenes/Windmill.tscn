@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ekfat5m8yty"]
+[gd_scene format=3 uid="uid://bamgw5ehmecbd"]
 
 [ext_resource type="PackedScene" uid="uid://d2i2p5dympfpy" path="res://assets/windmill_assets/Windmill.glb" id="1_1wdu4"]
 [ext_resource type="Script" uid="uid://mtbhulvyyd76" path="res://Scripts/windmill.gd" id="1_wmryr"]
@@ -6,20 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://catg3tg0m1ph7" path="res://Scenes/coral_reef_set_1.tscn" id="4_itfdh"]
 [ext_resource type="PackedScene" uid="uid://dinxgty5eo6i8" path="res://Scenes/coral_reef_set_6.tscn" id="5_qnk2k"]
 [ext_resource type="PackedScene" uid="uid://c0w8nnoq33b5o" path="res://Scenes/coral_reef_set_3.tscn" id="6_itfdh"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wmryr"]
-sky_horizon_color = Color(0.63933516, 0.6785699, 0.6515479, 1)
-ground_bottom_color = Color(0.11614909, 0.20408839, 4.813075e-08, 1)
-ground_horizon_color = Color(0.63933516, 0.6785699, 0.6515479, 1)
-
-[sub_resource type="Sky" id="Sky_cla6g"]
-sky_material = SubResource("ProceduralSkyMaterial_wmryr")
-
-[sub_resource type="Environment" id="Environment_x8s6u"]
-background_mode = 2
-sky = SubResource("Sky_cla6g")
-tonemap_mode = 2
-glow_enabled = true
 
 [node name="WindmillRoot" type="Node3D" unique_id=858281976]
 script = ExtResource("1_wmryr")

@@ -46,7 +46,8 @@ func next_blade_color() -> void:
 
 	var material := StandardMaterial3D.new()
 	material.albedo_color = blade_colors[current_color_index]
-
+	#avoid lighting affecting the blade color temp
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	if blades is MeshInstance3D and blades.mesh:
 		for i in range(blades.mesh.get_surface_count()):
 			blades.set_surface_override_material(i, material)

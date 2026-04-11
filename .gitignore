@@ -15,3 +15,16 @@
 .mono/
 data_*/
 mono_crash.*.json
+
+#Ignore all plugins,
+addons/
+
+#not track your own reports
+reports/*
+# GDScript formatter plugin, not needed to be tracked in git, godot does give you a warning (because its not installed) but it does not affect the workflow at all.
+# tutorial: https://www.gdquest.com/library/gdscript_formatter_godot_addon/#:~:text=uninstall%20the%20formatter-,Installation%20and%20setup,-Click%20to%20copy . if you want to use it.
+# addons/GDQuest_GDScript_formatter/* 
+
+# Different versions of gdUnit4, breaks each other, install locally your own version of gdUnit4
+# addons/gdUnit4/*
+
