@@ -3,9 +3,6 @@ extends Control
 @onready var popup: Panel = $Popup
 @onready var windmill: Button = $Popup/windmill
 
-@onready var popup: Panel = $Popup
-@onready var windmill: Button = $Popup/windmill
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
