@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dvhyvowmhvgkf"]
+
+[ext_resource type="PackedScene" uid="uid://d2i2p5dympfpy" path="res://assets/windmill_assets/Windmill.glb" id="1_h81ka"]
+
+[node name="Windmill" unique_id=1811702501 instance=ExtResource("1_h81ka")]

@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# TODO: need to add a check if the mouse is currently hovering over a tile
-	if event.is_action_pressed("left_click") and !get_child(0).visible:
+	if event.is_action_pressed("E") and !get_child(0).visible:
 		position = get_global_mouse_position()
 		get_child(0).visible = true
 		GameController.allow_highlighter_move = false
@@ -37,7 +37,6 @@ func _on_popup_mouse_exited() -> void:
 
 
 func _on_building_button_press(button: Button):
-	print("button pressed :" + str(button))
 	GameController.spawn_building.emit(str(button.name))  # for now send the button name
 	get_child(0).visible = false
 	GameController.allow_highlighter_move = true

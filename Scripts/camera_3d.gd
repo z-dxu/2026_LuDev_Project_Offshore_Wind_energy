@@ -9,19 +9,17 @@ extends Camera3D
 
 var dragging := false
 var last_mouse_pos := Vector2.ZERO
+var hover_poi_button = false
+var selected_poi_button = null
 
 
 #@onready var highlight: Node3D = $Highlight #old camera implementation
 func _process(_delta: float) -> void:
 	if GameController.allow_highlighter_move:
 		var mouse_pos = get_viewport().get_mouse_position()
-	if GameController.allow_highlighter_move:
-		var mouse_pos = get_viewport().get_mouse_position()
-
 		#cast ray from camera from where the mouse is currently at
 		var from = self.project_ray_origin(mouse_pos)
 		var to = from + self.project_ray_normal(mouse_pos) * 1000
-
 		var space_state = get_world_3d().direct_space_state
 		var query = PhysicsRayQueryParameters3D.create(from, to)
 		#query.exclude = [self] # exclude self to avoid self-intersection
@@ -32,6 +30,13 @@ func _process(_delta: float) -> void:
 			var local_pos_gridmap = grid_map.to_local(hit_pos)
 			#convert mouse global pos to a cell position
 			var cell = grid_map.local_to_map(local_pos_gridmap)
+			var poi_button = GameController.poi_positions
+			if cell in poi_button:
+				hover_poi_button = true
+				selected_poi_button = cell
+			else:
+				hover_poi_button = false
+				selected_poi_button = null
 			highlight.position = grid_map.map_to_local(cell) + Vector3(0, 1, 0)
 			highlight.visible = true
 		else:
@@ -52,6 +57,10 @@ func zoom(event):
 			self.size = min(max_zoom, self.size + zoom_speed)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			self.size = max(min_zoom, self.size - zoom_speed)
+		elif event.is_action_pressed("left_click") and hover_poi_button:
+			GameController.poi_button_pressed.emit(hover_poi_button, selected_poi_button)
+		elif event.is_action_pressed("left_click") and !hover_poi_button:
+			GameController.poi_button_pressed.emit(hover_poi_button, selected_poi_button)
 
 
 func camera_movement(event):

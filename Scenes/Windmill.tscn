@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://ekfat5m8yty"]
+[gd_scene format=3 uid="uid://bamgw5ehmecbd"]
 
-[ext_resource type="PackedScene" uid="uid://d2i2p5dympfpy" path="res://assets/Windmill.glb" id="1_1wdu4"]
+[ext_resource type="PackedScene" uid="uid://d2i2p5dympfpy" path="res://assets/windmill_assets/Windmill.glb" id="1_1wdu4"]
 [ext_resource type="Script" uid="uid://mtbhulvyyd76" path="res://Scripts/windmill.gd" id="1_wmryr"]
 [ext_resource type="PackedScene" uid="uid://dyulw8crr3yk7" path="res://assets/windmill_assets/Rock Medium.glb" id="3_v1pay"]
 [ext_resource type="PackedScene" uid="uid://catg3tg0m1ph7" path="res://Scenes/coral_reef_set_1.tscn" id="4_itfdh"]
@@ -28,7 +28,6 @@ script = ExtResource("1_wmryr")
 environment = SubResource("Environment_x8s6u")
 
 [node name="Windmill" parent="." unique_id=2065200285 instance=ExtResource("1_1wdu4")]
-
 
 [node name="Rockbase" type="Node3D" parent="Windmill" unique_id=561090467]
 

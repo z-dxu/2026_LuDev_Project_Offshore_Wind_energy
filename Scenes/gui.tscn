@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://c4wgx27e1ghlp"]
+[gd_scene format=3 uid="uid://d1sh2kun5mjg"]
 
 [ext_resource type="Script" uid="uid://dmgaid25ggus1" path="res://Scripts/follow_mouse_pos.gd" id="2_bm56d"]
 [ext_resource type="Script" path="res://Scripts/current_day.gd" id="2_q8o8l"]
+[ext_resource type="Script" uid="uid://p3s7jti0t3ck" path="res://Scripts/left_slide_bar.gd" id="3_n5m23"]
+[ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="4_8kag3"]
+[ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_3w84o"]
 
 [sub_resource type="GDScript" id="GDScript_80edf"]
 script/source = "extends Button
@@ -16,6 +19,21 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm56d"]
+bg_color = Color(0.9166399, 0.91663986, 0.9166398, 1)
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8kag3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3w84o"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xnb2j"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gnd4w"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bf1fa"]
 
 [node name="GUI" type="Control" unique_id=1419050564]
 layout_mode = 3
@@ -110,6 +128,122 @@ text = " Next Day "
 alignment = 2
 autowrap_trim_flags = 0
 script = SubResource("GDScript_80edf")
+
+[node name="Left" type="Control" parent="." unique_id=1386416037]
+anchors_preset = 0
+offset_left = -267.0
+offset_right = -227.0
+offset_bottom = 40.0
+script = ExtResource("3_n5m23")
+
+[node name="Panel" type="Panel" parent="Left" unique_id=611819923]
+layout_mode = 0
+offset_top = -4.0
+offset_right = 265.0
+offset_bottom = 651.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bm56d")
+
+[node name="food" type="HBoxContainer" parent="Left/Panel" unique_id=1693738508]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 139.0
+offset_bottom = 60.0
+
+[node name="img" type="TextureRect" parent="Left/Panel/food" unique_id=1194991560]
+layout_mode = 2
+texture = ExtResource("4_8kag3")
+expand_mode = 2
+
+[node name="Score" type="Label" parent="Left/Panel/food" unique_id=1427260960]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3w84o")
+text = "1245a"
+
+[node name="SDG2" type="HBoxContainer" parent="Left/Panel" unique_id=2022052061]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 86.0
+offset_bottom = 95.0
+
+[node name="img" type="TextureRect" parent="Left/Panel/SDG2" unique_id=1441519041]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_8kag3")
+expand_mode = 2
+
+[node name="Score" type="Label" parent="Left/Panel/SDG2" unique_id=1295506980]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3w84o")
+text = "1245a"
+
+[node name="SDG3" type="HBoxContainer" parent="Left/Panel" unique_id=1981675263]
+layout_mode = 0
+offset_top = 92.0
+offset_right = 86.0
+offset_bottom = 132.0
+
+[node name="img" type="TextureRect" parent="Left/Panel/SDG3" unique_id=505435824]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_3w84o")
+expand_mode = 2
+
+[node name="Score" type="Label" parent="Left/Panel/SDG3" unique_id=1008848061]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3w84o")
+text = "1245a"
+
+[node name="SDG4" type="HBoxContainer" parent="Left/Panel" unique_id=1750824539]
+layout_mode = 0
+offset_top = 132.0
+offset_right = 86.0
+offset_bottom = 172.0
+
+[node name="img" type="TextureRect" parent="Left/Panel/SDG4" unique_id=1723660418]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_xnb2j")
+expand_mode = 2
+
+[node name="Score" type="Label" parent="Left/Panel/SDG4" unique_id=1566572043]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3w84o")
+text = "1245a"
+
+[node name="SDG5" type="HBoxContainer" parent="Left/Panel" unique_id=1806911065]
+layout_mode = 0
+offset_top = 172.0
+offset_right = 86.0
+offset_bottom = 212.0
+
+[node name="img" type="TextureRect" parent="Left/Panel/SDG5" unique_id=847378561]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_gnd4w")
+expand_mode = 2
+
+[node name="Score" type="Label" parent="Left/Panel/SDG5" unique_id=917601808]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3w84o")
+text = "1245a"
+
+[node name="SDG6" type="HBoxContainer" parent="Left/Panel" unique_id=699089700]
+layout_mode = 0
+offset_top = 212.0
+offset_right = 86.0
+offset_bottom = 252.0
+
+[node name="img" type="TextureRect" parent="Left/Panel/SDG6" unique_id=18408344]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_bf1fa")
+expand_mode = 2
+
+[node name="Score" type="Label" parent="Left/Panel/SDG6" unique_id=1976632986]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3w84o")
+text = "1245a"
 
 [connection signal="mouse_exited" from="follow mouse pos/Popup" to="follow mouse pos" method="_on_popup_mouse_exited"]
 [connection signal="pressed" from="Control/Ordering/Next Day" to="Top/HBoxContainer/Current Day" method="_on_next_day_pressed"]

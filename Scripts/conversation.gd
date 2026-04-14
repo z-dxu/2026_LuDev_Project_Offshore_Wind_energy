@@ -37,11 +37,6 @@ func _ready() -> void:
 	_start_dialogue_two(dialogue_json, dialogue_json[0]["speaker"], dialogue_json[1]["speaker"])
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
 func _input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if is_typing:
