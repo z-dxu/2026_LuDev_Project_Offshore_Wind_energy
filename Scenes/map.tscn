@@ -109,6 +109,4 @@ highlight = NodePath("../GridMap/Highlight")
 
 [node name="GUI" parent="." unique_id=1419050564 instance=ExtResource("4_myvm1")]
 
-[node name="OpeningDialogueLayer" type="CanvasLayer" parent="."]
-
-[node name="OpeningDialogue" parent="OpeningDialogueLayer" instance=ExtResource("6_opening")]
+[node name="OpeningDialogue" parent="." instance=ExtResource("6_opening")]

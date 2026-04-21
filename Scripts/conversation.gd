@@ -8,6 +8,9 @@ signal dialogue_finished
 @export var start_on_ready := false
 @export var close_on_finish := false
 @export var block_gameplay_input := false
+@export var center_speakers: Array[String] = ["System"]
+@export var left_speakers: Array[String] = ["Coordinator"]
+@export_dir var portrait_folder := "res://assets/Story/portraits"
 
 var dialogue_json
 var tween
@@ -15,6 +18,22 @@ var ui_bg = []
 var ui_label = []
 var multi_speaker_mode = false
 var previous_highlighter_move := true
+
+const SPEAKER_BAR_TOP := 382.0
+const SPEAKER_BAR_WIDTH := 320.0
+const SPEAKER_BAR_HEIGHT := 42.0
+const SPEAKER_LABEL_TOP_PADDING := 9.0
+const SPEAKER_LABEL_SIDE_PADDING := 16.0
+const SPEAKER_LABEL_HEIGHT := 26.0
+const SPEAKER_BAR_LEFT_X := 232.0
+const SPEAKER_BAR_CENTER_X := 416.0
+const SPEAKER_BAR_RIGHT_X := 600.0
+
+const PORTRAIT_TOP := 416.0
+const PORTRAIT_SIZE := 104.0
+const PORTRAIT_LEFT_X := 104.0
+const PORTRAIT_RIGHT_X := 944.0
+
 @onready var p_1_label: Label = $Person1_layer/P1_label
 @onready var p_2_label: Label = $Person2_layer/P2_label
 @onready var text_bubble_label: Label = $text_bubble/text_bubble_label
@@ -87,17 +106,23 @@ func _start_dialogue(txt_script):
 	var speakers = _get_unique_speakers(txt_script)
 	multi_speaker_mode = speakers.size() > 2
 
-	for child in ui_bg:
-		pop_effect(child)
-	for child in ui_label:
-		child.visible = true
-
 	if multi_speaker_mode:
 		person_2.visible = false
 		p_2_label.visible = false
-		p_1_pic.visible = false
 		p_2_pic.visible = false
-	else:
+		p_1_label.text = txt_script[0]["speaker"]
+		_apply_speaker_layout(txt_script[0]["speaker"])
+
+	for child in ui_bg:
+		if multi_speaker_mode and child == person_2:
+			continue
+		pop_effect(child)
+	for child in ui_label:
+		if multi_speaker_mode and child == p_2_label:
+			continue
+		child.visible = true
+
+	if not multi_speaker_mode:
 		p_1_label.text = speakers[0]
 		p_2_label.text = speakers[1] if speakers.size() > 1 else ""
 		pop_effect(p_1_pic)
@@ -106,6 +131,7 @@ func _start_dialogue(txt_script):
 	for line in txt_script:
 		if multi_speaker_mode:
 			p_1_label.text = line["speaker"]
+			_apply_speaker_layout(line["speaker"])
 		show_character(line["speaker"])
 		_show_dialogue_text(text_bubble_label, line["text"])
 		await lmb_clicked
@@ -130,6 +156,45 @@ func _get_unique_speakers(txt_script):
 		if speaker != "" and not speakers.has(speaker):
 			speakers.append(speaker)
 	return speakers
+
+
+func _apply_speaker_layout(speaker_name: String):
+	var bar_x = SPEAKER_BAR_RIGHT_X
+	var portrait_x = PORTRAIT_RIGHT_X
+	if center_speakers.has(speaker_name):
+		bar_x = SPEAKER_BAR_CENTER_X
+		portrait_x = SPEAKER_BAR_CENTER_X - PORTRAIT_SIZE - 16.0
+	elif left_speakers.has(speaker_name):
+		bar_x = SPEAKER_BAR_LEFT_X
+		portrait_x = PORTRAIT_LEFT_X
+
+	person_1.offset_left = bar_x
+	person_1.offset_top = SPEAKER_BAR_TOP
+	person_1.offset_right = bar_x + SPEAKER_BAR_WIDTH
+	person_1.offset_bottom = SPEAKER_BAR_TOP + SPEAKER_BAR_HEIGHT
+
+	p_1_label.offset_left = bar_x + SPEAKER_LABEL_SIDE_PADDING
+	p_1_label.offset_top = SPEAKER_BAR_TOP + SPEAKER_LABEL_TOP_PADDING
+	p_1_label.offset_right = bar_x + SPEAKER_BAR_WIDTH - SPEAKER_LABEL_SIDE_PADDING
+	p_1_label.offset_bottom = SPEAKER_BAR_TOP + SPEAKER_LABEL_TOP_PADDING + SPEAKER_LABEL_HEIGHT
+
+	p_1_pic.offset_left = portrait_x
+	p_1_pic.offset_top = PORTRAIT_TOP
+	p_1_pic.offset_right = portrait_x + PORTRAIT_SIZE
+	p_1_pic.offset_bottom = PORTRAIT_TOP + PORTRAIT_SIZE
+	p_1_pic.texture = _load_speaker_portrait(speaker_name)
+	p_1_pic.visible = p_1_pic.texture != null
+
+
+func _load_speaker_portrait(speaker_name: String):
+	var portrait_path = portrait_folder.path_join(_speaker_to_file_name(speaker_name) + ".png")
+	if ResourceLoader.exists(portrait_path):
+		return load(portrait_path)
+	return null
+
+
+func _speaker_to_file_name(speaker_name: String):
+	return speaker_name.to_lower().replace(" ", "_").replace("-", "_")
 
 
 func show_character(speaker_name: String):

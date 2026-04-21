@@ -1,58 +1,94 @@
 [
 	{
-		"speaker": "System",
+		"type": "system",
+		"title": "System",
 		"text": "Incoming briefing...\nSynchronizing stakeholder files...\nChannel ready."
 	},
 	{
-		"speaker": "System",
-		"text": "Welcome to the OWECS Consultation Interface."
+		"type": "system",
+		"title": "OWECS Consultation Interface",
+		"text": "Welcome to the OWECS Consultation Interface.\n\nRole assigned: Legal-Policy Advisor.\n\nLocation: Republic of Arcadia.\n\nProject: Offshore Wind Energy in the Conan Sea."
 	},
 	{
-		"speaker": "System",
-		"text": "Role assigned:\nLegal-Policy Advisor"
+		"type": "character",
+		"speaker_id": "coordinator",
+		"speaker_name": "Coordinator",
+		"text": "You have been invited to support Arcadia's stakeholder consultation on the OWECS project.",
+		"portrait_path": "res://assets/Story/portraits/coordinator_1.png"
 	},
 	{
-		"speaker": "System",
-		"text": "Location:\nRepublic of Arcadia"
+		"type": "character",
+		"speaker_id": "coordinator",
+		"speaker_name": "Coordinator",
+		"text": "This proposal could help transform Arcadia's energy future.",
+		"portrait_path": "res://assets/Story/portraits/coordinator_1.png"
 	},
 	{
-		"speaker": "System",
-		"text": "Project:\nOffshore Wind Energy in the Conan Sea"
+		"type": "character",
+		"speaker_id": "coordinator",
+		"speaker_name": "Coordinator",
+		"text": "But it may also affect livelihoods, ecosystems, and regional shipping.",
+		"portrait_path": "res://assets/Story/portraits/coordinator_1.png"
 	},
 	{
-		"speaker": "Coordinator",
-		"text": "You have been invited to support Arcadia's stakeholder consultation on the OWECS project."
+		"type": "character",
+		"speaker_id": "fisher_representative",
+		"speaker_name": "Fisher Representative",
+		"text": "You get power. \nWe lose our fishing grounds.",
+		"portrait_path": "res://assets/Story/portraits/fisher_representative.png"
 	},
 	{
-		"speaker": "Coordinator",
-		"text": "This proposal could help transform Arcadia's energy future."
+		"type": "character",
+		"speaker_id": "fisher_representative",
+		"speaker_name": "Fisher Representative",
+		"text": "These wind farms could take away our catch, our livelihood, and the life our communities have built around this sea.",
+		"portrait_path": "res://assets/Story/portraits/fisher_representative.png"
 	},
 	{
-		"speaker": "Coordinator",
-		"text": "But it may also affect livelihoods, ecosystems, and regional shipping."
+		"type": "character",
+		"speaker_id": "environmental_activist",
+		"speaker_name": "Environmental Activist",
+		"text": "You call it clean energy. \nWe see fragile ecosystems pushed closer to the edge.",
+		"portrait_path": "res://assets/Story/portraits/environmental_activist.png"
 	},
 	{
-		"speaker": "Fisher Representative",
-		"text": "You get power.\nWe lose our fishing grounds.\n\nThese wind farms could take away our catch, our livelihood, and the life our communities have built around this sea."
+		"type": "character",
+		"speaker_id": "environmental_activist",
+		"speaker_name": "Environmental Activist",
+		"text": "These wind farms could disrupt migratory routes, damage marine habitats, and leave scars that last far beyond construction.",
+		"portrait_path": "res://assets/Story/portraits/environmental_activist.png"
 	},
 	{
-		"speaker": "Environmental Activist",
-		"text": "You call it clean energy.\nWe see fragile ecosystems pushed closer to the edge.\n\nThese wind farms could disrupt migratory routes, damage marine habitats, and leave scars that last far beyond construction."
+		"type": "character",
+		"speaker_id": "shipping_representative",
+		"speaker_name": "Shipping Representative",
+		"text": "You redraw lines on a map. \nWe face the delays at sea.",
+		"portrait_path": "res://assets/Story/portraits/shipping_representative.png"
 	},
 	{
-		"speaker": "Shipping Representative",
-		"text": "You redraw lines on a map.\nWe face the delays at sea.\n\nThese wind farms could force longer routes, tighter corridors, and rising costs across the region."
+		"type": "character",
+		"speaker_id": "shipping_representative",
+		"speaker_name": "Shipping Representative",
+		"text": "These wind farms could force longer routes, tighter corridors, and rising costs across the region.",
+		"portrait_path": "res://assets/Story/portraits/shipping_representative.png"
 	},
 	{
-		"speaker": "Coordinator",
-		"text": "Your task is not to defend one side too quickly."
+		"type": "character",
+		"speaker_id": "coordinator",
+		"speaker_name": "Coordinator",
+		"text": "Your task is not to defend one side too quickly.",
+		"portrait_path": "res://assets/Story/portraits/coordinator_2.png"
 	},
 	{
-		"speaker": "Coordinator",
-		"text": "Review the case materials, examine the project area, and consider what a balanced response could look like."
+		"type": "character",
+		"speaker_id": "coordinator",
+		"speaker_name": "Coordinator",
+		"text": "Review the case materials, examine the project area, and consider what a balanced response could look like.",
+		"portrait_path": "res://assets/Story/portraits/coordinator_2.png"
 	},
 	{
-		"speaker": "System",
-		"text": "Objective updated:\n- Review stakeholder concerns\n- Inspect the project area\n- Begin the consultation briefing"
+		"type": "system",
+		"title": "Objective Updated",
+		"text": "- Review stakeholder concerns\n- Inspect the project area\n- Begin the consultation briefing"
 	}
 ]
