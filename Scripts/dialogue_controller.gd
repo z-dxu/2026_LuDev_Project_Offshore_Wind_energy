@@ -30,6 +30,8 @@ var previous_highlighter_move := true
 
 @onready var system_continue: Label = $SystemPanel/MarginContainer/VBoxContainer/ContinueHint
 
+@onready var character_panel: PanelContainer = $CharacterPanel
+
 @onready var portrait_frame: PanelContainer = \
 	$CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame
 
