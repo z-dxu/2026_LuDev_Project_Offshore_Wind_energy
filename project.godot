@@ -17,11 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SceneTransition="*res://Scenes/scene_transition.tscn"
 GameController="*res://Scripts/GameController.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
 
 [gdunit4]
 
