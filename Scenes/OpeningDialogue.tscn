@@ -32,8 +32,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ser5k")
 dialogue_path = "res://assets/Story/Opening.json"
-next_scene_path = "res://Scenes/map.tscn"
 start_on_ready = true
+close_on_finish = true
+block_gameplay_input = true
 
 [node name="Person1_layer" type="CanvasLayer" parent="." unique_id=257749343]
 

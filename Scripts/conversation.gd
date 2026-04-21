@@ -6,12 +6,15 @@ signal dialogue_finished
 @export_file("*.json") var dialogue_path := "res://assets/Story/Example.json"
 @export_file("*.tscn") var next_scene_path := ""
 @export var start_on_ready := false
+@export var close_on_finish := false
+@export var block_gameplay_input := false
 
 var dialogue_json
 var tween
 var ui_bg = []
 var ui_label = []
 var multi_speaker_mode = false
+var previous_highlighter_move := true
 @onready var p_1_label: Label = $Person1_layer/P1_label
 @onready var p_2_label: Label = $Person2_layer/P2_label
 @onready var text_bubble_label: Label = $text_bubble/text_bubble_label
@@ -23,6 +26,11 @@ var multi_speaker_mode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	if block_gameplay_input:
+		previous_highlighter_move = GameController.allow_highlighter_move
+		GameController.allow_highlighter_move = false
+
 	dialogue_json = _load_dialogue_json(dialogue_path)
 	for child in find_children("*"):
 		if child is CanvasLayer:
@@ -49,6 +57,13 @@ func _ready() -> void:
 
 
 func _input(event) -> void:
+	if (
+		event is InputEventMouseButton
+		or event is InputEventMouseMotion
+		or event is InputEventKey
+	):
+		get_viewport().set_input_as_handled()
+
 	var advance_pressed = (
 		(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed)
 		or (event is InputEventKey and event.keycode == KEY_ENTER and event.pressed and not event.echo)
@@ -99,9 +114,13 @@ func _start_dialogue(txt_script):
 		if child is CanvasLayer:
 			continue
 		child.visible = false
+	if block_gameplay_input:
+		GameController.allow_highlighter_move = previous_highlighter_move
 	dialogue_finished.emit()
 	if next_scene_path != "":
 		get_tree().change_scene_to_file(next_scene_path)
+	elif close_on_finish:
+		queue_free()
 
 
 func _get_unique_speakers(txt_script):

@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Wind Turbine"
-run/main_scene="res://Scenes/OpeningDialogue.tscn"
+run/main_scene="uid://byd1e1x7osb3n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameController="*res://Scripts/GameController.gd"
+GameController="*uid://caekwn3p2mn2c"
 
 [editor_plugins]
 
