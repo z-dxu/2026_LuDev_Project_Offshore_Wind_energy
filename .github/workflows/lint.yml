@@ -24,17 +24,8 @@ jobs:
           enable-cache: true
 
       - name: Run GDFormat
-        run: uvx --from 'gdtoolkit==4.*' gdformat Scripts/ Scenes/
-        # No --check: this mutates files in place
-
-      - name: Commit and push formatting fixes
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "style: auto-format GDScript via gdformat [skip ci]"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
-          file_pattern: "**/*.gd"
-          
+        run: uvx --from 'gdtoolkit==4.*' gdformat --check Scripts/ Scenes/
+    
       - name: Run GDLint 
         run: uvx --from 'gdtoolkit==4.*' gdlint .
 
