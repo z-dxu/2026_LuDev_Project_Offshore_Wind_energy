@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dhwn4m4xgbftc" path="res://assets/Arcadia.png" id="3_p3ir5"]
 [ext_resource type="PackedScene" uid="uid://c4wgx27e1ghlp" path="res://Scenes/gui.tscn" id="4_myvm1"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="5_w7jjh"]
+[ext_resource type="PackedScene" path="res://Scenes/OpeningDialogue.tscn" id="6_opening"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myvm1"]
 transparency = 1
@@ -107,3 +108,5 @@ grid_map = NodePath("../GridMap")
 highlight = NodePath("../GridMap/Highlight")
 
 [node name="GUI" parent="." unique_id=1419050564 instance=ExtResource("4_myvm1")]
+
+[node name="OpeningDialogue" parent="." instance=ExtResource("6_opening")]
