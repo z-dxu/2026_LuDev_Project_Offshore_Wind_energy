@@ -11,25 +11,31 @@ var dragging := false
 var last_mouse_pos := Vector2.ZERO
 var hover_poi_button = false
 var selected_poi_button = null
+var hovered_cell: Vector3i = Vector3i.ZERO
 
 
-#@onready var highlight: Node3D = $Highlight #old camera implementation
 func _process(_delta: float) -> void:
 	if GameController.allow_highlighter_move:
 		var mouse_pos = get_viewport().get_mouse_position()
-		#cast ray from camera from where the mouse is currently at
-		var from = self.project_ray_origin(mouse_pos)
-		var to = from + self.project_ray_normal(mouse_pos) * 1000
+
+		# cast ray from camera from where the mouse is currently at
+		var from = project_ray_origin(mouse_pos)
+		var to = from + project_ray_normal(mouse_pos) * 1000
 		var space_state = get_world_3d().direct_space_state
 		var query = PhysicsRayQueryParameters3D.create(from, to)
-		#query.exclude = [self] # exclude self to avoid self-intersection
+
+		# query.exclude = [self] # exclude self to avoid self-intersection
 		query.collision_mask = 2
+
 		var result = space_state.intersect_ray(query)
 		if result:
 			var hit_pos = result.position
 			var local_pos_gridmap = grid_map.to_local(hit_pos)
-			#convert mouse global pos to a cell position
+
+			# convert mouse global pos to a cell position
 			var cell = grid_map.local_to_map(local_pos_gridmap)
+			hovered_cell = cell
+
 			var poi_button = GameController.poi_positions
 			if cell in poi_button:
 				hover_poi_button = true
@@ -37,6 +43,7 @@ func _process(_delta: float) -> void:
 			else:
 				hover_poi_button = false
 				selected_poi_button = null
+
 			highlight.position = grid_map.map_to_local(cell) + Vector3(0, 1, 0)
 			highlight.visible = true
 		else:
@@ -53,24 +60,37 @@ func zoom(event):
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			dragging = event.pressed
 			last_mouse_pos = event.position
+
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			self.size = min(max_zoom, self.size + zoom_speed)
+			size = min(max_zoom, size + zoom_speed)
+
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			self.size = max(min_zoom, self.size - zoom_speed)
-		elif event.is_action_pressed("left_click") and hover_poi_button:
-			GameController.poi_button_pressed.emit(hover_poi_button, selected_poi_button)
-		elif event.is_action_pressed("left_click") and !hover_poi_button:
-			GameController.poi_button_pressed.emit(hover_poi_button, selected_poi_button)
+			size = max(min_zoom, size - zoom_speed)
+
+		elif event.is_action_pressed("left_click"):
+			print("Left click at hovered cell: ", hovered_cell)
+
+			var windmill = grid_map.get_windmill_at_cell(hovered_cell)
+			if windmill != null:
+				print("Clicked a windmill at cell: ", hovered_cell)
+				grid_map.open_windmill_editor_for(windmill)
+			elif hover_poi_button:
+				print("Clicked a POI at cell: ", selected_poi_button)
+				GameController.poi_button_pressed.emit(hover_poi_button, selected_poi_button)
+			else:
+				print("Clicked empty cell: ", hovered_cell)
+				GameController.poi_button_pressed.emit(hover_poi_button, selected_poi_button)
 
 
 func camera_movement(event):
 	if event is InputEventMouseMotion and dragging:
 		var delta = event.position - last_mouse_pos
 		last_mouse_pos = event.position
-		var cam_right = self.global_transform.basis.x
+
+		var cam_right = global_transform.basis.x
 		var cam_forward = (
-			Vector3(-self.global_transform.basis.z.x, 0, -self.global_transform.basis.z.z)
-			. normalized()
+			Vector3(-global_transform.basis.z.x, 0, -global_transform.basis.z.z).normalized()
 		)
+
 		var move_dir = cam_right * delta.x + cam_forward * -delta.y
 		grid_map.translate(move_dir * drag_speed)
