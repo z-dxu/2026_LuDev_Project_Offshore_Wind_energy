@@ -2,11 +2,6 @@ extends CanvasLayer
 
 signal dialogue_finished
 
-@export_file("*.json") var dialogue_path := "res://assets/Story/Opening.json"
-@export_dir var portrait_folder := "res://assets/Story/portraits"
-@export var close_on_finish := true
-@export var block_gameplay_input := true
-
 const ROLE_ACCENTS = {
 	"system": Color(0.35, 0.72, 1.0),
 	"coordinator": Color(0.56, 0.65, 0.74),
@@ -15,32 +10,46 @@ const ROLE_ACCENTS = {
 	"shipping_representative": Color(0.32, 0.44, 0.66),
 }
 
+@export_file("*.json") var dialogue_path := "res://assets/Story/Opening.json"
+@export_dir var portrait_folder := "res://assets/Story/portraits"
+@export var close_on_finish := true
+@export var block_gameplay_input := true
+
 var dialogue_pages := []
 var current_index := 0
 var previous_highlighter_move := true
 
 @onready var overlay: ColorRect = $Overlay
 @onready var system_panel: PanelContainer = $SystemPanel
+
 @onready var system_title: Label = $SystemPanel/MarginContainer/VBoxContainer/HeaderRow/SystemTitle
+
 @onready var system_accent: ColorRect = $SystemPanel/MarginContainer/VBoxContainer/AccentLine
+
 @onready var system_text: RichTextLabel = $SystemPanel/MarginContainer/VBoxContainer/SystemText
+
 @onready var system_continue: Label = $SystemPanel/MarginContainer/VBoxContainer/ContinueHint
 
-@onready var character_panel: PanelContainer = $CharacterPanel
-@onready
-var portrait_frame: PanelContainer = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame
-@onready
-var portrait_texture: TextureRect = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Portrait
-@onready
-var portrait_initials: Label = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Initials
-@onready
-var speaker_tag: PanelContainer = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag
-@onready
-var speaker_name: Label = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag/SpeakerName
-@onready
-var dialogue_text: RichTextLabel = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/DialogueText
-@onready
-var character_continue: Label = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/BottomRow/ContinueHint
+@onready var portrait_frame: PanelContainer = \
+	$CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame
+
+@onready var portrait_texture: TextureRect = \
+	$CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Portrait
+
+@onready var portrait_initials: Label = \
+	$CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Initials
+
+@onready var speaker_tag: PanelContainer = \
+	$CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag
+
+@onready var speaker_name: Label = \
+	$CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag/SpeakerName
+
+@onready var dialogue_text: RichTextLabel = \
+	$CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/DialogueText
+
+@onready var character_continue: Label = \
+	$CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/BottomRow/ContinueHint
 
 
 func _ready() -> void:

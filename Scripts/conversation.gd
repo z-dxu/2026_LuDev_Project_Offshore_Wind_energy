@@ -3,6 +3,21 @@ extends Control
 signal lmb_clicked
 signal dialogue_finished
 
+const SPEAKER_BAR_TOP := 382.0
+const SPEAKER_BAR_WIDTH := 320.0
+const SPEAKER_BAR_HEIGHT := 42.0
+const SPEAKER_LABEL_TOP_PADDING := 9.0
+const SPEAKER_LABEL_SIDE_PADDING := 16.0
+const SPEAKER_LABEL_HEIGHT := 26.0
+const SPEAKER_BAR_LEFT_X := 232.0
+const SPEAKER_BAR_CENTER_X := 416.0
+const SPEAKER_BAR_RIGHT_X := 600.0
+
+const PORTRAIT_TOP := 416.0
+const PORTRAIT_SIZE := 104.0
+const PORTRAIT_LEFT_X := 104.0
+const PORTRAIT_RIGHT_X := 944.0
+
 @export_file("*.json") var dialogue_path := "res://assets/Story/Example.json"
 @export_file("*.tscn") var next_scene_path := ""
 @export var start_on_ready := false
@@ -18,21 +33,6 @@ var ui_bg = []
 var ui_label = []
 var multi_speaker_mode = false
 var previous_highlighter_move := true
-
-const SPEAKER_BAR_TOP := 382.0
-const SPEAKER_BAR_WIDTH := 320.0
-const SPEAKER_BAR_HEIGHT := 42.0
-const SPEAKER_LABEL_TOP_PADDING := 9.0
-const SPEAKER_LABEL_SIDE_PADDING := 16.0
-const SPEAKER_LABEL_HEIGHT := 26.0
-const SPEAKER_BAR_LEFT_X := 232.0
-const SPEAKER_BAR_CENTER_X := 416.0
-const SPEAKER_BAR_RIGHT_X := 600.0
-
-const PORTRAIT_TOP := 416.0
-const PORTRAIT_SIZE := 104.0
-const PORTRAIT_LEFT_X := 104.0
-const PORTRAIT_RIGHT_X := 944.0
 
 @onready var p_1_label: Label = $Person1_layer/P1_label
 @onready var p_2_label: Label = $Person2_layer/P2_label
