@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b8jcaj36i82dx" path="res://Scripts/grid_map.gd" id="2_q0mm3"]
 [ext_resource type="PackedScene" uid="uid://bamgw5ehmecbd" path="res://Scenes/Windmill.tscn" id="3_np2xp"]
 [ext_resource type="Texture2D" uid="uid://dhwn4m4xgbftc" path="res://assets/Arcadia.png" id="3_p3ir5"]
-[ext_resource type="PackedScene" uid="uid://d1sh2kun5mjg" path="res://Scenes/gui.tscn" id="4_myvm1"]
+[ext_resource type="PackedScene" uid="uid://c4wgx27e1ghlp" path="res://Scenes/gui.tscn" id="4_myvm1"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="5_w7jjh"]
 [ext_resource type="PackedScene" path="res://Scenes/OpeningDialogue.tscn" id="6_opening"]
 
