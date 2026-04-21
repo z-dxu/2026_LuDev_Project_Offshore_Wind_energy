@@ -27,13 +27,20 @@ var previous_highlighter_move := true
 @onready var system_continue: Label = $SystemPanel/MarginContainer/VBoxContainer/ContinueHint
 
 @onready var character_panel: PanelContainer = $CharacterPanel
-@onready var portrait_frame: PanelContainer = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame
-@onready var portrait_texture: TextureRect = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Portrait
-@onready var portrait_initials: Label = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Initials
-@onready var speaker_tag: PanelContainer = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag
-@onready var speaker_name: Label = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag/SpeakerName
-@onready var dialogue_text: RichTextLabel = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/DialogueText
-@onready var character_continue: Label = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/BottomRow/ContinueHint
+@onready
+var portrait_frame: PanelContainer = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame
+@onready
+var portrait_texture: TextureRect = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Portrait
+@onready
+var portrait_initials: Label = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Initials
+@onready
+var speaker_tag: PanelContainer = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag
+@onready
+var speaker_name: Label = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag/SpeakerName
+@onready
+var dialogue_text: RichTextLabel = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/DialogueText
+@onready
+var character_continue: Label = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/BottomRow/ContinueHint
 
 
 func _ready() -> void:
@@ -56,14 +63,17 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 	var advance_pressed = (
-		event is InputEventMouseButton
-		and event.button_index == MOUSE_BUTTON_LEFT
-		and event.pressed
-	) or (
-		event is InputEventKey
-		and event.keycode == KEY_ENTER
-		and event.pressed
-		and not event.echo
+		(
+			event is InputEventMouseButton
+			and event.button_index == MOUSE_BUTTON_LEFT
+			and event.pressed
+		)
+		or (
+			event is InputEventKey
+			and event.keycode == KEY_ENTER
+			and event.pressed
+			and not event.echo
+		)
 	)
 
 	if not advance_pressed:
@@ -138,7 +148,9 @@ func _set_portrait(page: Dictionary, speaker_id: String) -> void:
 	portrait_texture.texture = texture
 	portrait_texture.visible = texture != null
 	portrait_initials.visible = texture == null
-	portrait_initials.text = _speaker_initials(page.get("speaker_name", _speaker_id_to_name(speaker_id)))
+	portrait_initials.text = _speaker_initials(
+		page.get("speaker_name", _speaker_id_to_name(speaker_id))
+	)
 
 
 func _load_portrait(page: Dictionary, speaker_id: String):

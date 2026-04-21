@@ -76,16 +76,21 @@ func _ready() -> void:
 
 
 func _input(event) -> void:
-	if (
-		event is InputEventMouseButton
-		or event is InputEventMouseMotion
-		or event is InputEventKey
-	):
+	if event is InputEventMouseButton or event is InputEventMouseMotion or event is InputEventKey:
 		get_viewport().set_input_as_handled()
 
 	var advance_pressed = (
-		(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed)
-		or (event is InputEventKey and event.keycode == KEY_ENTER and event.pressed and not event.echo)
+		(
+			event is InputEventMouseButton
+			and event.button_index == MOUSE_BUTTON_LEFT
+			and event.pressed
+		)
+		or (
+			event is InputEventKey
+			and event.keycode == KEY_ENTER
+			and event.pressed
+			and not event.echo
+		)
 	)
 
 	if advance_pressed:
