@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameController="*uid://caekwn3p2mn2c"
-SceneTransition="*uid://dcc3nrq4ltkj"
+SceneTransition="*res://Scenes/scene_transition.tscn"
+GameController="*res://Scripts/GameController.gd"
 
 [editor_plugins]
 
