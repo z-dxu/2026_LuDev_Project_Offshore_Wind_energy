@@ -1,13 +1,17 @@
 extends Control
 
 signal lmb_clicked
+signal dialogue_finished
 
-var is_typing = false
-var skip_requested = false
+@export_file("*.json") var dialogue_path := "res://assets/Story/Example.json"
+@export_file("*.tscn") var next_scene_path := ""
+@export var start_on_ready := false
+
 var dialogue_json
 var tween
 var ui_bg = []
 var ui_label = []
+var multi_speaker_mode = false
 @onready var p_1_label: Label = $Person1_layer/P1_label
 @onready var p_2_label: Label = $Person2_layer/P2_label
 @onready var text_bubble_label: Label = $text_bubble/text_bubble_label
@@ -19,7 +23,7 @@ var ui_label = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	dialogue_json = _load_dialogue_json("res://assets/Story/Example.json")
+	dialogue_json = _load_dialogue_json(dialogue_path)
 	for child in find_children("*"):
 		if child is CanvasLayer:
 			continue
@@ -33,45 +37,86 @@ func _ready() -> void:
 		if child is TextureRect:
 			child.visible = false
 
-	await lmb_clicked
-	_start_dialogue_two(dialogue_json, dialogue_json[0]["speaker"], dialogue_json[1]["speaker"])
+	if dialogue_json == null or dialogue_json.is_empty():
+		push_error("Dialogue file is empty or invalid: " + dialogue_path)
+		return
+
+	if start_on_ready:
+		_start_dialogue(dialogue_json)
+	else:
+		await lmb_clicked
+		_start_dialogue(dialogue_json)
 
 
 func _input(event) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if is_typing:
-			skip_requested = true
-		else:
-			lmb_clicked.emit()
+	var advance_pressed = (
+		(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed)
+		or (event is InputEventKey and event.keycode == KEY_ENTER and event.pressed and not event.echo)
+	)
+
+	if advance_pressed:
+		lmb_clicked.emit()
 
 
 func _load_dialogue_json(path):
 	var file = FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		push_error("Could not open dialogue file: " + path)
+		return []
 	var content = file.get_as_text()
 	var data = JSON.parse_string(content)
 	return data
 
 
-func _start_dialogue_two(txt_script, name_1: String, name_2: String):
+func _start_dialogue(txt_script):
+	var speakers = _get_unique_speakers(txt_script)
+	multi_speaker_mode = speakers.size() > 2
+
 	for child in ui_bg:
 		pop_effect(child)
 	for child in ui_label:
 		child.visible = true
-	p_1_label.text = name_1
-	p_2_label.text = name_2
-	pop_effect(p_1_pic)
-	pop_effect(p_2_pic)
+
+	if multi_speaker_mode:
+		person_2.visible = false
+		p_2_label.visible = false
+		p_1_pic.visible = false
+		p_2_pic.visible = false
+	else:
+		p_1_label.text = speakers[0]
+		p_2_label.text = speakers[1] if speakers.size() > 1 else ""
+		pop_effect(p_1_pic)
+		pop_effect(p_2_pic)
+
 	for line in txt_script:
+		if multi_speaker_mode:
+			p_1_label.text = line["speaker"]
 		show_character(line["speaker"])
-		await _typewriting_animation(text_bubble_label, line["text"])
+		_show_dialogue_text(text_bubble_label, line["text"])
 		await lmb_clicked
+
 	for child in find_children("*"):
 		if child is CanvasLayer:
 			continue
 		child.visible = false
+	dialogue_finished.emit()
+	if next_scene_path != "":
+		get_tree().change_scene_to_file(next_scene_path)
+
+
+func _get_unique_speakers(txt_script):
+	var speakers = []
+	for line in txt_script:
+		var speaker = line.get("speaker", "")
+		if speaker != "" and not speakers.has(speaker):
+			speakers.append(speaker)
+	return speakers
 
 
 func show_character(speaker_name: String):
+	if multi_speaker_mode:
+		person_1.self_modulate.a = 1
+		return
 	if p_1_label.text == speaker_name:
 		print("plyer 1 speakign")
 		p_1_pic.self_modulate.a = 1
@@ -88,26 +133,11 @@ func show_character(speaker_name: String):
 		print("No speaker found")
 
 
-func _typewriting_animation(txt_label: Label, text: String):
+func _show_dialogue_text(txt_label: Label, text: String):
 	txt_label.text = ""  #prev txt not seen
 	txt_label.visible = true
-	txt_label.visible_ratio = 0
+	txt_label.visible_ratio = 1
 	txt_label.text = text
-
-	is_typing = true
-	skip_requested = false
-
-	tween = create_tween()
-	tween.tween_property(txt_label, "visible_ratio", 1, 3)
-	while tween.is_running():
-		if skip_requested:
-			tween.kill()
-			txt_label.visible_ratio = 1
-			break
-		await get_tree().process_frame
-	is_typing = false
-
-	#await tween.finished # this only works if you call function with await
 
 
 func pop_effect(object):  # open pop effect

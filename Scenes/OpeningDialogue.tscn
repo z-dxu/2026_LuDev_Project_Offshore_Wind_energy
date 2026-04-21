@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://da8emv4tahb81"]
+
+[ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="1_j2cky"]
+[ext_resource type="Script" path="res://Scripts/conversation.gd" id="1_ser5k"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j2cky"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ser5k"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jhb2w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otb11"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[node name="OpeningDialogue" type="Control" unique_id=938298517]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ser5k")
+dialogue_path = "res://assets/Story/Opening.json"
+next_scene_path = "res://Scenes/map.tscn"
+start_on_ready = true
+
+[node name="Person1_layer" type="CanvasLayer" parent="." unique_id=257749343]
+
+[node name="P1_pic" type="TextureRect" parent="Person1_layer" unique_id=992510650]
+offset_left = 96.0
+offset_top = 160.0
+offset_right = 384.0
+offset_bottom = 416.0
+texture = SubResource("PlaceholderTexture2D_j2cky")
+
+[node name="Person1" type="PanelContainer" parent="Person1_layer" unique_id=2001405445]
+offset_left = 336.0
+offset_top = 320.0
+offset_right = 816.0
+offset_bottom = 376.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ser5k")
+
+[node name="P1_label" type="Label" parent="Person1_layer" unique_id=150503867]
+offset_left = 352.0
+offset_top = 333.0
+offset_right = 800.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_j2cky")
+theme_override_font_sizes/font_size = 30
+text = "Speaker"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Person2_layer" type="CanvasLayer" parent="." unique_id=1435650059]
+
+[node name="P2_pic" type="TextureRect" parent="Person2_layer" unique_id=417046365]
+offset_left = 768.0
+offset_top = 160.0
+offset_right = 1056.0
+offset_bottom = 416.0
+texture = SubResource("PlaceholderTexture2D_jhb2w")
+
+[node name="Person2" type="PanelContainer" parent="Person2_layer" unique_id=2095127902]
+offset_left = 768.0
+offset_top = 320.0
+offset_right = 1056.0
+offset_bottom = 376.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ser5k")
+
+[node name="P2_label" type="Label" parent="Person2_layer" unique_id=968515425]
+offset_left = 784.0
+offset_top = 333.0
+offset_right = 1036.0
+offset_bottom = 370.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_j2cky")
+theme_override_font_sizes/font_size = 30
+text = "Speaker 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text_bubble" type="CanvasLayer" parent="." unique_id=1403264874]
+
+[node name="text_bubble_label" type="Label" parent="text_bubble" unique_id=629400620]
+z_index = 5
+offset_left = 136.0
+offset_top = 400.0
+offset_right = 1016.0
+offset_bottom = 576.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_j2cky")
+theme_override_font_sizes/font_size = 32
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="text_bubble" unique_id=1787977612]
+offset_left = 88.0
+offset_top = 384.0
+offset_right = 1059.0
+offset_bottom = 599.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_otb11")
