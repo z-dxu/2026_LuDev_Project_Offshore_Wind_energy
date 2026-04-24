@@ -19,6 +19,12 @@ var dialogue_pages := []
 var current_index := 0
 var previous_highlighter_move := true
 
+var portrait_texture: TextureRect
+var portrait_initials: Label
+var speaker_tag: PanelContainer
+var speaker_name: Label
+var dialogue_text: RichTextLabel
+var character_continue: Label
 @onready var overlay: ColorRect = $Overlay
 @onready var system_panel: PanelContainer = $SystemPanel
 
@@ -32,26 +38,11 @@ var previous_highlighter_move := true
 
 @onready var character_panel: PanelContainer = $CharacterPanel
 
-@onready var portrait_frame: PanelContainer = \
-	$CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame
+@onready
+var portrait_frame: PanelContainer = $CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame
 
-@onready var portrait_texture: TextureRect = \
-	$CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Portrait
-
-@onready var portrait_initials: Label = \
-	$CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame/Initials
-
-@onready var speaker_tag: PanelContainer = \
-	$CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag
-
-@onready var speaker_name: Label = \
-	$CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag/SpeakerName
-
-@onready var dialogue_text: RichTextLabel = \
-	$CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/DialogueText
-
-@onready var character_continue: Label = \
-	$CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/BottomRow/ContinueHint
+@onready
+var content_column: VBoxContainer = $CharacterPanel/MarginContainer/HBoxContainer/ContentColumn
 
 
 func _ready() -> void:
@@ -65,7 +56,23 @@ func _ready() -> void:
 		push_error("Dialogue file is empty or invalid: " + dialogue_path)
 		_finish_dialogue()
 		return
-
+	for child in portrait_frame.find_children("*"):
+		if child is TextureRect and child.name == "Portrait":
+			portrait_texture = child
+		elif child is Label and child.name == "Initials":
+			portrait_initials = child
+	for child in content_column.find_children("*"):
+		if child is PanelContainer and child.name == "ContentColumn":
+			speaker_tag = child
+			var descendant = speaker_tag.get_child(0)
+			if descendant.name == "SpeakerName":
+				speaker_name = descendant
+		if child is RichTextLabel and child.name == "DialogueText":
+			dialogue_text = child
+		if child is HBoxContainer and child.name == "BottomRow":
+			var desc = child.get_child(1)
+			if desc.name == "ContinueHint":
+				character_continue = desc
 	_show_current_page()
 
 
