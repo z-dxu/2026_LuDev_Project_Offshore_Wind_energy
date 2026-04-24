@@ -36,7 +36,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
           tag: ${{ github.ref_name }}
-          artifacts: ./builds/win/ARCADIA.exe
+          artifacts: ./builds/win/Windows_Desktop/ARCADIA.exe
           
       - name: List export output
-        run: ls -la builds/win/
+        run: ls -la builds/win/Windows_Desktop/
