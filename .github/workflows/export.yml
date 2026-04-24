@@ -23,8 +23,8 @@ jobs:
           godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.6-stable/Godot_v4.6-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.6-stable/Godot_v4.6-stable_export_templates.tpz
           relative_project_path: ./
-          presets_to_export: 'Windows Desktop'
-          archive_output: true
+          presets_to_export: 'Windows_Desktop'
+          use_preset_export_path: true
           export_debug: false
           cache: true
         env:
@@ -36,4 +36,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
           tag: ${{ github.ref_name }}
-          artifacts: ${{ steps.export.outputs.archive_directory }}/*
+          artifacts: builds/win/ARCADIA.exe
