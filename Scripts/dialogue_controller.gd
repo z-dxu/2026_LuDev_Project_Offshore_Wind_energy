@@ -62,7 +62,7 @@ func _ready() -> void:
 		elif child is Label and child.name == "Initials":
 			portrait_initials = child
 	for child in content_column.find_children("*"):
-		if child is PanelContainer and child.name == "ContentColumn":
+		if child is PanelContainer and child.name == "SpeakerTag":
 			speaker_tag = child
 			var descendant = speaker_tag.get_child(0)
 			if descendant.name == "SpeakerName":
@@ -143,7 +143,7 @@ func _show_character_page(page: Dictionary) -> void:
 	var accent = _get_accent(speaker_id)
 	system_panel.visible = false
 	character_panel.visible = true
-	speaker_name.text = page.get("speaker_name", _speaker_id_to_name(speaker_id))
+	speaker_name.text = page["speaker_name"]
 	dialogue_text.text = page.get("text", "")
 	character_continue.modulate = Color(accent.r, accent.g, accent.b, 0.9)
 	_apply_panel_accent(accent)

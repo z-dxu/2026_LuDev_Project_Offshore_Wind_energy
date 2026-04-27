@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://da8emv4tahb81"]
+[gd_scene format=3 uid="uid://bwa1rovu000sq"]
 
-[ext_resource type="FontFile" path="res://assets/Fonts/Denk_One/DenkOne-Regular.ttf" id="1_font"]
-[ext_resource type="Script" path="res://Scripts/dialogue_controller.gd" id="2_script"]
+[ext_resource type="FontFile" uid="uid://hba1s05qn7hc" path="res://assets/Fonts/Denk_One/DenkOne-Regular.ttf" id="1_font"]
+[ext_resource type="Script" uid="uid://ohttol63j6ji" path="res://Scripts/dialogue_controller.gd" id="2_script"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_system_panel"]
 content_margin_left = 18.0
@@ -67,10 +67,10 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="OpeningDialogueUI" type="CanvasLayer"]
+[node name="OpeningDialogueUI" type="CanvasLayer" unique_id=1139868227]
 script = ExtResource("2_script")
 
-[node name="Overlay" type="ColorRect" parent="."]
+[node name="Overlay" type="ColorRect" parent="." unique_id=2138397295]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -79,7 +79,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.46)
 
-[node name="SystemPanel" type="PanelContainer" parent="."]
+[node name="SystemPanel" type="PanelContainer" parent="." unique_id=1222047398]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -91,28 +91,28 @@ offset_bottom = 260.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBox_system_panel")
 
-[node name="MarginContainer" type="MarginContainer" parent="SystemPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="SystemPanel" unique_id=1863078408]
 layout_mode = 2
 theme_override_constants/margin_left = 18
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 14
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SystemPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SystemPanel/MarginContainer" unique_id=1527575362]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="HeaderRow" type="HBoxContainer" parent="SystemPanel/MarginContainer/VBoxContainer"]
+[node name="HeaderRow" type="HBoxContainer" parent="SystemPanel/MarginContainer/VBoxContainer" unique_id=1584035380]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SystemIcon" type="TextureRect" parent="SystemPanel/MarginContainer/VBoxContainer/HeaderRow"]
+[node name="SystemIcon" type="TextureRect" parent="SystemPanel/MarginContainer/VBoxContainer/HeaderRow" unique_id=2123825616]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SystemTitle" type="Label" parent="SystemPanel/MarginContainer/VBoxContainer/HeaderRow"]
+[node name="SystemTitle" type="Label" parent="SystemPanel/MarginContainer/VBoxContainer/HeaderRow" unique_id=766173607]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78, 0.9, 1, 1)
@@ -121,23 +121,22 @@ theme_override_font_sizes/font_size = 18
 text = "System"
 vertical_alignment = 1
 
-[node name="AccentLine" type="ColorRect" parent="SystemPanel/MarginContainer/VBoxContainer"]
+[node name="AccentLine" type="ColorRect" parent="SystemPanel/MarginContainer/VBoxContainer" unique_id=7852854]
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 color = Color(0.35, 0.72, 1, 1)
 
-[node name="SystemText" type="RichTextLabel" parent="SystemPanel/MarginContainer/VBoxContainer"]
+[node name="SystemText" type="RichTextLabel" parent="SystemPanel/MarginContainer/VBoxContainer" unique_id=978367400]
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
 theme_override_colors/default_color = Color(0.9, 0.96, 1, 1)
 theme_override_fonts/normal_font = ExtResource("1_font")
 theme_override_font_sizes/normal_font_size = 21
-text = ""
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
 
-[node name="ContinueHint" type="Label" parent="SystemPanel/MarginContainer/VBoxContainer"]
+[node name="ContinueHint" type="Label" parent="SystemPanel/MarginContainer/VBoxContainer" unique_id=347747431]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35, 0.72, 1, 0.85)
 theme_override_fonts/font = ExtResource("1_font")
@@ -145,7 +144,7 @@ theme_override_font_sizes/font_size = 14
 text = "Enter / Click  >"
 horizontal_alignment = 2
 
-[node name="CharacterPanel" type="PanelContainer" parent="."]
+[node name="CharacterPanel" type="PanelContainer" parent="." unique_id=2099118288]
 visible = false
 anchors_preset = 12
 anchor_top = 1.0
@@ -159,50 +158,49 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBox_character_panel")
 
-[node name="MarginContainer" type="MarginContainer" parent="CharacterPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CharacterPanel" unique_id=1276528295]
 layout_mode = 2
 theme_override_constants/margin_left = 18
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 14
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CharacterPanel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterPanel/MarginContainer" unique_id=1392809583]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="PortraitFrame" type="PanelContainer" parent="CharacterPanel/MarginContainer/HBoxContainer"]
+[node name="PortraitFrame" type="PanelContainer" parent="CharacterPanel/MarginContainer/HBoxContainer" unique_id=1637270867]
 custom_minimum_size = Vector2(136, 136)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBox_portrait_frame")
 
-[node name="Portrait" type="TextureRect" parent="CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame"]
+[node name="Portrait" type="TextureRect" parent="CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame" unique_id=2105031792]
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Initials" type="Label" parent="CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame"]
+[node name="Initials" type="Label" parent="CharacterPanel/MarginContainer/HBoxContainer/PortraitFrame" unique_id=1569916580]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.82, 0.86, 0.9, 1)
 theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 34
-text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContentColumn" type="VBoxContainer" parent="CharacterPanel/MarginContainer/HBoxContainer"]
+[node name="ContentColumn" type="VBoxContainer" parent="CharacterPanel/MarginContainer/HBoxContainer" unique_id=602173027]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="SpeakerTag" type="PanelContainer" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn"]
+[node name="SpeakerTag" type="PanelContainer" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn" unique_id=1229502474]
 custom_minimum_size = Vector2(260, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBox_name_tag")
 
-[node name="SpeakerName" type="Label" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag"]
+[node name="SpeakerName" type="Label" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/SpeakerTag" unique_id=48767673]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.04, 0.05, 0.06, 1)
 theme_override_fonts/font = ExtResource("1_font")
@@ -210,26 +208,25 @@ theme_override_font_sizes/font_size = 18
 text = "Speaker"
 vertical_alignment = 1
 
-[node name="DialogueText" type="RichTextLabel" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn"]
+[node name="DialogueText" type="RichTextLabel" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn" unique_id=721846453]
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 size_flags_horizontal = 3
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
 theme_override_colors/default_color = Color(0.95, 0.95, 0.92, 1)
 theme_override_fonts/normal_font = ExtResource("1_font")
 theme_override_font_sizes/normal_font_size = 22
-text = ""
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
 
-[node name="BottomRow" type="HBoxContainer" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn"]
+[node name="BottomRow" type="HBoxContainer" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn" unique_id=1036558318]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/BottomRow"]
+[node name="Spacer" type="Control" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/BottomRow" unique_id=1107256444]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ContinueHint" type="Label" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/BottomRow"]
+[node name="ContinueHint" type="Label" parent="CharacterPanel/MarginContainer/HBoxContainer/ContentColumn/BottomRow" unique_id=2110597814]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.72, 0.76, 0.8, 0.9)
 theme_override_fonts/font = ExtResource("1_font")
@@ -237,4 +234,4 @@ theme_override_font_sizes/font_size = 14
 text = "Enter / Click  >"
 horizontal_alignment = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=129043623]
