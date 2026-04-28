@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://qetqw33fuvuq"]
+[gd_scene format=3 uid="uid://qetqw33fuvuq"]
 
 [ext_resource type="MeshLibrary" uid="uid://cnwgx5155wydr" path="res://assets/mesh_lib/terrain_mesh_lib_with_collisions.tres" id="1_26yhd"]
 [ext_resource type="PackedScene" uid="uid://fow36ex2mg3r" path="res://Scenes/camera.tscn" id="2_26yhd"]
@@ -18,29 +18,27 @@ albedo_texture = ExtResource("3_p3ir5")
 [sub_resource type="QuadMesh" id="QuadMesh_q0mm3"]
 size = Vector2(500, 500)
 
-[sub_resource type="MeshLibrary" id="MeshLibrary_myvm1"]
-resource_name = "border-map"
+[sub_resource type="BoxMesh" id="BoxMesh_myvm1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfdk2"]
-resource_name = "basecolors.001"
-albedo_color = Color(0.8, 0.8, 0.8, 1)
-metallic = 0.5
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0mm3"]
+shading_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_myvm1"]
-_surfaces = [{
-"aabb": AABB(-4.000001, 8.283056, -4.000001, 8.000001, 1e-05, 8),
-"attribute_data": PackedByteArray("Ni2KbzYtJR0kZIpvJGQlHf+l/xj/pf9j/93/GP/f/2M="),
-"format": 34896613399,
-"index_count": 12,
-"index_data": PackedByteArray("AAABAAIAAQADAAIABAAFAAYABgAFAAcA"),
-"material": SubResource("StandardMaterial3D_nfdk2"),
-"name": "basecolors",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("/v8AAP//VNUAAAAA/v9U1f//AAAAAFTVAAAAAAAAVNX//wAAAACqKgAAAAAAAKoq/v8AAP//qioAAAAA/v+qKlTVqipU1aoqVNWqKlTVqiqqKlTVqipU1aoqVNWqKlTV")
-}]
-blend_shape_mode = 0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7jjh"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_w7jjh"]
+material = SubResource("StandardMaterial3D_w7jjh")
+text = "12"
+font_size = 17
+pixel_size = 0.39
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q3n4"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_4c2oa"]
+material = SubResource("StandardMaterial3D_6q3n4")
 
 [node name="Map" type="Node3D" unique_id=1081927198]
 
@@ -57,7 +55,6 @@ metadata/_editor_floor_ = Vector3(0, 9, 0)
 
 [node name="ArcadiaOverlay" type="MeshInstance3D" parent="GridMap" unique_id=781294390]
 transform = Transform3D(2.025954, 0, 0, 0, 2.6518825e-07, 0.99999994, 0, -2.0222664, 1.3113414e-07, 256.875, 5, -260.86)
-visible = false
 material_override = SubResource("StandardMaterial3D_myvm1")
 mesh = SubResource("QuadMesh_q0mm3")
 
@@ -112,10 +109,4 @@ highlight = NodePath("../GridMap/Highlight")
 
 [node name="GUI" parent="." unique_id=1419050564 instance=ExtResource("4_myvm1")]
 
-[node name="GridMap2" type="GridMap" parent="." unique_id=1420490534]
-mesh_library = SubResource("MeshLibrary_myvm1")
-
-[node name="RedSquare" type="MeshInstance3D" parent="." unique_id=803900067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.98076, 1.9832764, 123.968506)
-layers = 8
-mesh = SubResource("ArrayMesh_myvm1")
+[node name="OpeningDialogue" parent="." instance=ExtResource("6_opening")]
