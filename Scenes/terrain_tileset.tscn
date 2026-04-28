@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cb7dg5kix2lta"]
+[gd_scene format=4 uid="uid://cb7dg5kix2lta"]
 
 [ext_resource type="ArrayMesh" uid="uid://bymf6ntosu3vi" path="res://assets/terrain_tilesets/building-office-small.obj" id="1_k6l21"]
 [ext_resource type="Texture2D" uid="uid://4b3kfwim1w8d" path="res://assets/terrain_tilesets/basetexture.jpg" id="2_dnnhs"]
@@ -58,6 +58,7 @@
 [ext_resource type="ArrayMesh" uid="uid://5geaoq717t66" path="res://assets/terrain_tilesets/water-beddng-concave.obj" id="56_j7qwo"]
 [ext_resource type="ArrayMesh" uid="uid://bl1bd3c3ifc4r" path="res://assets/terrain_tilesets/water-river-junction.obj" id="57_4s1hn"]
 [ext_resource type="ArrayMesh" uid="uid://bmwwv3nw7pbys" path="res://assets/terrain_tilesets/water.obj" id="58_xa3ls"]
+[ext_resource type="Texture2D" uid="uid://boa7mnjek0e8" path="res://assets/terrain_tilesets/border-texture.jpg" id="59_dnnhs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmdi7"]
 shading_mode = 0
@@ -66,9 +67,37 @@ albedo_texture = ExtResource("2_dnnhs")
 [sub_resource type="BoxShape3D" id="BoxShape3D_k6l21"]
 size = Vector3(7.9666443, 1.9955444, 7.981537)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfdk2"]
+resource_name = "basecolors.001"
+albedo_color = Color(0.8, 0.8, 0.8, 1)
+metallic = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ab2ug"]
+_surfaces = [{
+"aabb": AABB(-4.000001, 8.283056, -4.000001, 8.000001, 1e-05, 8),
+"attribute_data": PackedByteArray("Ni2KbzYtJR0kZIpvJGQlHf+l/xj/pf9j/93/GP/f/2M="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAAFAAYABgAFAAcA"),
+"material": SubResource("StandardMaterial3D_nfdk2"),
+"name": "basecolors",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/v8AAP//VNUAAAAA/v9U1f//AAAAAFTVAAAAAAAAVNX//wAAAACqKgAAAAAAAKoq/v8AAP//qioAAAAA/v+qKlTVqipU1aoqVNWqKlTVqiqqKlTVqipU1aoqVNWqKlTV")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irjqw"]
+transparency = 1
+depth_draw_mode = 2
+no_depth_test = true
+albedo_texture = ExtResource("59_dnnhs")
+
 [node name="Node3D" type="Node3D" unique_id=643552749]
 
 [node name="BuildingOfficeSmall" type="MeshInstance3D" parent="." unique_id=1521928154]
+visible = false
 mesh = ExtResource("1_k6l21")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -81,6 +110,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="CanalCornerHigh" type="MeshInstance3D" parent="." unique_id=328851799]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("3_ab2ug")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -93,6 +123,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="CanalCornerLow" type="MeshInstance3D" parent="." unique_id=1223368265]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("4_irjqw")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -105,6 +136,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="CanalHighWaterLow" type="MeshInstance3D" parent="." unique_id=1592555247]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("5_7ya0m")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -117,10 +149,12 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="CanalHillWaterLow" type="MeshInstance3D" parent="." unique_id=1802523940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("6_w804c")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CanalHillWaterLow" unique_id=1368504330]
+visible = false
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CanalHillWaterLow/StaticBody3D" unique_id=1197176304]
@@ -129,6 +163,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="CanalHill" type="MeshInstance3D" parent="." unique_id=41989057]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("7_o8d2v")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -141,6 +176,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="CanalRiverHigh" type="MeshInstance3D" parent="." unique_id=439270743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("8_n8emf")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -153,6 +189,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="CanalRiverLow" type="MeshInstance3D" parent="." unique_id=1649328427]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("9_ch675")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -165,6 +202,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="CanalStraightHigh" type="MeshInstance3D" parent="." unique_id=1591719241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("10_oo4b3")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -177,6 +215,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="CanalStraightLow" type="MeshInstance3D" parent="." unique_id=1088510532]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("11_v5rnl")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -189,6 +228,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="DirtLow" type="MeshInstance3D" parent="." unique_id=1246939853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("12_5lxyn")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -200,6 +240,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01020813, -0.01449585, 0.00
 shape = SubResource("BoxShape3D_k6l21")
 
 [node name="Grass" type="MeshInstance3D" parent="." unique_id=847184675]
+visible = false
 mesh = ExtResource("13_jrwuk")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -212,6 +253,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="HillCornerHigh" type="MeshInstance3D" parent="." unique_id=1480750442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("14_psxum")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -224,6 +266,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="HillCornerLow" type="MeshInstance3D" parent="." unique_id=1349685999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("15_ndq4f")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -236,6 +279,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="HillRamp" type="MeshInstance3D" parent="." unique_id=667319205]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("16_b634g")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -248,6 +292,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="LotBorder" type="MeshInstance3D" parent="." unique_id=453372424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("17_ll185")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -260,6 +305,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="LotCorner" type="MeshInstance3D" parent="." unique_id=1496819757]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("18_cs5y5")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -272,6 +318,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="LotExit" type="MeshInstance3D" parent="." unique_id=1342786140]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("19_ajh7g")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -284,6 +331,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="LotParking" type="MeshInstance3D" parent="." unique_id=1089013372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("20_fp6qw")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -296,6 +344,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="Lot" type="MeshInstance3D" parent="." unique_id=1845700656]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("21_gmt71")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -308,6 +357,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RiverCornerHigh" type="MeshInstance3D" parent="." unique_id=1325756357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("22_ihu74")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -320,6 +370,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RiverCornerLow" type="MeshInstance3D" parent="." unique_id=69419453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("23_puafi")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -332,6 +383,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RiverEndHigh" type="MeshInstance3D" parent="." unique_id=1539057656]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("24_62xo6")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -344,6 +396,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RiverEndLow" type="MeshInstance3D" parent="." unique_id=212848779]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("25_m1ghp")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -356,6 +409,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RiverHill" type="MeshInstance3D" parent="." unique_id=1343041024]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("26_0wu8q")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -368,6 +422,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RiverStraightHigh" type="MeshInstance3D" parent="." unique_id=643471943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("27_t3l70")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -380,6 +435,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RiverStraightLow" type="MeshInstance3D" parent="." unique_id=10878576]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("28_yks6c")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -392,6 +448,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadBridgeCanal" type="MeshInstance3D" parent="." unique_id=1473140396]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("29_vvg6f")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -404,6 +461,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadBridgeCoast" type="MeshInstance3D" parent="." unique_id=726446528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("30_bd6n6")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -416,6 +474,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadBridgeGrass" type="MeshInstance3D" parent="." unique_id=1552678088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("31_3aquj")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -428,6 +487,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadBridgeHill" type="MeshInstance3D" parent="." unique_id=2118269582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("32_ij64j")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -440,6 +500,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadBridgeRamp" type="MeshInstance3D" parent="." unique_id=153040863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("33_b2eqt")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -452,6 +513,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadBridgeRiver" type="MeshInstance3D" parent="." unique_id=1599338124]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("34_bbguw")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -464,6 +526,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadBridgeRoad" type="MeshInstance3D" parent="." unique_id=1401379736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("35_n7c8b")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -476,6 +539,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadBridgeWater" type="MeshInstance3D" parent="." unique_id=1153835065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("36_wyilv")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -488,6 +552,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadCornerHigh" type="MeshInstance3D" parent="." unique_id=1878273582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("37_uib53")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -500,6 +565,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadCornerLow" type="MeshInstance3D" parent="." unique_id=1578062079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("38_ldpav")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -512,6 +578,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadCrossingHigh" type="MeshInstance3D" parent="." unique_id=730077307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("39_2jvnu")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -524,6 +591,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadCrossingLow" type="MeshInstance3D" parent="." unique_id=381347150]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("40_3ydiv")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -536,6 +604,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadEndHigh" type="MeshInstance3D" parent="." unique_id=739484568]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("41_287lo")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -548,6 +617,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadEndLow" type="MeshInstance3D" parent="." unique_id=843443505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("42_ndagd")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -560,6 +630,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadHill" type="MeshInstance3D" parent="." unique_id=760149102]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("43_u27v1")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -572,6 +643,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadStraightHigh" type="MeshInstance3D" parent="." unique_id=784226583]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("44_k1ges")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -584,6 +656,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadStraightLow" type="MeshInstance3D" parent="." unique_id=2108745474]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("45_cm45g")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -596,6 +669,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadTjunctionHigh" type="MeshInstance3D" parent="." unique_id=2080246929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("46_48dee")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -608,6 +682,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadTjunctionLow" type="MeshInstance3D" parent="." unique_id=1438501831]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("47_4gucn")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -620,6 +695,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadTunnelEntry" type="MeshInstance3D" parent="." unique_id=605694723]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("48_j2y5i")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -632,6 +708,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RoadTunnelSegment" type="MeshInstance3D" parent="." unique_id=1446907138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("49_iow5i")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -644,6 +721,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="Sand" type="MeshInstance3D" parent="." unique_id=974403829]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("50_bvgi3")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -656,6 +734,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="WaterBeachConcave" type="MeshInstance3D" parent="." unique_id=1720379755]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("51_ljreu")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -668,6 +747,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="WaterBeachConvex" type="MeshInstance3D" parent="." unique_id=224166189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("52_wc85i")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -680,6 +760,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="WaterBeachStraight" type="MeshInstance3D" parent="." unique_id=501596886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("53_ekcm5")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -692,6 +773,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="WaterBeddingConvex" type="MeshInstance3D" parent="." unique_id=1503071385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("54_ewn7f")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -704,6 +786,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="WaterBeddingStraight" type="MeshInstance3D" parent="." unique_id=2062552959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("55_pj1o6")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -716,6 +799,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="WaterBeddngConcave" type="MeshInstance3D" parent="." unique_id=1609361663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("56_j7qwo")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -728,6 +812,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="WaterRiverJunction" type="MeshInstance3D" parent="." unique_id=1475482288]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002063036, -1.1920929e-07, -0.25744796)
+visible = false
 mesh = ExtResource("57_4s1hn")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 
@@ -749,3 +834,8 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Water/StaticBody3D" unique_id=950718732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01020813, -0.01449585, 0.00843811)
 shape = SubResource("BoxShape3D_k6l21")
+
+[node name="RedSquare" type="MeshInstance3D" parent="." unique_id=1123560751]
+layers = 8
+mesh = SubResource("ArrayMesh_ab2ug")
+surface_material_override/0 = SubResource("StandardMaterial3D_irjqw")
