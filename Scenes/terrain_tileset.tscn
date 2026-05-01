@@ -89,7 +89,10 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irjqw"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 3
 depth_draw_mode = 2
 no_depth_test = true
 albedo_texture = ExtResource("59_dnnhs")
@@ -836,6 +839,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01020813, -0.01449585, 0.00
 shape = SubResource("BoxShape3D_k6l21")
 
 [node name="RedSquare" type="MeshInstance3D" parent="." unique_id=1123560751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, -7.5, -0.25)
 layers = 8
 mesh = SubResource("ArrayMesh_ab2ug")
 surface_material_override/0 = SubResource("StandardMaterial3D_irjqw")
