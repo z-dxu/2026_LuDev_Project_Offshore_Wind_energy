@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="5_w7jjh"]
 [ext_resource type="PackedScene" uid="uid://bwa1rovu000sq" path="res://Scenes/OpeningDialogue.tscn" id="6_opening"]
 [ext_resource type="MeshLibrary" uid="uid://d4a614nnh7lqm" path="res://assets/mesh_lib/country-border.tres" id="9_4c2oa"]
+[ext_resource type="PackedScene" uid="uid://csq7kykyguixi" path="res://assets/terrain_tilesets/industry.glb" id="10_olcgw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myvm1"]
 transparency = 1
@@ -122,3 +123,6 @@ highlight = NodePath("../GridMap/Highlight")
 [node name="GUI" parent="." unique_id=1419050564 instance=ExtResource("4_myvm1")]
 
 [node name="OpeningDialogue" parent="." unique_id=4861704 instance=ExtResource("6_opening")]
+
+[node name="industry" parent="." unique_id=1907364119 instance=ExtResource("10_olcgw")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 437.02243, 27.806496, -80.81775)
