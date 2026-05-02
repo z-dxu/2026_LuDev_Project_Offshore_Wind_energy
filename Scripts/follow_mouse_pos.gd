@@ -14,6 +14,8 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if not GameController.allow_highlighter_move:
+		return
 	# TODO: need to add a check if the mouse is currently hovering over a tile
 	if event.is_action_pressed("E") and !get_child(0).visible:
 		position = get_global_mouse_position()

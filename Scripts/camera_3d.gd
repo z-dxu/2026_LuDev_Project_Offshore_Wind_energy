@@ -51,6 +51,8 @@ func _process(_delta: float) -> void:
 
 
 func _input(event):
+	if not GameController.allow_highlighter_move:
+		return
 	zoom(event)
 	camera_movement(event)
 

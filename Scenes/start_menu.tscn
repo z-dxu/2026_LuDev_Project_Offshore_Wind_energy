@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c2ouw0y45v3an"]
+
+[ext_resource type="Script" uid="uid://dfqbm241jod6k" path="res://Scenes/start_menu.gd" id="1_juhg0"]
+[ext_resource type="Texture2D" uid="uid://kdr2k21be6vq" path="res://assets/start_menu/main_menu_bg.png" id="2_lfskg"]
+[ext_resource type="Texture2D" uid="uid://bf0xchguadw5q" path="res://assets/start_menu/menu_buttons/start.png" id="3_lfskg"]
+[ext_resource type="Texture2D" uid="uid://lu6wxgywhh4w" path="res://assets/start_menu/menu_buttons/start_onhover.png" id="4_ru7em"]
+[ext_resource type="Texture2D" uid="uid://84b4xqjh83pf" path="res://assets/start_menu/menu_buttons/settings.png" id="5_77ila"]
+[ext_resource type="Texture2D" uid="uid://bux4rvgfdkp8q" path="res://assets/start_menu/menu_buttons/settings_onhover.png" id="6_00l4x"]
+[ext_resource type="Texture2D" uid="uid://bin7xxbxs6jrc" path="res://assets/start_menu/menu_buttons/exit.png" id="7_7vuks"]
+[ext_resource type="Texture2D" uid="uid://cp3w6my5p13oy" path="res://assets/start_menu/menu_buttons/exit_onhover.png" id="8_lfskg"]
+
+[node name="StartMenu" type="Control" unique_id=1034537012]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_juhg0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=691769228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lfskg")
+expand_mode = 1
+
+[node name="Start Game" type="TextureButton" parent="." unique_id=908814213]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 331.0
+offset_right = 403.0
+offset_bottom = 409.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture_normal = ExtResource("3_lfskg")
+texture_hover = ExtResource("4_ru7em")
+stretch_mode = 3
+
+[node name="Settings" type="TextureButton" parent="." unique_id=960121808]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 403.0
+offset_right = 547.0
+offset_bottom = 481.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture_normal = ExtResource("5_77ila")
+texture_hover = ExtResource("6_00l4x")
+
+[node name="Exit" type="TextureButton" parent="." unique_id=2085174298]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 475.0
+offset_right = 343.0
+offset_bottom = 551.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture_normal = ExtResource("7_7vuks")
+texture_hover = ExtResource("8_lfskg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=814572832]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -641.0
+offset_top = -29.0
+offset_right = -151.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[connection signal="pressed" from="Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

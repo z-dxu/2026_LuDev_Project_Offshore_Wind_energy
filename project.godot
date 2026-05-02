@@ -10,14 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Wind Turbine"
-run/main_scene="uid://byd1e1x7osb3n"
+config/name="ARCADIA"
+run/main_scene="uid://c2ouw0y45v3an"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameController="*uid://caekwn3p2mn2c"
+SceneTransition="*res://Scenes/scene_transition.tscn"
+GameController="*res://Scripts/GameController.gd"
 
 [editor_plugins]
 
@@ -52,5 +53,3 @@ E={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="mobile"
-renderer/rendering_method.mobile="gl_compatibility"
