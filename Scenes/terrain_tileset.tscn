@@ -841,5 +841,7 @@ shape = SubResource("BoxShape3D_k6l21")
 [node name="RedSquare" type="MeshInstance3D" parent="." unique_id=1123560751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, -7.5, -0.25)
 layers = 8
+cast_shadow = 0
+gi_mode = 0
 mesh = SubResource("ArrayMesh_ab2ug")
 surface_material_override/0 = SubResource("StandardMaterial3D_irjqw")
