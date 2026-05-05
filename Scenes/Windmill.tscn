@@ -136,4 +136,6 @@ transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599
 [node name="CoralReefSet30" parent="Windmill/CoralGroup" unique_id=1633334829 instance=ExtResource("6_itfdh")]
 transform = Transform3D(0.24834777, 0, -0.24168725, 0, 0.37130207, 0, 0.21323599, 0, 0.28148386, -0.67280936, -0.48526883, 0.718163)
 
+[connection signal="input_event" from="Windmill/Cylinder/StaticBody3D" to="." method="_on_static_body_3d_input_event"]
+
 [editable path="Windmill"]

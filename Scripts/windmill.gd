@@ -1,5 +1,7 @@
 extends Node3D
 
+signal selected(windmill: Node3D)
+
 @export var coral_enabled := false
 @export var spin_speed := 2.0
 @export var allowed_positions: Array[Vector3] = [
@@ -7,28 +9,49 @@ extends Node3D
 	Vector3(6, 0, 0),
 	Vector3(-6, 0, 4),
 ]
-@export var size_options: Array[float] = [0.3, 1.0, 2.0]
-@export var blade_colors: Array[Color] = [
-	Color.DARK_BLUE,
-	Color.DIM_GRAY,
-	Color.DARK_GREEN,
-]
 
 var spinning := true
+var blades_red := false
 var current_position_index := 0
-var current_size_index := 0
-var current_color_index := 0
 
 @onready var windmill := $Windmill
 @onready var blades := $Windmill/Cube_003
+@onready var coral_group := $Windmill/CoralGroup
 
 
 func _ready() -> void:
-	$Windmill/CoralGroup.visible = coral_enabled
+	set_coral_enabled(coral_enabled)
+	set_blades_red(blades_red)
 
 
 func _process(delta: float) -> void:
-	blades.rotation.x += spin_speed * -delta
+	if spinning:
+		blades.rotation.x += spin_speed * -delta
+
+
+func set_coral_enabled(enabled: bool) -> void:
+	coral_enabled = enabled
+	coral_group.visible = enabled
+
+
+func set_blades_red(enabled: bool) -> void:
+	blades_red = enabled
+
+	if blades is MeshInstance3D and blades.mesh:
+		if blades_red:
+			var material := StandardMaterial3D.new()
+			material.albedo_color = Color.RED
+			material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+
+			for i in range(blades.mesh.get_surface_count()):
+				blades.set_surface_override_material(i, material)
+		else:
+			for i in range(blades.mesh.get_surface_count()):
+				blades.set_surface_override_material(i, null)
+
+
+func toggle_blade_color() -> void:
+	set_blades_red(!blades_red)
 
 
 func next_position() -> void:
@@ -36,30 +59,12 @@ func next_position() -> void:
 	windmill.position = allowed_positions[current_position_index]
 
 
-func next_size() -> void:
-	current_size_index = (current_size_index + 1) % size_options.size()
-	windmill.scale = Vector3.ONE * size_options[current_size_index]
-
-
-func next_blade_color() -> void:
-	current_color_index = (current_color_index + 1) % blade_colors.size()
-
-	var material := StandardMaterial3D.new()
-	material.albedo_color = blade_colors[current_color_index]
-	#avoid lighting affecting the blade color temp
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	if blades is MeshInstance3D and blades.mesh:
-		for i in range(blades.mesh.get_surface_count()):
-			blades.set_surface_override_material(i, material)
-
-
 func _on_button_pressed() -> void:
 	next_position()
 
 
-func _on_button_2_pressed() -> void:
-	next_size()
-
-
-func _on_button_3_pressed() -> void:
-	next_blade_color()
+func _on_static_body_3d_input_event(
+	_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int
+) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		selected.emit(self)
