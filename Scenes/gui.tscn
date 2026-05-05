@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="4_8kag3"]
 [ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_3w84o"]
 [ext_resource type="Script" uid="uid://dyq03ifteki1v" path="res://Scripts/windmill_editor.gd" id="6_3w84o"]
+[ext_resource type="PackedScene" uid="uid://dgchistorysidebar" path="res://Scenes/dialogue_history_sidebar.tscn" id="7_sidebar"]
 
 [sub_resource type="GDScript" id="GDScript_80edf"]
 script/source = "extends Button
@@ -372,5 +373,34 @@ theme_override_fonts/font = ExtResource("5_3w84o")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bf1fa")
 text = "Close"
 
+[node name="TopLeftButtons" type="Control" parent="."]
+anchors_preset = 9
+anchor_left = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 12.0
+offset_top = 36.0
+offset_right = 100.0
+offset_bottom = 76.0
+mouse_filter = 1
+
+[node name="HistoryButton" type="Button" parent="TopLeftButtons"]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 20
+text = "🕐"
+
+[node name="SettingsButton" type="Button" parent="TopLeftButtons"]
+layout_mode = 0
+offset_left = 44.0
+offset_right = 80.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 20
+text = "⚙"
+
+[node name="DialogueHistorySidebar" parent="." instance=ExtResource("7_sidebar")]
+
 [connection signal="mouse_exited" from="follow mouse pos/Popup" to="follow mouse pos" method="_on_popup_mouse_exited"]
 [connection signal="pressed" from="Control/Ordering/Next Day" to="Top/HBoxContainer/Current Day" method="_on_next_day_pressed"]
+[connection signal="pressed" from="TopLeftButtons/HistoryButton" to="DialogueHistorySidebar" method="_toggle"]

@@ -139,6 +139,11 @@ func _start_dialogue(txt_script):
 			_apply_speaker_layout(line["speaker"])
 		show_character(line["speaker"])
 		_show_dialogue_text(text_bubble_label, line["text"])
+
+		# Append to global dialogue history
+		GameController.dialogue_history.append(line.duplicate())
+		GameController.dialogue_history_updated.emit()
+
 		await lmb_clicked
 
 	for child in find_children("*"):

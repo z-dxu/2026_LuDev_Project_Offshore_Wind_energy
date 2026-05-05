@@ -6,6 +6,10 @@ signal spawn_building(building_name: String)
 signal poi_button_pressed(hover: bool)
 signal get_poi_score(requester)
 
+# Dialogue history — populated by dialogue_controller.gd as player advances
+signal dialogue_history_updated
+var dialogue_history: Array[Dictionary] = []
+
 var allow_highlighter_move := true  #allows the highlighter to move around
 var poi_total_score: int = 0  # helper variable for leftSideBar
 # Gridmap.gd variables

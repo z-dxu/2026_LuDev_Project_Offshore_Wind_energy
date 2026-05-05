@@ -123,6 +123,10 @@ func _show_current_page() -> void:
 	else:
 		_show_system_page(page)
 
+	# Append to global dialogue history for the sidebar
+	GameController.dialogue_history.append(page.duplicate())
+	GameController.dialogue_history_updated.emit()
+
 
 func _show_system_page(page: Dictionary) -> void:
 	var accent = _get_accent("system")

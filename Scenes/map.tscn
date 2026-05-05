@@ -46,7 +46,7 @@ material = SubResource("StandardMaterial3D_6q3n4")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1183898382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 723.20386, -94.111084, 108.90155)
-mesh_library = ExtResource("1_26yhd")
+mesh_library = ExtResource("2_4c2oa")
 cell_size = Vector3(10, 2, 10)
 collision_layer = 2
 data = {
