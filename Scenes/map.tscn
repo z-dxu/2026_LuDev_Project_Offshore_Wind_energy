@@ -45,7 +45,8 @@ material = SubResource("StandardMaterial3D_6q3n4")
 [node name="Map" type="Node3D" unique_id=1081927198]
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1183898382]
-mesh_library = ExtResource("2_4c2oa")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 723.20386, -94.111084, 108.90155)
+mesh_library = ExtResource("1_26yhd")
 cell_size = Vector3(10, 2, 10)
 collision_layer = 2
 data = {
@@ -118,7 +119,7 @@ mesh = SubResource("SphereMesh_4c2oa")
 [node name="Highlight_folder" type="Node3D" parent="GridMap" unique_id=2036880758]
 
 [node name="Camera" parent="." unique_id=1413821494 node_paths=PackedStringArray("grid_map", "highlight") instance=ExtResource("2_26yhd")]
-transform = Transform3D(0.70710677, -0.5, 0.50000006, 0, 0.7071068, 0.70710677, -0.7071068, -0.49999997, 0.5, 313, 119.36841, -59.467834)
+transform = Transform3D(0.70710677, -0.5, 0.50000006, 0, 0.7071068, 0.70710677, -0.7071068, -0.49999997, 0.5, 905.35016, -15.221725, 36.85112)
 drag_speed = 0.2
 grid_map = NodePath("../GridMap")
 highlight = NodePath("../GridMap/Highlight")
