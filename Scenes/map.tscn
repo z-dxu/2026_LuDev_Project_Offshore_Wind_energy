@@ -2,10 +2,10 @@
 
 [ext_resource type="MeshLibrary" uid="uid://3xjnaquktfpl" path="res://assets/mesh_lib/terrain_mesh_lib.tres" id="2_4c2oa"]
 [ext_resource type="PackedScene" uid="uid://fow36ex2mg3r" path="res://Scenes/camera.tscn" id="2_26yhd"]
-[ext_resource type="Script" path="res://Scripts/grid_map.gd" id="2_q0mm3"]
-[ext_resource type="PackedScene" uid="uid://ekfat5m8yty" path="res://Scenes/Windmill.tscn" id="3_np2xp"]
+[ext_resource type="Script" uid="uid://b8jcaj36i82dx" path="res://Scripts/grid_map.gd" id="2_q0mm3"]
+[ext_resource type="PackedScene" uid="uid://bamgw5ehmecbd" path="res://Scenes/Windmill.tscn" id="3_np2xp"]
 [ext_resource type="Texture2D" uid="uid://dhwn4m4xgbftc" path="res://assets/Arcadia.png" id="3_p3ir5"]
-[ext_resource type="PackedScene" uid="uid://c4wgx27e1ghlp" path="res://Scenes/gui.tscn" id="4_myvm1"]
+[ext_resource type="PackedScene" uid="uid://d1sh2kun5mjg" path="res://Scenes/gui.tscn" id="4_myvm1"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="5_w7jjh"]
 [ext_resource type="PackedScene" uid="uid://bwa1rovu000sq" path="res://Scenes/OpeningDialogue.tscn" id="6_opening"]
 [ext_resource type="MeshLibrary" uid="uid://d4a614nnh7lqm" path="res://assets/mesh_lib/country-border.tres" id="9_4c2oa"]
@@ -46,7 +46,7 @@ material = SubResource("StandardMaterial3D_6q3n4")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1183898382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 723.20386, -94.111084, 108.90155)
-mesh_library = ExtResource("1_26yhd")
+mesh_library = ExtResource("2_4c2oa")
 cell_size = Vector3(10, 2, 10)
 collision_layer = 2
 data = {
