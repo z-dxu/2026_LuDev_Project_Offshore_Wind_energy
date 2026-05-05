@@ -3,7 +3,6 @@ extends Control
 const SIDEBAR_WIDTH := 320.0
 const SLIDE_DURATION := 0.3
 
-# Colors matching the dialogue system
 const ROLE_ACCENTS := {
 	"system": Color(0.35, 0.72, 1.0),
 	"coordinator": Color(0.56, 0.65, 0.74),
@@ -65,7 +64,7 @@ func _slide_out() -> void:
 
 
 func _on_history_updated() -> void:
-	# Append only the latest entry (incremental, avoids full rebuild)
+	# Append only the latest entry
 	var entry: Dictionary = GameController.dialogue_history.back()
 	_add_entry_row(entry)
 

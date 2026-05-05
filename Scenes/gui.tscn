@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_3w84o"]
 [ext_resource type="Script" uid="uid://dyq03ifteki1v" path="res://Scripts/windmill_editor.gd" id="6_3w84o"]
 [ext_resource type="PackedScene" uid="uid://dgchistorysidebar" path="res://Scenes/dialogue_history_sidebar.tscn" id="7_sidebar"]
+[ext_resource type="Texture2D" path="res://assets/settings_gear.png" id="8_gear"]
 
 [sub_resource type="GDScript" id="GDScript_80edf"]
 script/source = "extends Button
@@ -389,6 +390,7 @@ layout_mode = 0
 offset_right = 36.0
 offset_bottom = 36.0
 theme_override_font_sizes/font_size = 20
+flat = true
 text = "🕐"
 
 [node name="SettingsButton" type="Button" parent="TopLeftButtons"]
@@ -396,8 +398,9 @@ layout_mode = 0
 offset_left = 44.0
 offset_right = 80.0
 offset_bottom = 36.0
-theme_override_font_sizes/font_size = 20
-text = "⚙"
+flat = true
+icon = ExtResource("8_gear")
+icon_alignment = 1
 
 [node name="DialogueHistorySidebar" parent="." instance=ExtResource("7_sidebar")]
 
