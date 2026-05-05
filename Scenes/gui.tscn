@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dmgaid25ggus1" path="res://Scripts/follow_mouse_pos.gd" id="2_bm56d"]
 [ext_resource type="Script" uid="uid://ckn4iu2l3iwrc" path="res://Scripts/current_day.gd" id="2_q8o8l"]
-[ext_resource type="Script" uid="uid://p3s7jti0t3ck" path="res://Scripts/left_slide_bar.gd" id="3_n5m23"]
+[ext_resource type="Script" path="res://Scripts/left_slide_bar.gd" id="3_n5m23"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="4_8kag3"]
 [ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_3w84o"]
 [ext_resource type="Script" uid="uid://dyq03ifteki1v" path="res://Scripts/windmill_editor.gd" id="6_3w84o"]
-[ext_resource type="PackedScene" uid="uid://dgchistorysidebar" path="res://Scenes/dialogue_history_sidebar.tscn" id="7_sidebar"]
-[ext_resource type="Texture2D" path="res://assets/settings_gear.png" id="8_gear"]
+[ext_resource type="Texture2D" uid="uid://cabbenm8ihnn" path="res://assets/icons/convo_history_icon.png" id="7_bf1fa"]
+[ext_resource type="PackedScene" path="res://Scenes/dialogue_history_sidebar.tscn" id="7_sidebar"]
+[ext_resource type="Texture2D" uid="uid://dfthk1my22kfr" path="res://assets/icons/settings_icon.png" id="8_q52sk"]
 
 [sub_resource type="GDScript" id="GDScript_80edf"]
 script/source = "extends Button
@@ -374,35 +375,35 @@ theme_override_fonts/font = ExtResource("5_3w84o")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bf1fa")
 text = "Close"
 
-[node name="TopLeftButtons" type="Control" parent="."]
-anchors_preset = 9
-anchor_left = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="TopLeftButtons" type="Control" parent="." unique_id=1656443051]
+anchors_preset = 0
 offset_left = 12.0
 offset_top = 36.0
 offset_right = 100.0
 offset_bottom = 76.0
 mouse_filter = 1
 
-[node name="HistoryButton" type="Button" parent="TopLeftButtons"]
+[node name="HistoryButton" type="Button" parent="TopLeftButtons" unique_id=354887452]
 layout_mode = 0
-offset_right = 36.0
-offset_bottom = 36.0
-theme_override_font_sizes/font_size = 20
+offset_right = 40.0
+offset_bottom = 40.0
+icon = ExtResource("7_bf1fa")
 flat = true
-text = "🕐"
-
-[node name="SettingsButton" type="Button" parent="TopLeftButtons"]
-layout_mode = 0
-offset_left = 44.0
-offset_right = 80.0
-offset_bottom = 36.0
-flat = true
-icon = ExtResource("8_gear")
+expand_icon = true
 icon_alignment = 1
 
-[node name="DialogueHistorySidebar" parent="." instance=ExtResource("7_sidebar")]
+[node name="SettingsButton" type="Button" parent="TopLeftButtons" unique_id=596574786]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 88.0
+offset_bottom = 40.0
+icon = ExtResource("8_q52sk")
+flat = true
+expand_icon = true
+icon_alignment = 1
+
+[node name="DialogueHistorySidebar" parent="." unique_id=1025775619 instance=ExtResource("7_sidebar")]
+anchors_preset = 0
 
 [connection signal="mouse_exited" from="follow mouse pos/Popup" to="follow mouse pos" method="_on_popup_mouse_exited"]
 [connection signal="pressed" from="Control/Ordering/Next Day" to="Top/HBoxContainer/Current Day" method="_on_next_day_pressed"]
