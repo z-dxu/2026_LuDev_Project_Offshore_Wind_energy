@@ -2,13 +2,12 @@
 
 [ext_resource type="MeshLibrary" uid="uid://3xjnaquktfpl" path="res://assets/mesh_lib/terrain_mesh_lib.tres" id="2_4c2oa"]
 [ext_resource type="PackedScene" uid="uid://fow36ex2mg3r" path="res://Scenes/camera.tscn" id="2_26yhd"]
-[ext_resource type="Script" path="res://Scripts/grid_map.gd" id="2_q0mm3"]
-[ext_resource type="PackedScene" uid="uid://ekfat5m8yty" path="res://Scenes/Windmill.tscn" id="3_np2xp"]
+[ext_resource type="Script" uid="uid://b8jcaj36i82dx" path="res://Scripts/grid_map.gd" id="2_q0mm3"]
+[ext_resource type="PackedScene" uid="uid://bamgw5ehmecbd" path="res://Scenes/Windmill.tscn" id="3_np2xp"]
 [ext_resource type="Texture2D" uid="uid://dhwn4m4xgbftc" path="res://assets/Arcadia.png" id="3_p3ir5"]
-[ext_resource type="PackedScene" uid="uid://c4wgx27e1ghlp" path="res://Scenes/gui.tscn" id="4_myvm1"]
+[ext_resource type="PackedScene" uid="uid://d1sh2kun5mjg" path="res://Scenes/gui.tscn" id="4_myvm1"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="5_w7jjh"]
 [ext_resource type="PackedScene" uid="uid://bwa1rovu000sq" path="res://Scenes/OpeningDialogue.tscn" id="6_opening"]
-[ext_resource type="PackedScene" uid="uid://csq7kykyguixi" path="res://assets/terrain_tilesets/industry.glb" id="10_olcgw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myvm1"]
 transparency = 1
@@ -41,19 +40,39 @@ shading_mode = 0
 [sub_resource type="SphereMesh" id="SphereMesh_4c2oa"]
 material = SubResource("StandardMaterial3D_6q3n4")
 
-[sub_resource type="Curve3D" id="Curve3D_4c2oa"]
+[sub_resource type="Curve3D" id="Curve3D_dlo4w"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 22.265415, 5, -151.38376, 0, 0, 0, 0, 0, 0, 37.627, 5, -81.344, 0, 0, 0, 0, 0, 0, 54.098866, 5, -45.532566, 0, 0, 0, 0, 0, 0, 45.390465, 4.999996, -1.7664304, 0, 0, 0, 0, 0, 0, 15.967068, 5, 41.947563, 0, 0, 0, 0, 0, 0, 19.711159, 5.0000076, 111.03808, 0, 0, 0, 0, 0, 0, -10.983635, 5.000023, 154.026, 0, 0, 0, 0, 0, 0, -35.517704, 5.0000305, 140.19727),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6.221079, 0, 249.46744, 0, 0, 0, 0, 0, 0, 174.916, 0, 314.536, 0, 0, 0, 0, 0, 0, 357.75018, 0, 450.67868, 0, 0, 0, 0, 0, 0, 441.54358, 0, 510.2525, 0, 0, 0, 0, 0, 0, 582.4611, 0, 524.79285, 0, 0, 0, 0, 0, 0, 578.19507, 0, 14.263416),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 8
+point_count = 7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6lx1"]
+shading_mode = 0
+albedo_color = Color(1, 0.07450981, 0.11372549, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_4c2oa"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 22.265415, 5, -151.38376, 0, 0, 0, 0, 0, 0, 37.627, 5, -81.344, 0, 0, 0, 0, 0, 0, 54.098866, 5, -45.532566, 0, 0, 0, 0, 0, 0, 45.390465, 4.999996, -1.7664304, 0, 0, 0, 0, 0, 0, 15.967068, 5, 41.947563, 0, 0, 0, 0, 0, 0, 19.711159, 5.0000076, 111.03808, 0, 0, 0, 0, 0, 0, -10.983635, 5.000023, 154.026, 0, 0, 0, 0, 0, 0, -35.517704, 5.0000305, 140.19727, 0, 0, 0, 0, 0, 0, -28.737, 5, 10.562, 0, 0, 0, 0, 0, 0, -13.196844, 5.0000186, -61.330467, 0, 0, 0, 0, 0, 0, 16.11599, 13.289431, -79.50343),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
+
+[sub_resource type="Curve3D" id="Curve3D_5qtum"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 184.3058, 0, 8.346579, 0, 0, 0, 0, 0, 0, -768.012, 0, 8.37, 0, 0, 0, 0, 0, 0, -727.32117, 0, -363.89313, 0, 0, 0, 0, 0, 0, -531.197, 0, -612.0396, 0, 0, 0, 0, 0, 0, -326.84335, 0, -665.90765, 0, 0, 0, 0, 0, 0, -223.77261, 0, -673.8445),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
 
 [sub_resource type="Curve3D" id="Curve3D_olcgw"]
+closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.5344143, 0, -0.14095068, 0, 0, 0, 0, 0, 0, -13.8483925, 0, -32.19896, 0, 0, 0, 0, 0, 0, -31.82318, 0, -48.525955, 0, 0, 0, 0, 0, 0, -69.04013, 0, -66.901245, 0, 0, 0, 0, 0, 0, -73.54105, 0, -79.47585, 0, 0, 0, 0, 0, 0, -91.7688, 0, -67.94604, 0, 0, 0, 0, 0, 0, -107.47143, 0, -76.8183, 0, 0, 0, 0, 0, 0, -148.27313, 7.6293945e-06, -76.561905, 0, 0, 0, 0, 0, 0, -152.65259, 1.5258796e-05, -70.60878, 0, 0, 0, 0, 0, 0, -172.46803, 1.5561758e-05, -79.82848, 0, 0, 0, 0, 0, 0, -179.64694, -0.001884491, -94.2188, 0, 0, 0, 0, 0, 0, -241.25282, 0.032666955, -137.58403, 0, 0, 0, 0, 0, 0, -268.95612, 0.3268181, -200.58043, 0, 0, 0, 0, 0, 0, -248.51894, 1.2094165, -263.92212, 0, 0, 0, 0, 0, 0, -215.02994, 2.5615196, -307.10352, 0, 0, 0, 0, 0, 0, -196.74683, 3.699905, -329.77267),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.4279575, 0, 7.9732537, 0, 0, 0, 0, 0, 0, -13.8483925, 0, -32.19896, 0, 0, 0, 0, 0, 0, -31.82318, 0, -48.525955, 0, 0, 0, 0, 0, 0, -69.04013, 0, -66.901245, 0, 0, 0, 0, 0, 0, -73.54105, 0, -79.47585, 0, 0, 0, 0, 0, 0, -91.7688, 0, -67.94604, 0, 0, 0, 0, 0, 0, -107.47143, 0, -76.8183, 0, 0, 0, 0, 0, 0, -148.27313, 7.6293945e-06, -76.561905, 0, 0, 0, 0, 0, 0, -152.65259, 1.5258796e-05, -70.60878, 0, 0, 0, 0, 0, 0, -172.46803, 1.5561758e-05, -79.82848, 0, 0, 0, 0, 0, 0, -179.647, 0, -94.219, 0, 0, 0, 0, 0, 0, -241.25282, 0.032666955, -137.58403, 0, 0, 0, 0, 0, 0, -289.1334, 0.31136855, -181.87544, 0, 0, 0, 0, 0, 0, -275.20856, 0.1564823, -228.03825, 0, 0, 0, 0, 0, 0, -215.03, 0, -307.104, 0, 0, 0, 0, 0, 0, -196.747, 0, -329.773, 0, 0, 0, 0, 0, 0, -186.687, 0, -369.655, 0, 0, 0, 0, 0, 0, -41.707, 0, -380.158, 0, 0, 0, 0, 0, 0, 46.473785, -0.028520152, -481.08594, 0, 0, 0, 0, 0, 0, 184.94351, -0.027856901, -464.48596, 0, 0, 0, 0, 0, 0, 185.64722, 0.0029928775, 3.2938652),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 16
+point_count = 21
 
 [node name="Map" type="Node3D" unique_id=1081927198]
 
@@ -74,9 +93,6 @@ data = {
 script = ExtResource("2_q0mm3")
 windmill_scene = ExtResource("3_np2xp")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="industry" parent="GridMap" unique_id=1907364119 instance=ExtResource("10_olcgw")]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 437.022, 1, -92.318)
 
 [node name="Highlight" type="Node3D" parent="GridMap" unique_id=513811767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -284.91696, 26.063131, 24.123085)
@@ -164,7 +180,7 @@ text = "Ramsar
 Site"
 font_size = 16
 
-[node name="Ramsar Border" type="CSGPolygon3D" parent="GridMap/Country Borders" unique_id=401677065]
+[node name="Babylonia Border" type="CSGPolygon3D" parent="GridMap/Country Borders" unique_id=1964691281]
 cast_shadow = 0
 mode = 2
 path_node = NodePath("Path3D")
@@ -178,11 +194,48 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
+[node name="Path3D" type="Path3D" parent="GridMap/Country Borders/Babylonia Border" unique_id=1737171437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174, 2, -762)
+curve = SubResource("Curve3D_dlo4w")
+
+[node name="Ramsar Border" type="CSGPolygon3D" parent="GridMap/Country Borders" unique_id=401677065]
+cast_shadow = 0
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_q6lx1")
+
 [node name="Path3D" type="Path3D" parent="GridMap/Country Borders/Ramsar Border" unique_id=407530168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 curve = SubResource("Curve3D_4c2oa")
 
+[node name="Arcadia Border" type="CSGPolygon3D" parent="GridMap/Country Borders" unique_id=742628297]
+cast_shadow = 0
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D" type="Path3D" parent="GridMap/Country Borders/Arcadia Border" unique_id=1059642088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 570.152, 2, 230.729)
+curve = SubResource("Curve3D_5qtum")
+
 [node name="Melonia Border" type="CSGPolygon3D" parent="GridMap/Country Borders" unique_id=1402755158]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 cast_shadow = 0
 mode = 2
 path_node = NodePath("Path3D")
@@ -197,7 +250,7 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Path3D" type="Path3D" parent="GridMap/Country Borders/Melonia Border" unique_id=1044220003]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 570.1516, 5, 230.72894)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 570.152, 2, 230.729)
 curve = SubResource("Curve3D_olcgw")
 
 [node name="Camera" parent="." unique_id=1413821494 node_paths=PackedStringArray("grid_map", "highlight") instance=ExtResource("2_26yhd")]
