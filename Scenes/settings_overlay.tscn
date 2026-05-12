@@ -1,0 +1,267 @@
+[gd_scene format=3 uid="uid://s2dckxf1uujk"]
+
+[ext_resource type="FontFile" uid="uid://hba1s05qn7hc" path="res://assets/Fonts/Denk_One/DenkOne-Regular.ttf" id="1_font"]
+[ext_resource type="Script" uid="uid://lvcssif3d5yk" path="res://Scripts/settings_overlay.gd" id="2_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_panel"]
+content_margin_left = 28.0
+content_margin_top = 20.0
+content_margin_right = 28.0
+content_margin_bottom = 24.0
+bg_color = Color(0.025, 0.035, 0.06, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.72, 1, 0.55)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_close"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+bg_color = Color(0.45, 0.48, 0.52, 0.2)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_button"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.35, 0.72, 1, 0.15)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.72, 1, 0.4)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_button_hover"]
+bg_color = Color(0.35, 0.72, 1, 0.3)
+border_color = Color(0.35, 0.72, 1, 0.7)
+
+[node name="SettingsOverlay" type="Control" unique_id=1470413613]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_script")
+
+[node name="BackgroundDim" type="ColorRect" parent="." unique_id=161665052]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1414227344]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -260.0
+offset_right = 240.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBox_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=726776550]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="HeaderBar" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=133782413]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/HeaderBar" unique_id=1397846587]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78, 0.9, 1, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 22
+text = "SETTINGS"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer/HeaderBar" unique_id=1241106427]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.92, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBox_close")
+text = "X"
+
+[node name="AccentLine" type="ColorRect" parent="PanelContainer/VBoxContainer" unique_id=32132628]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.35, 0.72, 1, 0.6)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=569739206]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Content" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=402440460]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="DisplaySection" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content" unique_id=750752287]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SectionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/DisplaySection" unique_id=1136848634]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.72, 1, 0.8)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 13
+text = "DISPLAY"
+
+[node name="SectionLine" type="ColorRect" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/DisplaySection" unique_id=1262639462]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.35, 0.72, 1, 0.2)
+
+[node name="FullscreenRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/DisplaySection" unique_id=1504147806]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/DisplaySection/FullscreenRow" unique_id=729051438]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+text = "Fullscreen"
+vertical_alignment = 1
+
+[node name="FullscreenCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/DisplaySection/FullscreenRow" unique_id=644089423]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
+
+[node name="AudioSection" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content" unique_id=1916089188]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SectionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection" unique_id=1707859470]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.72, 1, 0.8)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 13
+text = "AUDIO"
+
+[node name="SectionLine" type="ColorRect" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection" unique_id=1036089817]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.35, 0.72, 1, 0.2)
+
+[node name="VolumeRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection" unique_id=1599627571]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection/VolumeRow" unique_id=2101385071]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+text = "Master"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection/VolumeRow" unique_id=1343967993]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+
+[node name="VolumeValue" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection/VolumeRow" unique_id=129528626]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.65, 0.72, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 13
+text = "0 dB"
+vertical_alignment = 1
+
+[node name="GameSection" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content" unique_id=396489513]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SectionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/GameSection" unique_id=712228]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.72, 1, 0.8)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 13
+text = "GAME"
+
+[node name="SectionLine" type="ColorRect" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/GameSection" unique_id=870030963]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.35, 0.72, 1, 0.2)
+
+[node name="ReturnButton" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/GameSection" unique_id=1078638056]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBox_button")
+theme_override_styles/hover = SubResource("StyleBox_button_hover")
+text = "Return to Main Menu"
+
+[node name="AboutSection" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content" unique_id=556378760]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SectionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection" unique_id=1979150013]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.72, 1, 0.8)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 13
+text = "ABOUT"
+
+[node name="SectionLine" type="ColorRect" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection" unique_id=1218809101]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.35, 0.72, 1, 0.2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection" unique_id=2021127449]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="VersionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection/VBoxContainer" unique_id=1772896356]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 15
+text = "ARCADIA v0.1.0"
+
+[node name="ClientLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection/VBoxContainer" unique_id=963204653]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.65, 0.72, 1)
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 12
+text = "Client: Prof. mr. dr. D.A. Dam-de Jong"
+
+[node name="TeamLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection/VBoxContainer" unique_id=1991210163]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.65, 0.72, 1)
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 12
+text = "Grotius Centre for International Legal Studies — Leiden University"
+autowrap_mode = 2

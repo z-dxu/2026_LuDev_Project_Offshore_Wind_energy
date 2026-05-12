@@ -18,14 +18,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run GDUnit4 Tests
-        uses: godot-gdunit-labs/gdUnit4-action@v1
+        uses: godot-gdunit-labs/gdUnit4-action@v1.3.1
         with:
           godot-version: '4.6'         
           godot-status: 'stable'           
           paths: 'res://tests' #directory where the tests are located
           #timeout for tests
           timeout: 10
-          version: 'latest'
+          version: 'v6.1.3'
+          retries: 3
+
       # - name: Upload Test Results
       #   uses: actions/upload-artifact@v4
       #   #always upload results even if tests fail so we can analyze the errors
