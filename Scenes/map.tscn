@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bwa1rovu000sq" path="res://Scenes/OpeningDialogue.tscn" id="6_opening"]
 [ext_resource type="MeshLibrary" uid="uid://d4a614nnh7lqm" path="res://assets/mesh_lib/country-border.tres" id="9_4c2oa"]
 [ext_resource type="PackedScene" uid="uid://csq7kykyguixi" path="res://assets/terrain_tilesets/industry.glb" id="10_olcgw"]
+[ext_resource type="PackedScene" uid="uid://glq111kngyc" path="res://Scenes/kalymera_nature.tscn" id="11_dlo4w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myvm1"]
 transparency = 1
@@ -126,3 +127,6 @@ highlight = NodePath("../GridMap/Highlight")
 [node name="GUI" parent="." unique_id=1419050564 instance=ExtResource("4_myvm1")]
 
 [node name="OpeningDialogue" parent="." unique_id=1813793275 instance=ExtResource("6_opening")]
+
+[node name="Kalymera_Nature" parent="." unique_id=1070883833 instance=ExtResource("11_dlo4w")]
+transform = Transform3D(0.31940037, 0, 0.01958014, 0, 0.31999996, 0, -0.01958014, 0, 0.31940037, 449.4418, 1.604187, -274.03876)
