@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://d1sh2kun5mjg"]
 
 [ext_resource type="Script" uid="uid://dmgaid25ggus1" path="res://Scripts/follow_mouse_pos.gd" id="2_bm56d"]
-[ext_resource type="Script" path="res://Scripts/current_day.gd" id="2_q8o8l"]
-[ext_resource type="Script" uid="uid://p3s7jti0t3ck" path="res://Scripts/left_slide_bar.gd" id="3_n5m23"]
+[ext_resource type="Script" uid="uid://ckn4iu2l3iwrc" path="res://Scripts/current_day.gd" id="2_q8o8l"]
+[ext_resource type="Script" path="res://Scripts/left_slide_bar.gd" id="3_n5m23"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="4_8kag3"]
 [ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_3w84o"]
+[ext_resource type="Script" uid="uid://dyq03ifteki1v" path="res://Scripts/windmill_editor.gd" id="6_3w84o"]
+[ext_resource type="PackedScene" uid="uid://dgchistorysidebar" path="res://Scenes/dialogue_history_sidebar.tscn" id="7_sidebar"]
+[ext_resource type="Texture2D" uid="uid://cabbenm8ihnn" path="res://assets/icons/convo_history_icon.png" id="7_bf1fa"]
+[ext_resource type="Texture2D" uid="uid://dfthk1my22kfr" path="res://assets/icons/settings_icon.png" id="8_q52sk"]
+[ext_resource type="Script" path="res://Scripts/gui.gd" id="9_gui"]
 
 [sub_resource type="GDScript" id="GDScript_80edf"]
 script/source = "extends Button
@@ -35,6 +40,51 @@ corner_radius_bottom_right = 30
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bf1fa"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnb2j"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Environment" id="Environment_3w84o"]
+background_mode = 1
+background_color = Color(0.3882353, 0.6745098, 0.7411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3w84o"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnd4w"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf1fa"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="GUI" type="Control" unique_id=1419050564]
 layout_mode = 3
 anchors_preset = 15
@@ -42,6 +92,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("9_gui")
 
 [node name="Top" type="Control" parent="." unique_id=693588554]
 layout_mode = 1
@@ -245,5 +296,118 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_3w84o")
 text = "1245a"
 
+[node name="WindmillEditor" type="Control" parent="." unique_id=1700772291]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("6_3w84o")
+right_margin = -35.0
+
+[node name="Panel" type="Panel" parent="WindmillEditor" unique_id=1678066401]
+layout_mode = 0
+offset_right = 265.0
+offset_bottom = 655.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xnb2j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindmillEditor/Panel" unique_id=1143496400]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -325.5
+offset_bottom = 325.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="WindmillEditor/Panel/VBoxContainer" unique_id=473692146]
+layout_mode = 2
+text = "Windmill Editor"
+horizontal_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="WindmillEditor/Panel/VBoxContainer" unique_id=2112730362]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SubViewport" type="SubViewport" parent="WindmillEditor/Panel/VBoxContainer/SubViewportContainer" unique_id=187976550]
+own_world_3d = true
+handle_input_locally = false
+size = Vector2i(253, 341)
+render_target_update_mode = 4
+
+[node name="PreviewRoot" type="Node3D" parent="WindmillEditor/Panel/VBoxContainer/SubViewportContainer/SubViewport" unique_id=1797943587]
+
+[node name="Camera3D" type="Camera3D" parent="WindmillEditor/Panel/VBoxContainer/SubViewportContainer/SubViewport/PreviewRoot" unique_id=295912422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8469887, 18.067085)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WindmillEditor/Panel/VBoxContainer/SubViewportContainer/SubViewport/PreviewRoot" unique_id=427595089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="WindmillEditor/Panel/VBoxContainer/SubViewportContainer/SubViewport/PreviewRoot" unique_id=1396420985]
+environment = SubResource("Environment_3w84o")
+
+[node name="PreviewAnchor" type="Node3D" parent="WindmillEditor/Panel/VBoxContainer/SubViewportContainer/SubViewport/PreviewRoot" unique_id=425075578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.012855411)
+
+[node name="CoralCheckbox" type="CheckBox" parent="WindmillEditor/Panel/VBoxContainer" unique_id=1137364505]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3w84o")
+text = "Install Coral Reefs"
+
+[node name="BladeColorButton" type="Button" parent="WindmillEditor/Panel/VBoxContainer" unique_id=1683100543]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3w84o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3w84o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gnd4w")
+text = "Change Blade Color"
+
+[node name="CloseButton" type="Button" parent="WindmillEditor/Panel/VBoxContainer" unique_id=461089208]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3w84o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bf1fa")
+text = "Close"
+
+[node name="TopLeftButtons" type="Control" parent="." unique_id=1656443051]
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 36.0
+offset_right = 100.0
+offset_bottom = 76.0
+mouse_filter = 1
+
+[node name="HistoryButton" type="Button" parent="TopLeftButtons" unique_id=354887452]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+icon = ExtResource("7_bf1fa")
+flat = true
+expand_icon = true
+icon_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="TopLeftButtons" unique_id=596574786]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 88.0
+offset_bottom = 40.0
+icon = ExtResource("8_q52sk")
+flat = true
+expand_icon = true
+icon_alignment = 1
+
+[node name="DialogueHistorySidebar" parent="." unique_id=1025775619 instance=ExtResource("7_sidebar")]
+anchors_preset = 0
+
 [connection signal="mouse_exited" from="follow mouse pos/Popup" to="follow mouse pos" method="_on_popup_mouse_exited"]
 [connection signal="pressed" from="Control/Ordering/Next Day" to="Top/HBoxContainer/Current Day" method="_on_next_day_pressed"]
+[connection signal="pressed" from="TopLeftButtons/HistoryButton" to="DialogueHistorySidebar" method="_toggle"]
+[connection signal="pressed" from="TopLeftButtons/SettingsButton" to="." method="_on_settings_pressed"]

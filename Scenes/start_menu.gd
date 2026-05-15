@@ -16,7 +16,8 @@ func _on_start_game_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	pass  # Replace with function body.
+	var overlay := preload("res://Scenes/settings_overlay.tscn").instantiate()
+	add_child(overlay)
 
 
 func _on_exit_pressed() -> void:

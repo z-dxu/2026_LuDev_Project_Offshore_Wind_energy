@@ -8,6 +8,11 @@ const ROLE_ACCENTS = {
 	"fisher_representative": Color(0.78, 0.58, 0.28),
 	"environmental_activist": Color(0.36, 0.65, 0.43),
 	"shipping_representative": Color(0.32, 0.44, 0.66),
+	"fishers_guild": Color(0.78, 0.58, 0.28),
+	"featherwings": Color(0.36, 0.65, 0.43),
+	"legal_advisor": Color(0.62, 0.66, 0.72),
+	"aquanautilus": Color(0.28, 0.60, 0.72),
+	"blue_arcadia": Color(0.30, 0.50, 0.78),
 }
 
 @export_file("*.json") var dialogue_path := "res://assets/Story/Opening.json"
@@ -122,6 +127,10 @@ func _show_current_page() -> void:
 		_show_character_page(page)
 	else:
 		_show_system_page(page)
+
+	# Append to global dialogue history for the sidebar
+	GameController.dialogue_history.append(page.duplicate())
+	GameController.dialogue_history_updated.emit()
 
 
 func _show_system_page(page: Dictionary) -> void:
