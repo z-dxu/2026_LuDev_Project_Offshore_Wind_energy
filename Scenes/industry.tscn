@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dydkc0o2ujtc2"]
+
+[ext_resource type="PackedScene" uid="uid://csq7kykyguixi" path="res://assets/terrain_tilesets/industry.glb" id="1_sbamv"]
+
+[node name="industry" unique_id=1907364119 instance=ExtResource("1_sbamv")]
