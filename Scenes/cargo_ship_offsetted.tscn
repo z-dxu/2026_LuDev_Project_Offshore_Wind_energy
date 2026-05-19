@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bmvm8od20tde2"]
+
+[ext_resource type="PackedScene" uid="uid://865665re88if" path="res://assets/harbor_assets/cargo_ship/cargo_ship.tscn" id="1_cfn6i"]
+
+[node name="Cargo_ship_offsetted" type="Node3D" unique_id=1577024735]
+
+[node name="cargo_ship" parent="." unique_id=718184434 instance=ExtResource("1_cfn6i")]
+transform = Transform3D(0.123, 0, 0, 0, 0.1, 0, 0, 0, 0.075, 4.2683, 0, -2.7)

@@ -6,8 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bamgw5ehmecbd" path="res://Scenes/Windmill.tscn" id="3_np2xp"]
 [ext_resource type="Texture2D" uid="uid://dhwn4m4xgbftc" path="res://assets/Arcadia.png" id="3_p3ir5"]
 [ext_resource type="PackedScene" uid="uid://d1sh2kun5mjg" path="res://Scenes/gui.tscn" id="4_myvm1"]
+[ext_resource type="PackedScene" uid="uid://bmvm8od20tde2" path="res://Scenes/cargo_ship_offsetted.tscn" id="5_5qtum"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="5_w7jjh"]
 [ext_resource type="PackedScene" uid="uid://bwa1rovu000sq" path="res://Scenes/OpeningDialogue.tscn" id="6_opening"]
+[ext_resource type="Script" uid="uid://cd1s3pw4qgvof" path="res://Scripts/harbor.gd" id="7_olcgw"]
+[ext_resource type="PackedScene" uid="uid://docamqda4t5eg" path="res://assets/harbor_assets/harbor_tile.tscn" id="9_4c2oa"]
+[ext_resource type="Script" uid="uid://mhldxp3a728q" path="res://Scripts/points_of_interests.gd" id="9_q6lx1"]
+[ext_resource type="Script" uid="uid://cvwvwmytwxak4" path="res://Scripts/windmil_logic.gd" id="10_5qtum"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myvm1"]
 transparency = 1
@@ -21,6 +26,7 @@ size = Vector2(500, 500)
 [sub_resource type="BoxMesh" id="BoxMesh_myvm1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0mm3"]
+render_priority = 1
 shading_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7jjh"]
@@ -92,7 +98,14 @@ data = {
 }
 script = ExtResource("2_q0mm3")
 windmill_scene = ExtResource("3_np2xp")
+harbor_scene = ExtResource("9_4c2oa")
+cargo_ship = ExtResource("5_5qtum")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="ArcadiaOverlay" type="MeshInstance3D" parent="GridMap" unique_id=1927263752]
+transform = Transform3D(2.025954, 0, 0, 0, 2.6518825e-07, 0.99999994, 0, -2.0222664, 1.3113414e-07, 256.875, 5, -260.86)
+material_override = SubResource("StandardMaterial3D_myvm1")
+mesh = SubResource("QuadMesh_q0mm3")
 
 [node name="Highlight" type="Node3D" parent="GridMap" unique_id=513811767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -284.91696, 26.063131, 24.123085)
@@ -129,13 +142,27 @@ mesh = SubResource("TextMesh_w7jjh")
 
 [node name="SdgTextMeshes" type="Node3D" parent="GridMap" unique_id=1961263975]
 
-[node name="POI_buttons_folder" type="Node3D" parent="GridMap" unique_id=1312083209]
+[node name="Points_of_interests" type="Node3D" parent="GridMap" unique_id=2054016391]
+script = ExtResource("9_q6lx1")
 
-[node name="POIMesh" type="MeshInstance3D" parent="GridMap/POI_buttons_folder" unique_id=1057376454]
+[node name="POI_buttons_folder" type="Node3D" parent="GridMap/Points_of_interests" unique_id=1312083209]
+
+[node name="POIMesh" type="MeshInstance3D" parent="GridMap/Points_of_interests/POI_buttons_folder" unique_id=1057376454]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 14.946568, 20.436672, 284.73486)
 mesh = SubResource("SphereMesh_4c2oa")
 
-[node name="Highlight_folder" type="Node3D" parent="GridMap" unique_id=2036880758]
+[node name="Highlight_folder" type="Node3D" parent="GridMap/Points_of_interests" unique_id=2036880758]
+
+[node name="Windmil_logic" type="Node3D" parent="GridMap" unique_id=1519325403]
+script = ExtResource("10_5qtum")
+
+[node name="Harbor" type="Node3D" parent="GridMap" unique_id=520204493]
+
+[node name="Harbor_pathing" type="Node" parent="GridMap/Harbor" unique_id=1522358277]
+script = ExtResource("7_olcgw")
+
+[node name="harbor_tile2" parent="GridMap/Harbor/Harbor_pathing" unique_id=2126789428 instance=ExtResource("9_4c2oa")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 74.75833, 4.5988617, 284.8319)
 
 [node name="Country Borders" type="Node3D" parent="GridMap" unique_id=1966298119]
 
@@ -261,4 +288,10 @@ highlight = NodePath("../GridMap/Highlight")
 
 [node name="GUI" parent="." unique_id=1419050564 instance=ExtResource("4_myvm1")]
 
-[node name="OpeningDialogue" parent="." unique_id=1813793275 instance=ExtResource("6_opening")]
+[node name="OpeningDialogue" parent="." unique_id=348558240 instance=ExtResource("6_opening")]
+
+[node name="Cargo_ship_offsetted" parent="." unique_id=1577024735 instance=ExtResource("5_5qtum")]
+transform = Transform3D(-0.6691305, 0, -0.74314487, 0, 1, 0, 0.74314487, 0, -0.6691305, -25.737013, 20.1929, 284.9525)
+
+[editable path="Cargo_ship_offsetted"]
+[editable path="Cargo_ship_offsetted/cargo_ship"]

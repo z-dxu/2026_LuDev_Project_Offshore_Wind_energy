@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b2r8yui47p804"]
+
+[ext_resource type="Texture2D" uid="uid://tu4jux28pq1h" path="res://assets/harbor_assets/harbor_tile_container_Base_Color.png" id="1_nf81k"]
+
+[resource]
+resource_name = "container1"
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_nf81k")

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bqmxh1alt8rk5"]
+
+[resource]
+resource_name = "k1.003"
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.26703614, 0.46469438, 0.76078445, 1)

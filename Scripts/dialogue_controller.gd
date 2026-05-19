@@ -19,7 +19,6 @@ const ROLE_ACCENTS = {
 @export_dir var portrait_folder := "res://assets/Story/portraits"
 @export var close_on_finish := true
 @export var block_gameplay_input := true
-
 var dialogue_pages := []
 var current_index := 0
 var previous_highlighter_move := true

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://docamqda4t5eg"]
+
+[ext_resource type="PackedScene" uid="uid://dblfhpag08a05" path="res://assets/harbor_assets/harbor_tile.glb" id="1_atruc"]
+[ext_resource type="ArrayMesh" uid="uid://bqcypygb8ojy5" path="res://assets/harbor_assets/harbor.res" id="2_pw8m7"]
+
+[node name="harbor_tile" unique_id=2126789428 instance=ExtResource("1_atruc")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Building" parent="." index="0" unique_id=658103926]
+transform = Transform3D(-3.3495076e-07, -5.2424534e-15, -1.3718777, -6.699015e-07, 1.3718777, 0, -7.66278, -1.1993336e-07, 5.996668e-08, 20.444944, 4.948509, -32.03442)
+mesh = ExtResource("2_pw8m7")
