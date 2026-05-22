@@ -148,6 +148,14 @@ offset_right = 134.0
 offset_bottom = 55.0
 text = "Windmill"
 
+[node name="harbor" type="Button" parent="follow mouse pos/Popup" unique_id=947697985]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 62.0
+offset_right = 134.0
+offset_bottom = 86.0
+text = "Harbor"
+
 [node name="Control" type="Control" parent="." unique_id=393404647]
 layout_mode = 1
 anchors_preset = 12

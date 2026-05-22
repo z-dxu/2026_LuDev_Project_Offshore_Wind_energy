@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dh7l5hwkwb583"]
+
+[ext_resource type="Texture2D" uid="uid://ev65txcigng8" path="res://assets/harbor_assets/harbor_tile_truck_Base_Color.png" id="1_0t8ok"]
+
+[resource]
+resource_name = "Material.017"
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_0t8ok")

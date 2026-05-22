@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://55nd2f736y13"]
+
+[ext_resource type="Texture2D" uid="uid://0qtnbxbhckot" path="res://assets/harbor_assets/cargo_ship/cargo_ship_container3_Base_Color.png" id="1_i6vwx"]
+
+[resource]
+resource_name = "container3"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_i6vwx")

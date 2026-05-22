@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://865665re88if"]
+
+[ext_resource type="PackedScene" uid="uid://wph47qtqu0wc" path="res://assets/harbor_assets/cargo_ship/cargo_ship.glb" id="1_pdet7"]
+
+[node name="cargo_ship" unique_id=718184434 instance=ExtResource("1_pdet7")]
+transform = Transform3D(0.123, 0, 0, 0, 0.1, 0, 0, 0, 0.075, 0, 0, 0)

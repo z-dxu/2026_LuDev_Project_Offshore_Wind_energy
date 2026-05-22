@@ -1,6 +1,6 @@
 extends Node
 #signal that every script can read cuz this is a global script set by me -zdxu
-signal spawn_building(building_name: String)
+signal spawn_building(data: BuildingData)
 # caller: camera3d.
 # Listener: LeftSideBar,Gridmap
 signal poi_button_pressed(hover: bool)
@@ -21,6 +21,7 @@ var food_pos = [
 ]
 
 var poi_positions = [Vector3i(23, 0, -16)]
+var harbor_pos = []
 var sdg_data = {}
 # Vector3i -> {
 #	"sdg_name" -> {"score": 0}

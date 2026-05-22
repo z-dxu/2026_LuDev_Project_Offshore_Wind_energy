@@ -39,6 +39,9 @@ func _on_popup_mouse_exited() -> void:
 
 
 func _on_building_button_press(button: Button):
-	GameController.spawn_building.emit(str(button.name))  # for now send the button name
+	var data = BuildingData.new()
+	data.building_name = str(button.name)
+	GameController.spawn_building.emit(data)  # for now send the button name
 	get_child(0).visible = false
+	print("button pressed " + str(data.building_name))
 	GameController.allow_highlighter_move = true
