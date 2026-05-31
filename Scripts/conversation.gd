@@ -1,49 +1,37 @@
+class_name Conversation
 extends Control
 
 signal lmb_clicked
 signal dialogue_finished
+signal option_chosen(option_index: int)
 
-const SPEAKER_BAR_TOP := 382.0
-const SPEAKER_BAR_WIDTH := 320.0
-const SPEAKER_BAR_HEIGHT := 42.0
-const SPEAKER_LABEL_TOP_PADDING := 9.0
-const SPEAKER_LABEL_SIDE_PADDING := 16.0
-const SPEAKER_LABEL_HEIGHT := 26.0
-const SPEAKER_BAR_LEFT_X := 232.0
-const SPEAKER_BAR_CENTER_X := 416.0
-const SPEAKER_BAR_RIGHT_X := 600.0
+const SYSTEM_SPEAKER := "System"
 
-const PORTRAIT_TOP := 416.0
-const PORTRAIT_SIZE := 104.0
-const PORTRAIT_LEFT_X := 104.0
-const PORTRAIT_RIGHT_X := 944.0
-
-@export_file("*.json") var dialogue_path := "res://assets/Story/Example.json"
+@export_file("*.json") var dialogue_path := "res://assets/Story/Opening.json"
 @export_file("*.tscn") var next_scene_path := ""
 @export var start_on_ready := false
 @export var close_on_finish := false
 @export var block_gameplay_input := false
-@export var center_speakers: Array[String] = ["System"]
-@export var left_speakers: Array[String] = ["Coordinator"]
 @export_dir var portrait_folder := "res://assets/Story/portraits"
 
 var dialogue_json
 var tween
-var ui_bg = []
-var ui_label = []
-var multi_speaker_mode = false
 var previous_highlighter_move := true
+var _choice_skip_to := -1
+var _choice_branch_end := -1
+var _choice_active := false
+var _choice_buttons: Array[TextureButton] = []
 
-@onready var p_1_label: Label = $Person1_layer/P1_label
-@onready var p_2_label: Label = $Person2_layer/P2_label
-@onready var text_bubble_label: Label = $text_bubble/text_bubble_label
-@onready var person_2: PanelContainer = $Person2_layer/Person2
-@onready var person_1: PanelContainer = $Person1_layer/Person1
-@onready var p_1_pic: TextureRect = $Person1_layer/P1_pic
-@onready var p_2_pic: TextureRect = $Person2_layer/P2_pic
+@onready var background: NinePatchRect = $DialoguePanel/Background
+@onready var panel_dim: ColorRect = $DialoguePanel/Dim
+@onready var speaker_name_label: Label = $DialoguePanel/Background/SpeakerName
+#@onready var name_frame: TextureRect = $DialoguePanel/NameFrame
+@onready var portrait_container: Control = $DialoguePanel/Background/PortraitContainer
+@onready var portrait_pic: TextureRect = $DialoguePanel/Background/PortraitContainer/Portrait
+@onready var dialogue_text: RichTextLabel = $DialoguePanel/Background/DialogueText
+@onready var choice_container: VBoxContainer = $DialoguePanel/Background/ChoiceContainer
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	if block_gameplay_input:
@@ -51,18 +39,16 @@ func _ready() -> void:
 		GameController.allow_highlighter_move = false
 
 	dialogue_json = _load_dialogue_json(dialogue_path)
-	for child in find_children("*"):
-		if child is CanvasLayer:
-			continue
-		child.visible = false
-		if child is PanelContainer:
-			ui_bg.append(child)
-		if child is Label:
-			child.text = ""
-			child.visible = false
-			ui_label.append(child)
-		if child is TextureRect:
-			child.visible = false
+
+	# Wire up the pre-designed choice buttons
+	_ready_choice_buttons()
+
+	# Apply the portrait mask shader with profile_place.png as the mask
+	var mat: ShaderMaterial = portrait_pic.material as ShaderMaterial
+	if mat:
+		var mask_tex := load("res://assets/dialogue_ui/profile_place.png") as Texture2D
+		if mask_tex:
+			mat.set_shader_parameter("mask_texture", mask_tex)
 
 	if dialogue_json == null or dialogue_json.is_empty():
 		push_error("Dialogue file is empty or invalid: " + dialogue_path)
@@ -76,9 +62,6 @@ func _ready() -> void:
 
 
 func _input(event) -> void:
-	if event is InputEventMouseButton or event is InputEventMouseMotion or event is InputEventKey:
-		get_viewport().set_input_as_handled()
-
 	var advance_pressed = (
 		(
 			event is InputEventMouseButton
@@ -93,7 +76,8 @@ func _input(event) -> void:
 		)
 	)
 
-	if advance_pressed:
+	if advance_pressed and not _choice_active:
+		get_viewport().set_input_as_handled()
 		lmb_clicked.emit()
 
 
@@ -108,48 +92,62 @@ func _load_dialogue_json(path):
 
 
 func _start_dialogue(txt_script):
-	var speakers = _get_unique_speakers(txt_script)
-	multi_speaker_mode = speakers.size() > 2
+	# Show the dialogue panel background elements
+	panel_dim.visible = false
+	background.visible = true
+	portrait_container.visible = true
+	portrait_pic.visible = true
+	speaker_name_label.visible = true
+	choice_container.visible = false
 
-	if multi_speaker_mode:
-		person_2.visible = false
-		p_2_label.visible = false
-		p_2_pic.visible = false
-		p_1_label.text = txt_script[0]["speaker"]
-		_apply_speaker_layout(txt_script[0]["speaker"])
+	# Main dialogue loop — while loop allows index jumping for choices
+	_choice_skip_to = -1
+	_choice_branch_end = -1
+	var idx := 0
 
-	for child in ui_bg:
-		if multi_speaker_mode and child == person_2:
+	while idx < txt_script.size():
+		var entry = txt_script[idx]
+
+		# Branch jumping: if we've passed the chosen option's branch end, jump to merge point
+		if _choice_skip_to >= 0 and idx > _choice_branch_end:
+			if _choice_skip_to > _choice_branch_end:
+				idx = _choice_skip_to
+			else:
+				idx = _choice_branch_end + 1
+			_choice_skip_to = -1
+			_choice_branch_end = -1
 			continue
-		pop_effect(child)
-	for child in ui_label:
-		if multi_speaker_mode and child == p_2_label:
+
+		var entry_type = entry.get("type", "character")
+
+		if entry_type == "choice":
+			_choice_active = true
+			var chosen_idx = await _show_choice_page(entry)
+			var chosen = entry["options"][chosen_idx]
+			_choice_skip_to = chosen["skip_to"]
+			_choice_branch_end = chosen["branch_end"]
+			_hide_choice_page()
+			_choice_active = false
+			idx += 1
 			continue
-		child.visible = true
 
-	if not multi_speaker_mode:
-		p_1_label.text = speakers[0]
-		p_2_label.text = speakers[1] if speakers.size() > 1 else ""
-		pop_effect(p_1_pic)
-		pop_effect(p_2_pic)
-
-	for line in txt_script:
-		if multi_speaker_mode:
-			p_1_label.text = line["speaker"]
-			_apply_speaker_layout(line["speaker"])
-		show_character(line["speaker"])
-		_show_dialogue_text(text_bubble_label, line["text"])
+		# Render character or system entry
+		_update_speaker_display(entry)
+		_show_dialogue_text(entry.get("text", ""))
 
 		# Append to global dialogue history
-		GameController.dialogue_history.append(line.duplicate())
+		GameController.dialogue_history.append(entry.duplicate())
 		GameController.dialogue_history_updated.emit()
 
 		await lmb_clicked
+		idx += 1
 
-	for child in find_children("*"):
-		if child is CanvasLayer:
-			continue
-		child.visible = false
+	# Cleanup
+	background.visible = false
+	portrait_container.visible = false
+	portrait_pic.visible = false
+	speaker_name_label.visible = false
+	choice_container.visible = false
 	if block_gameplay_input:
 		GameController.allow_highlighter_move = previous_highlighter_move
 	dialogue_finished.emit()
@@ -159,113 +157,115 @@ func _start_dialogue(txt_script):
 		queue_free()
 
 
-func _get_unique_speakers(txt_script):
-	var speakers = []
-	for line in txt_script:
-		var speaker = line.get("speaker", "")
-		if speaker != "" and not speakers.has(speaker):
-			speakers.append(speaker)
-	return speakers
+func _update_speaker_display(entry: Dictionary) -> void:
+	var speaker_name = entry.get("speaker_name", entry.get("speaker", SYSTEM_SPEAKER))
+	var speaker_id = entry.get("speaker_id", "")
+	var is_system = entry.get("type", "character") == "system"
+	speaker_name_label.text = speaker_name
+
+	if is_system:
+		portrait_pic.texture = null
+		portrait_pic.visible = false
+		return
+
+	var texture = _load_portrait(speaker_name, speaker_id)
+	portrait_pic.texture = texture
+	portrait_pic.visible = texture != null
 
 
-func _apply_speaker_layout(speaker_name: String):
-	var bar_x = SPEAKER_BAR_RIGHT_X
-	var portrait_x = PORTRAIT_RIGHT_X
-	if center_speakers.has(speaker_name):
-		bar_x = SPEAKER_BAR_CENTER_X
-		portrait_x = SPEAKER_BAR_CENTER_X - PORTRAIT_SIZE - 16.0
-	elif left_speakers.has(speaker_name):
-		bar_x = SPEAKER_BAR_LEFT_X
-		portrait_x = PORTRAIT_LEFT_X
+func _load_portrait(speaker_name: String, speaker_id: String) -> Texture2D:
+	var candidates: Array[String] = []
 
-	person_1.offset_left = bar_x
-	person_1.offset_top = SPEAKER_BAR_TOP
-	person_1.offset_right = bar_x + SPEAKER_BAR_WIDTH
-	person_1.offset_bottom = SPEAKER_BAR_TOP + SPEAKER_BAR_HEIGHT
+	var name_file := _speaker_to_file_name(speaker_name)
+	if name_file != "":
+		candidates.append(name_file)
+		candidates.append(name_file + "_1")
+		candidates.append(name_file + "_2")
 
-	p_1_label.offset_left = bar_x + SPEAKER_LABEL_SIDE_PADDING
-	p_1_label.offset_top = SPEAKER_BAR_TOP + SPEAKER_LABEL_TOP_PADDING
-	p_1_label.offset_right = bar_x + SPEAKER_BAR_WIDTH - SPEAKER_LABEL_SIDE_PADDING
-	p_1_label.offset_bottom = SPEAKER_BAR_TOP + SPEAKER_LABEL_TOP_PADDING + SPEAKER_LABEL_HEIGHT
+	if speaker_id != "" and speaker_id != name_file:
+		candidates.append(speaker_id)
+		candidates.append(speaker_id + "_1")
+		candidates.append(speaker_id + "_2")
 
-	p_1_pic.offset_left = portrait_x
-	p_1_pic.offset_top = PORTRAIT_TOP
-	p_1_pic.offset_right = portrait_x + PORTRAIT_SIZE
-	p_1_pic.offset_bottom = PORTRAIT_TOP + PORTRAIT_SIZE
-	p_1_pic.texture = _load_speaker_portrait(speaker_name)
-	p_1_pic.visible = p_1_pic.texture != null
+	for candidate in candidates:
+		var portrait_path = portrait_folder.path_join(candidate + ".png")
+		if ResourceLoader.exists(portrait_path):
+			return load(portrait_path)
 
-
-func _load_speaker_portrait(speaker_name: String):
-	var portrait_path = portrait_folder.path_join(_speaker_to_file_name(speaker_name) + ".png")
-	if ResourceLoader.exists(portrait_path):
-		return load(portrait_path)
 	return null
 
 
-func _speaker_to_file_name(speaker_name: String):
+func _get_entry_speaker(entry: Dictionary) -> String:
+	if entry.get("type", "character") == "system":
+		return SYSTEM_SPEAKER
+	return entry.get("speaker_name", entry.get("speaker", ""))
+
+
+func _speaker_to_file_name(speaker_name: String) -> String:
 	return speaker_name.to_lower().replace(" ", "_").replace("-", "_")
 
 
-func show_character(speaker_name: String):
-	if multi_speaker_mode:
-		person_1.self_modulate.a = 1
-		return
-	if p_1_label.text == speaker_name:
-		print("plyer 1 speakign")
-		p_1_pic.self_modulate.a = 1
-		person_1.self_modulate.a = 1
-		p_2_pic.self_modulate.a = 0.5
-		person_2.self_modulate.a = 0.5
-	elif p_2_label.text == speaker_name:
-		print("plyer 2 speakign")
-		person_2.self_modulate.a = 1
-		p_2_pic.self_modulate.a = 1
-		p_1_pic.self_modulate.a = 0.5
-		person_1.self_modulate.a = 0.5
-	else:
-		print("No speaker found")
+# ── Inline choice UI (uses pre-designed scene buttons, not dynamic creation) ──
 
 
-func _show_dialogue_text(txt_label: Label, text: String):
-	txt_label.text = ""  #prev txt not seen
-	txt_label.visible = true
-	txt_label.visible_ratio = 1
-	txt_label.text = text
+func _ready_choice_buttons() -> void:
+	for idx in range(3):
+		var btn_name := "ChoiceButton" if idx == 0 else "ChoiceButton%d" % (idx + 1)
+		var btn: TextureButton = choice_container.get_node_or_null(btn_name) as TextureButton
+		if btn:
+			btn.visible = false
+			btn.pressed.connect(_on_option_pressed.bind(idx))
+			_choice_buttons.append(btn)
 
 
-func pop_effect(object):  # open pop effect
-	object.visible = true
-	object.pivot_offset = Vector2(size.x / 2, size.y / 2)
-	object.scale = Vector2(0.01, 0.01)
-	tween = create_tween()
-	(
-		tween
-		. tween_property(object, "scale", Vector2(1.05, 1.05), 0.15)
-		. set_trans(Tween.TRANS_BACK)
-		. set_ease(Tween.EASE_OUT)
-	)  # pop effect
-	tween.tween_property(object, "scale", Vector2(1, 1), 0.15).set_trans(Tween.TRANS_BACK).set_ease(
-		Tween.EASE_IN
-	)
-	await tween.finished
+func _show_choice_page(entry: Dictionary) -> int:
+	dialogue_text.visible = false
+	choice_container.visible = true
+
+	# Show the choice prompt in the dialogue text area
+	_show_dialogue_text(entry.get("text", "Please choose:"))
+	dialogue_text.visible = true
+
+	var options_arr = entry.get("options", [])
+	for idx in _choice_buttons.size():
+		var btn := _choice_buttons[idx]
+		if idx < options_arr.size():
+			btn.visible = true
+			var label: Label = btn.get_node_or_null("ChoiceText") as Label
+			if label:
+				label.text = options_arr[idx].get("label", "")
+		else:
+			btn.visible = false
+
+	var result = await option_chosen
+	return result
 
 
-func close_pop_effect(object):  # close the object / clear the object
-	object.visible = true
-	object.pivot_offset = Vector2(size.x / 2, size.y / 2)
-	object.scale = Vector2(0.01, 0.01)
-	tween = create_tween()
-	(
-		tween
-		. tween_property(object, "scale", Vector2(1.2, 1.2), 0.15)
-		. set_trans(Tween.TRANS_BACK)
-		. set_ease(Tween.EASE_OUT)
-	)  # pop effect
-	(
-		tween
-		. tween_property(object, "scale", Vector2(0.1, 0.1), 0.15)
-		. set_trans(Tween.TRANS_BACK)
-		. set_ease(Tween.EASE_IN)
-	)
-	await tween.finished
+func _hide_choice_page() -> void:
+	choice_container.visible = false
+	for btn in _choice_buttons:
+		btn.visible = false
+	dialogue_text.visible = true
+
+
+func _on_option_pressed(opt_idx: int) -> void:
+	print("Option pressed: ", opt_idx)
+	option_chosen.emit(opt_idx)
+
+
+func _show_dialogue_text(text: String):
+	dialogue_text.text = ""
+	dialogue_text.visible = true
+	dialogue_text.text = text
+
+
+# ── Static helper: instantiate a conversation at any POI ──
+
+
+static func play_dialogue(parent: Node, path: String) -> void:
+	var scene: Control = load("res://Scenes/Conversation.tscn").instantiate()
+	scene.dialogue_path = path
+	scene.start_on_ready = true
+	scene.close_on_finish = true
+	scene.block_gameplay_input = true
+	parent.add_child(scene)

@@ -1,0 +1,186 @@
+[
+	{
+		"type": "system",
+		"title": "Point of Interest: Wind Turbine Cluster (SDGs 1, 2, 8, 14)",
+		"text": "The wind turbine cluster affects fishing livelihoods and marine biodiversity. Two key issues must be addressed."
+	},
+	{
+		"type": "system",
+		"title": "Issue A: Fishing Grounds",
+		"text": "Phase 1 — Exploration: Hear from the Fishers Guild, Legal Advisor, and AquaNautilus."
+	},
+	{
+		"type": "character",
+		"speaker_id": "fishers_guild",
+		"speaker_name": "Fishers Guild",
+		"text": "Fishing is deeply tied to the cultural identity and livelihood of Arcadian fishermen. Given our dependence on conventional fishing techniques (bottom-trawling) and limited economic alternatives, we are particularly vulnerable to the disruption caused by the wind park, as its underwater structures make fishing grounds unsuitable for bottom trawling."
+	},
+	{
+		"type": "character",
+		"speaker_id": "fishers_guild",
+		"speaker_name": "Fishers Guild",
+		"text": "Other suitable fishing grounds are too far removed from the coast and we do not have the means to adjust our fishing techniques to make them suitable for fishing in and around the site of the wind park. The project thus negatively impacts SDGs 1,2 and 8 and it violates our cultural rights and our rights to work and to an adequate standard of living."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "The rights to work and an adequate standard of living entail best efforts obligations."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "Nonetheless, the measures will make the fishers worse off and international human rights law formulates a strong presumption against regression. As for their cultural rights, it is debatable whether the use of specific fishing techniques is an intrinsic part of their culture."
+	},
+	{
+		"type": "character",
+		"speaker_id": "aquanautilus",
+		"speaker_name": "AquaNautilus",
+		"text": "We are concerned about the underwater noise and vibrations caused by the construction and operation of the wind parks."
+	},
+	{
+		"type": "character",
+		"speaker_id": "aquanautilus",
+		"speaker_name": "AquaNautilus",
+		"text": "This may affect the communication, navigation and feeding of marine mammals and fish and may even lead to habitat displacement. Without mitigating measures, the project will negatively impact SDG 14 and Arcadia will breach its environmental obligations under the UNCLOS."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "Arcadia has an obligation to prevent, reduce and control pollution under Art. 194 UNCLOS. A key question is whether underwater noise falls under the definition of pollution under Article 1(1)(4) UNCLOS. If so, Art. 194 UNCLOS requires Arcadia to take measures to prevent, reduce and control the noise and vibrations, using the best practicable means at their disposal."
+	},
+	{
+		"type": "system",
+		"title": "Issue A: Phase 2 — Intervention",
+		"text": "Two options are available regarding the fishing grounds."
+	},
+	{
+		"type": "choice",
+		"speaker_id": "coordinator",
+		"speaker_name": "Coordinator",
+		"text": "How would you like to \naddress the impact on fishing?",
+		"options": [
+			{
+				"label": "Moving the wind park to a different location, further away from the coast",
+				"branch_end": 14,
+				"skip_to": 20
+			},
+			{
+				"label": "Facilitating the development of artificial reefs",
+				"branch_end": 19,
+				"skip_to": 20
+			}
+		]
+	},
+	{
+		"type": "system",
+		"title": "Option: Move Wind Park",
+		"text": "Moving the wind park to a different location, further away from the coast."
+	},
+	{
+		"type": "character",
+		"speaker_id": "fishers_guild",
+		"speaker_name": "Fishers Guild",
+		"text": "Thank you for giving priority to our interests!"
+	},
+	{
+		"type": "character",
+		"speaker_id": "aquanautilus",
+		"speaker_name": "AquaNautilus",
+		"text": "We are strongly opposed to this option, as we need to put an end to the destructive bottom-trawling practices of the FishersGuild. In addition, from the moving the wind park away from the coast is even worse for marine biodiversity. It would threaten the breeding grounds of our seal colony. Please reconsider!"
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "if you move the wind park, there is no other option than to position it outside our territorial sea. This is problematic, as we do not have full sovereignty over the EEZ."
+	},
+	{
+		"type": "system",
+		"title": "Option: Artificial Reefs",
+		"text": "Facilitating the development of artificial reefs as part of the wind park design."
+	},
+	{
+		"type": "character",
+		"speaker_id": "aquanautilus",
+		"speaker_name": "AquaNautilus",
+		"text": "Excellent idea! This will be a valuable habitat for numerous fish species, including the endangered Conan Cod. The abundance of fish will also attract species higher up the food chain, such as seals."
+	},
+	{
+		"type": "character",
+		"speaker_id": "fishers_guild",
+		"speaker_name": "Fishers Guild",
+		"text": "The reefs also create new opportunities for us. The reefs can be used as breeding grounds for oysters and mussels that could provide us with new sources of income. We will likewise benefit from the increase in fish in the immediate vicinity of the wind park."
+	},
+	{
+		"type": "character",
+		"speaker_id": "fishers_guild",
+		"speaker_name": "Fishers Guild",
+		"text": "The only problem is that we need to significantly adapt our fishing techniques. This is both expensive and requires training. Can you provide us financial compensation to help us transitioning?"
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "Arcadia is not obliged to help the fishers transition, but it is good practice. The preamble of the Paris Agreement requests us to take into account the imperatives of a just transition of the workforce."
+	},
+	{
+		"type": "system",
+		"title": "Issue B: Underwater Noise",
+		"text": "Phase 2 — Intervention: Reducing underwater noise during construction."
+	},
+	{
+		"type": "choice",
+		"speaker_id": "coordinator",
+		"speaker_name": "Coordinator",
+		"text": "Which method would you \nlike to use to reduce \nunderwater noise?",
+		"options": [
+			{
+				"label": "Using suction buckets as foundation for the wind turbines",
+				"branch_end": 24,
+				"skip_to": 28
+			},
+			{
+				"label": "Wrapping bubble curtains around the poles",
+				"branch_end": 27,
+				"skip_to": 28
+			}
+		]
+	},
+	{
+		"type": "system",
+		"title": "Option: Suction Buckets",
+		"text": "Using suction buckets as foundation for the wind turbines is an eco-friendly and experimental technique."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "This is an eco-friendly and affordable option. However, as this is an experimental technique, I would advise against it, as little is known about its impact on the stability of the wind turbines in the long-term."
+	},
+	{
+		"type": "character",
+		"speaker_id": "aquanautilus",
+		"speaker_name": "AquaNautilus",
+		"text": "It may be an experimental technique, but it is the best option for marine life. You cannot always have scientific certainty. Sometimes you just need to stick your neck out."
+	},
+	{
+		"type": "system",
+		"title": "Option: Bubble Curtains",
+		"text": "Wrapping bubble curtains around the poles to dampen underwater noise."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "This option is scientifically sound and without risks. It is therefore more in line with the precautionary principle, even though it’s more costly."
+	},
+	{
+		"type": "character",
+		"speaker_id": "aquanautilus",
+		"speaker_name": "AquaNautilus",
+		"text": "This is indeed the safest option, but it is more intrusive for marine life."
+	}
+]

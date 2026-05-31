@@ -1,27 +1,17 @@
 [gd_scene format=3 uid="uid://bicbo0ddif0pe"]
 
-[ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="1_j2cky"]
 [ext_resource type="Script" uid="uid://cp5utc5tk8qc7" path="res://Scripts/conversation.gd" id="1_ser5k"]
+[ext_resource type="Texture2D" uid="uid://e03mpp04axyn" path="res://assets/dialogue_ui/new_bg_1.png" id="2_0ye4w"]
+[ext_resource type="FontFile" uid="uid://dini68y7k1uns" path="res://assets/Fonts/Courier_Prime/Courier Prime.ttf" id="3_0ye4w"]
+[ext_resource type="Texture2D" uid="uid://bgpx23akris6y" path="res://assets/dialogue_ui/char_name.png" id="4_gukgg"]
+[ext_resource type="Texture2D" uid="uid://itjxflyjbral" path="res://assets/dialogue_ui/options_normal.png" id="4_vqj7d"]
+[ext_resource type="Texture2D" uid="uid://34g0v3j1kr4m" path="res://assets/dialogue_ui/options_hover.png" id="5_dhb7o"]
+[ext_resource type="Shader" uid="uid://bdwabn4125tpx" path="res://assets/dialogue_ui/portrait_mask.gdshader" id="5_shader"]
+[ext_resource type="FontFile" uid="uid://4f8mjv6py2t1" path="res://assets/Fonts/Courier_Prime/Courier Prime Bold.ttf" id="6_0ye4w"]
+[ext_resource type="Texture2D" uid="uid://cm8vv7loqmo7m" path="res://assets/dialogue_ui/windmills.png" id="6_gukgg"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j2cky"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ser5k"]
-bg_color = Color(1, 1, 1, 1)
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jhb2w"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otb11"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-corner_detail = 20
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1"]
+shader = ExtResource("5_shader")
 
 [node name="Conversation" type="Control" unique_id=938298517]
 layout_mode = 3
@@ -32,81 +22,229 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ser5k")
 
-[node name="Person1_layer" type="CanvasLayer" parent="." unique_id=257749343]
+[node name="DialoguePanel" type="CanvasLayer" parent="." unique_id=388491742]
 
-[node name="P1_pic" type="TextureRect" parent="Person1_layer" unique_id=992510650]
-offset_left = 96.0
-offset_top = 160.0
-offset_right = 384.0
-offset_bottom = 416.0
-texture = SubResource("PlaceholderTexture2D_j2cky")
+[node name="Dim" type="ColorRect" parent="DialoguePanel" unique_id=574926391]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.45)
 
-[node name="Person1" type="PanelContainer" parent="Person1_layer" unique_id=2001405445]
-offset_left = 96.0
-offset_top = 320.0
-offset_right = 384.0
-offset_bottom = 376.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ser5k")
+[node name="Background" type="NinePatchRect" parent="DialoguePanel" unique_id=474825193]
+anchors_preset = -1
+anchor_left = 0.087000005
+anchor_top = 0.448
+anchor_right = 0.92
+anchor_bottom = 0.938
+offset_left = -0.22400665
+offset_top = -0.3040161
+offset_right = -0.5599365
+offset_bottom = 1.1759644
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+texture = ExtResource("2_0ye4w")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
-[node name="P1_label" type="Label" parent="Person1_layer" unique_id=150503867]
-offset_left = 112.0
-offset_top = 333.0
-offset_right = 368.0
-offset_bottom = 365.0
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel/Background" unique_id=679471846]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -69.5
+offset_right = -50.28003
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_0ye4w")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="DialoguePanel/Background" unique_id=450362891]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -527.28
+offset_top = -119.0
+offset_bottom = 119.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(826, 134)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="ChoiceButton" type="TextureButton" parent="DialoguePanel/Background/ChoiceContainer" unique_id=2003899485]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_vqj7d")
+texture_pressed = ExtResource("5_dhb7o")
+texture_hover = ExtResource("5_dhb7o")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ChoiceText" type="Label" parent="DialoguePanel/Background/ChoiceContainer/ChoiceButton" unique_id=895132114]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -35.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_j2cky")
-theme_override_font_sizes/font_size = 30
-text = "Name of person"
+theme_override_fonts/font = ExtResource("3_0ye4w")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Person2_layer" type="CanvasLayer" parent="." unique_id=1435650059]
+[node name="ChoiceButton2" type="TextureButton" parent="DialoguePanel/Background/ChoiceContainer" unique_id=641262762]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_vqj7d")
+texture_pressed = ExtResource("5_dhb7o")
+texture_hover = ExtResource("5_dhb7o")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="P2_pic" type="TextureRect" parent="Person2_layer" unique_id=417046365]
-offset_left = 768.0
-offset_top = 160.0
-offset_right = 1056.0
-offset_bottom = 416.0
-texture = SubResource("PlaceholderTexture2D_jhb2w")
-
-[node name="Person2" type="PanelContainer" parent="Person2_layer" unique_id=2095127902]
-offset_left = 768.0
-offset_top = 320.0
-offset_right = 1056.0
-offset_bottom = 376.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ser5k")
-
-[node name="P2_label" type="Label" parent="Person2_layer" unique_id=968515425]
-offset_left = 784.0
-offset_top = 333.0
-offset_right = 1036.0
-offset_bottom = 370.0
+[node name="ChoiceText" type="Label" parent="DialoguePanel/Background/ChoiceContainer/ChoiceButton2" unique_id=328682747]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_j2cky")
-theme_override_font_sizes/font_size = 30
-text = "Name of person2"
+theme_override_fonts/font = ExtResource("3_0ye4w")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="text_bubble" type="CanvasLayer" parent="." unique_id=1403264874]
+[node name="ChoiceButton3" type="TextureButton" parent="DialoguePanel/Background/ChoiceContainer" unique_id=2050271177]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_vqj7d")
+texture_pressed = ExtResource("5_dhb7o")
+texture_hover = ExtResource("5_dhb7o")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="text_bubble_label" type="Label" parent="text_bubble" unique_id=629400620]
-z_index = 5
-offset_left = 136.0
-offset_top = 400.0
-offset_right = 1016.0
-offset_bottom = 576.0
+[node name="ChoiceText" type="Label" parent="DialoguePanel/Background/ChoiceContainer/ChoiceButton3" unique_id=217368550]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_j2cky")
-theme_override_font_sizes/font_size = 40
-text = "HEY, this is a test label meant to be changed dynamicaly with a limit on how much characters that can be put here. I think arond this is enough. So be mindfull of this "
+theme_override_fonts/font = ExtResource("3_0ye4w")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpeakerName" type="Label" parent="DialoguePanel/Background" unique_id=776148573]
+layout_mode = 1
+offset_left = 70.0
+offset_top = 49.0
+offset_right = 949.0
+offset_bottom = 74.0
+pivot_offset = Vector2(251, 17)
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_0ye4w")
+theme_override_font_sizes/font_size = 24
+text = "Speaker"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="text_bubble" unique_id=1787977612]
-offset_left = 88.0
-offset_top = 384.0
-offset_right = 1059.0
-offset_bottom = 599.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_otb11")
+[node name="PortraitContainer" type="Control" parent="DialoguePanel/Background" unique_id=673920184]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -236.28003
+offset_top = -142.0
+offset_right = -29.28003
+offset_bottom = 65.0
+grow_horizontal = 0
+
+[node name="Portrait" type="TextureRect" parent="DialoguePanel/Background/PortraitContainer" unique_id=978360755]
+material = SubResource("ShaderMaterial_1")
+layout_mode = 0
+offset_right = 207.0
+offset_bottom = 207.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameFrame" type="TextureRect" parent="DialoguePanel" unique_id=675037482]
+visible = false
+offset_left = 660.0
+offset_top = 290.0
+offset_right = 867.8685
+offset_bottom = 339.0
+texture = ExtResource("4_gukgg")
+expand_mode = 1
+
+[node name="windmills" type="TextureRect" parent="DialoguePanel" unique_id=1760814719]
+visible = false
+offset_left = 979.0
+offset_top = 510.7486
+offset_right = 1052.0
+offset_bottom = 643.2116
+texture = ExtResource("6_gukgg")
+expand_mode = 1
+
+[node name="ChoicePanel" type="CanvasLayer" parent="." unique_id=673829451]
+visible = false
+
+[node name="BackgroundDim" type="ColorRect" parent="ChoicePanel" unique_id=856173942]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.5)
+
+[node name="MarginContainer" type="MarginContainer" parent="ChoicePanel" unique_id=192837465]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -500.0
+offset_right = -100.0
+offset_bottom = -40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoicePanel/MarginContainer" unique_id=284756391]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="OptionsContainer" type="VBoxContainer" parent="ChoicePanel/MarginContainer/VBoxContainer" unique_id=395847261]
+layout_mode = 2
+theme_override_constants/separation = 8

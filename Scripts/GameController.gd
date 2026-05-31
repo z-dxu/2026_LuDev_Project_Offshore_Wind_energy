@@ -6,7 +6,7 @@ signal spawn_building(data: BuildingData)
 signal poi_button_pressed(hover: bool)
 signal get_poi_score(requester)
 
-# Dialogue history — populated by dialogue_controller.gd as player advances
+# Dialogue history — populated by conversation.gd as player advances
 signal dialogue_history_updated
 var dialogue_history: Array[Dictionary] = []
 

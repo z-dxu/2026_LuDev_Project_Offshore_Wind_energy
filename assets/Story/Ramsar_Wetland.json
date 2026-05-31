@@ -1,0 +1,127 @@
+[
+	{
+		"type": "system",
+		"title": "Point of Interest: Ramsar Wetland (SDG 15)",
+		"text": "The wetland is protected under the Ramsar Convention and hosts more than 20,000 migratory birds, including the critically endangered red knot (Calidris canutus), listed in Annex I of the Bonn Convention."
+	},
+	{
+		"type": "system",
+		"title": "Phase 1 — Exploration",
+		"text": "Hear from the stakeholders about the potential impacts on the wetland and migratory birds."
+	},
+	{
+		"type": "character",
+		"speaker_id": "featherwings",
+		"speaker_name": "FeatherWings Conservation Alliance",
+		"text": "The project cannot be realised in this part of the Conan sea. It is too close to the wetland, which is protected under the Ramsar Convention and hosts more than 20,000 migratory birds that use this site to rest on their long journeys. These include the red knot (Calidris canutus), a critically endangered species listed in Annex I of the Bonn Convention."
+	},
+	{
+		"type": "character",
+		"speaker_id": "featherwings",
+		"speaker_name": "FeatherWings Conservation Alliance",
+		"text": "The construction noise could drive the red knot out permanently. There is also a significant risk of bird collision with the turbine blades during operation. The project thus negatively impacts SDG 15. Arcadia furthermore breaches its obligations under the Ramsar and Bonn Conventions if it decides to go ahead with the project."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "Arcadia does indeed have obligations to protect migratory birds under the Bonn Convention, especially towards endangered species such as the red knot."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "The possible negative impacts of wind parks on migratory birds have been recognized by the COP, which has called on parties to act with precaution in the development of wind turbine parks. Arcadia is equally under an obligation to protect the ecological character of the wetland pursuant to the Ramsar Convention, but it can delete or restrict the boundaries of a listed wetland if it is “in its urgent national interest”."
+	},
+	{
+		"type": "system",
+		"title": "Phase 2 — Intervention",
+		"text": "You have three options to reduce bird fatalities. Combining options 1 and 2 provides the best outcome."
+	},
+	{
+		"type": "choice",
+		"speaker_id": "coordinator",
+		"speaker_name": "Coordinator",
+		"text": "Which measure \nwould you like to implement?",
+		"options": [
+			{
+				"label": "Painting the rotor blades (in bright colours)",
+				"branch_end": 10,
+				"skip_to": 19
+			},
+			{
+				"label": "Seasonal shutdown of the wind turbines",
+				"branch_end": 13,
+				"skip_to": 19
+			},
+			{
+				"label": "Place lower turbines",
+				"branch_end": 18,
+				"skip_to": 19
+			}
+		]
+	},
+	{
+		"type": "system",
+		"title": "Option: Paint Rotor Blades",
+		"text": "Painting the rotor blades in bright colours makes them more visible to birds."
+	},
+	{
+		"type": "character",
+		"speaker_id": "featherwings",
+		"speaker_name": "FeatherWings Conservation Alliance",
+		"text": "Good idea! With the rotor blades becoming more visible, bird mortality will be reduced with 80%."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "This is a good and affordable option, but is it sufficient in light of our obligations under the Ramsar and Bonn Conventions? I also foresee legal claims from the tourist industry. Tourists like to see the horizon and the colours distract from their view."
+	},
+	{
+		"type": "system",
+		"title": "Option: Seasonal Shutdown",
+		"text": "Shutting down the wind turbines during peak migration seasons."
+	},
+	{
+		"type": "character",
+		"speaker_id": "featherwings",
+		"speaker_name": "FeatherWings Conservation Alliance",
+		"text": "Excellent idea, if employed in combination with painting the rotor blades! It would even be better to install a radar system that automatically shuts down the turbines when birds are approaching."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "if you combine this with the painting of the blades, I am confident that we would satisfy our obligations pursuant to the Ramsar and Bonn Conventions. It does however mean that the project generates up to 10% less energy, thereby threatening our progress towards SDG 13 and the Paris Agreement."
+	},
+	{
+		"type": "system",
+		"title": "Option: Lower Turbines",
+		"text": "Placing lower turbines to reduce the risk to birds."
+	},
+	{
+		"type": "character",
+		"speaker_id": "featherwings",
+		"speaker_name": "FeatherWings Conservation Alliance",
+		"text": "Good idea! Lower turbines effectively remove the risks for birds."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "This is a bad idea, as it seriously threatens our progress towards SDG 13 and the Paris Agreement, unless we place more wind turbines. Lower wind turbines will reduce the energy output of the project with 40%."
+	},
+	{
+		"type": "character",
+		"speaker_id": "featherwings",
+		"speaker_name": "FeatherWings Conservation Alliance",
+		"text": "Placing more wind turbines would threaten the Ramsar site!"
+	},
+	{
+		"type": "character",
+		"speaker_id": "fishers_guild",
+		"speaker_name": "Fishers Guild",
+		"text": "If the solution is placing more wind turbines, there is no future for Arcadian fishers."
+	}
+]

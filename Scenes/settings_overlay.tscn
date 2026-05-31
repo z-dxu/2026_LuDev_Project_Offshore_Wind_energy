@@ -1,54 +1,18 @@
 [gd_scene format=3 uid="uid://s2dckxf1uujk"]
 
-[ext_resource type="FontFile" uid="uid://hba1s05qn7hc" path="res://assets/Fonts/Denk_One/DenkOne-Regular.ttf" id="1_font"]
 [ext_resource type="Script" uid="uid://lvcssif3d5yk" path="res://Scripts/settings_overlay.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://b5sie0fyeqgbl" path="res://assets/ui/settings_bg.png" id="2_x31rx"]
+[ext_resource type="Texture2D" uid="uid://c05ql8d0ch1u7" path="res://assets/ui/settings_button_normal.png" id="4_113de"]
+[ext_resource type="Texture2D" uid="uid://b6xulfu3qm6u8" path="res://assets/icons/close_icon.png" id="4_x215l"]
+[ext_resource type="Texture2D" uid="uid://sqtkj5pmmj6s" path="res://assets/ui/settings_button_hover.png" id="5_m6bcj"]
+[ext_resource type="FontFile" uid="uid://4f8mjv6py2t1" path="res://assets/Fonts/Courier_Prime/Courier Prime Bold.ttf" id="6_m6bcj"]
+[ext_resource type="FontFile" uid="uid://dini68y7k1uns" path="res://assets/Fonts/Courier_Prime/Courier Prime.ttf" id="7_courier"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBox_panel"]
-content_margin_left = 28.0
-content_margin_top = 20.0
-content_margin_right = 28.0
-content_margin_bottom = 24.0
-bg_color = Color(0.025, 0.035, 0.06, 0.96)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.35, 0.72, 1, 0.55)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBox_close"]
-content_margin_left = 6.0
-content_margin_top = 4.0
-content_margin_right = 6.0
-content_margin_bottom = 4.0
-bg_color = Color(0.45, 0.48, 0.52, 0.2)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBox_button"]
-content_margin_left = 16.0
-content_margin_top = 8.0
-content_margin_right = 16.0
-content_margin_bottom = 8.0
-bg_color = Color(0.35, 0.72, 1, 0.15)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.35, 0.72, 1, 0.4)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBox_button_hover"]
-bg_color = Color(0.35, 0.72, 1, 0.3)
-border_color = Color(0.35, 0.72, 1, 0.7)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yeog0"]
+content_margin_left = 27.0
+content_margin_top = 56.0
+content_margin_right = 27.0
+texture = ExtResource("2_x31rx")
 
 [node name="SettingsOverlay" type="Control" unique_id=1470413613]
 layout_mode = 3
@@ -61,15 +25,15 @@ mouse_filter = 2
 script = ExtResource("2_script")
 
 [node name="BackgroundDim" type="ColorRect" parent="." unique_id=161665052]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 color = Color(0, 0, 0, 0.5)
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1414227344]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -80,7 +44,7 @@ offset_right = 240.0
 offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBox_panel")
+theme_override_styles/panel = SubResource("StyleBoxTexture_yeog0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=726776550]
 layout_mode = 2
@@ -92,24 +56,23 @@ layout_mode = 2
 [node name="Title" type="Label" parent="PanelContainer/VBoxContainer/HeaderBar" unique_id=1397846587]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.78, 0.9, 1, 1)
-theme_override_fonts/font = ExtResource("1_font")
-theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.84313726, 0.8745098, 0.78039217, 1)
+theme_override_fonts/font = ExtResource("6_m6bcj")
+theme_override_font_sizes/font_size = 24
 text = "SETTINGS"
 vertical_alignment = 1
 
-[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer/HeaderBar" unique_id=1241106427]
+[node name="CloseButton" type="TextureButton" parent="PanelContainer/VBoxContainer/HeaderBar" unique_id=1090632129]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.92, 0.95, 1)
-theme_override_fonts/font = ExtResource("1_font")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBox_close")
-text = "X"
+texture_normal = ExtResource("4_x215l")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="AccentLine" type="ColorRect" parent="PanelContainer/VBoxContainer" unique_id=32132628]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
-color = Color(0.35, 0.72, 1, 0.6)
+color = Color(0.827451, 0.8627451, 0.7647059, 0.2901961)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=569739206]
 layout_mode = 2
@@ -127,15 +90,15 @@ theme_override_constants/separation = 6
 
 [node name="SectionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/DisplaySection" unique_id=1136848634]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.35, 0.72, 1, 0.8)
-theme_override_fonts/font = ExtResource("1_font")
-theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.84313726, 0.8745098, 0.78039217, 1)
+theme_override_fonts/font = ExtResource("6_m6bcj")
+theme_override_font_sizes/font_size = 14
 text = "DISPLAY"
 
 [node name="SectionLine" type="ColorRect" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/DisplaySection" unique_id=1262639462]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
-color = Color(0.35, 0.72, 1, 0.2)
+color = Color(0.84313726, 0.8745098, 0.78039217, 1)
 
 [node name="FullscreenRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/DisplaySection" unique_id=1504147806]
 layout_mode = 2
@@ -144,8 +107,8 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/DisplaySection/FullscreenRow" unique_id=729051438]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
-theme_override_fonts/font = ExtResource("1_font")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_courier")
 theme_override_font_sizes/font_size = 16
 text = "Fullscreen"
 vertical_alignment = 1
@@ -160,15 +123,15 @@ theme_override_constants/separation = 6
 
 [node name="SectionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection" unique_id=1707859470]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.35, 0.72, 1, 0.8)
-theme_override_fonts/font = ExtResource("1_font")
-theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.84313726, 0.8745098, 0.78039217, 1)
+theme_override_fonts/font = ExtResource("6_m6bcj")
+theme_override_font_sizes/font_size = 14
 text = "AUDIO"
 
 [node name="SectionLine" type="ColorRect" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection" unique_id=1036089817]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
-color = Color(0.35, 0.72, 1, 0.2)
+color = Color(0.84313726, 0.8745098, 0.78039217, 1)
 
 [node name="VolumeRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection" unique_id=1599627571]
 layout_mode = 2
@@ -177,9 +140,9 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AudioSection/VolumeRow" unique_id=2101385071]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
-theme_override_fonts/font = ExtResource("1_font")
-theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_courier")
+theme_override_font_sizes/font_size = 14
 text = "Master"
 vertical_alignment = 1
 
@@ -193,7 +156,7 @@ max_value = 0.0
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6, 0.65, 0.72, 1)
-theme_override_fonts/font = ExtResource("1_font")
+theme_override_fonts/font = ExtResource("7_courier")
 theme_override_font_sizes/font_size = 13
 text = "0 dB"
 vertical_alignment = 1
@@ -204,24 +167,44 @@ theme_override_constants/separation = 6
 
 [node name="SectionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/GameSection" unique_id=712228]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.35, 0.72, 1, 0.8)
-theme_override_fonts/font = ExtResource("1_font")
-theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.84313726, 0.8745098, 0.78039217, 1)
+theme_override_fonts/font = ExtResource("6_m6bcj")
+theme_override_font_sizes/font_size = 14
 text = "GAME"
 
 [node name="SectionLine" type="ColorRect" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/GameSection" unique_id=870030963]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
-color = Color(0.35, 0.72, 1, 0.2)
+color = Color(0.84313726, 0.8745098, 0.78039217, 1)
 
-[node name="ReturnButton" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/GameSection" unique_id=1078638056]
+[node name="ReturnButton" type="TextureButton" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/GameSection" unique_id=52135695]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
-theme_override_fonts/font = ExtResource("1_font")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBox_button")
-theme_override_styles/hover = SubResource("StyleBox_button_hover")
+texture_normal = ExtResource("4_113de")
+texture_pressed = ExtResource("5_m6bcj")
+texture_hover = ExtResource("5_m6bcj")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/GameSection/ReturnButton" unique_id=1099121277]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -11.5
+offset_right = 143.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_m6bcj")
+theme_override_font_sizes/font_size = 22
 text = "Return to Main Menu"
+horizontal_alignment = 1
 
 [node name="AboutSection" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content" unique_id=556378760]
 layout_mode = 2
@@ -229,15 +212,15 @@ theme_override_constants/separation = 6
 
 [node name="SectionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection" unique_id=1979150013]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.35, 0.72, 1, 0.8)
-theme_override_fonts/font = ExtResource("1_font")
-theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.84313726, 0.8745098, 0.78039217, 1)
+theme_override_fonts/font = ExtResource("6_m6bcj")
+theme_override_font_sizes/font_size = 14
 text = "ABOUT"
 
 [node name="SectionLine" type="ColorRect" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection" unique_id=1218809101]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
-color = Color(0.35, 0.72, 1, 0.2)
+color = Color(0.84313726, 0.8745098, 0.78039217, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection" unique_id=2021127449]
 layout_mode = 2
@@ -245,23 +228,23 @@ theme_override_constants/separation = 4
 
 [node name="VersionLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection/VBoxContainer" unique_id=1772896356]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.9, 0.95, 1)
-theme_override_fonts/font = ExtResource("1_font")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_m6bcj")
 theme_override_font_sizes/font_size = 15
 text = "ARCADIA v0.1.0"
 
 [node name="ClientLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection/VBoxContainer" unique_id=963204653]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6, 0.65, 0.72, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 3
-theme_override_fonts/font = ExtResource("1_font")
+theme_override_fonts/font = ExtResource("7_courier")
 theme_override_font_sizes/font_size = 12
 text = "Client: Prof. mr. dr. D.A. Dam-de Jong"
 
 [node name="TeamLabel" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/Content/AboutSection/VBoxContainer" unique_id=1991210163]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6, 0.65, 0.72, 1)
-theme_override_fonts/font = ExtResource("1_font")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_courier")
 theme_override_font_sizes/font_size = 12
 text = "Grotius Centre for International Legal Studies — Leiden University"
 autowrap_mode = 2

@@ -58,7 +58,6 @@
 		"title": "Objective Updated",
 		"text": "- Review each Point of Interest on the map\n- Hear stakeholder concerns and legal perspectives\n- Choose mitigation measures that balance the SDGs"
 	},
-
 	{
 		"type": "system",
 		"title": "Point of Interest: Ramsar Wetland (SDG 15)",
@@ -73,25 +72,25 @@
 		"type": "character",
 		"speaker_id": "featherwings",
 		"speaker_name": "FeatherWings Conservation Alliance",
-		"text": "The project cannot be realised in this part of the Conan Sea. It is too close to the wetland. The construction noise could drive the red knot out permanently. There is also a significant risk of bird collision with the turbine blades during operation. The project negatively impacts SDG 15."
+		"text": "The project cannot be realised in this part of the Conan sea. It is too close to the wetland, which is protected under the Ramsar Convention and hosts more than 20,000 migratory birds that use this site to rest on their long journeys. These include the red knot (Calidris canutus), a critically endangered species listed in Annex I of the Bonn Convention."
 	},
 	{
 		"type": "character",
 		"speaker_id": "featherwings",
 		"speaker_name": "FeatherWings Conservation Alliance",
-		"text": "Arcadia furthermore breaches its obligations under the Ramsar and Bonn Conventions if it decides to go ahead with the project."
+		"text": "The construction noise could drive the red knot out permanently. There is also a significant risk of bird collision with the turbine blades during operation. The project thus negatively impacts SDG 15. Arcadia furthermore breaches its obligations under the Ramsar and Bonn Conventions if it decides to go ahead with the project."
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "Arcadia does indeed have obligations to protect migratory birds under the Bonn Convention, especially towards endangered species such as the red knot. The COP has called on parties to act with precaution in the development of wind turbine parks."
+		"text": "Arcadia does indeed have obligations to protect migratory birds under the Bonn Convention, especially towards endangered species such as the red knot."
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "Arcadia is equally under an obligation to protect the ecological character of the wetland pursuant to the Ramsar Convention. However, it can delete or restrict the boundaries of a listed wetland if it is 'in its urgent national interest'."
+		"text": "The possible negative impacts of wind parks on migratory birds have been recognized by the COP, which has called on parties to act with precaution in the development of wind turbine parks. Arcadia is equally under an obligation to protect the ecological character of the wetland pursuant to the Ramsar Convention, but it can delete or restrict the boundaries of a listed wetland if it is “in its urgent national interest”."
 	},
 	{
 		"type": "system",
@@ -102,16 +101,22 @@
 		"type": "choice",
 		"speaker_id": "coordinator",
 		"speaker_name": "Coordinator",
-		"text": "Which measure would you like to implement?",
+		"text": "Which measure \nwould you like to implement?",
 		"options": [
 			{
-				"label": "Paint the rotor blades bright colours"
+				"label": "Painting the rotor blades (in bright colours)",
+				"branch_end": 21,
+				"skip_to": 30
 			},
 			{
-				"label": "Seasonal shutdown of the wind turbines"
+				"label": "Seasonal shutdown of the wind turbines",
+				"branch_end": 24,
+				"skip_to": 30
 			},
 			{
-				"label": "Place lower turbines"
+				"label": "Place lower turbines",
+				"branch_end": 29,
+				"skip_to": 30
 			}
 		]
 	},
@@ -124,13 +129,13 @@
 		"type": "character",
 		"speaker_id": "featherwings",
 		"speaker_name": "FeatherWings Conservation Alliance",
-		"text": "Good idea! With the rotor blades becoming more visible, bird mortality will be reduced by 80%."
+		"text": "Good idea! With the rotor blades becoming more visible, bird mortality will be reduced with 80%."
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "This is a good and affordable option, but is it sufficient in light of our obligations under the Ramsar and Bonn Conventions? I also foresee legal claims from the tourist industry. Tourists like to see the horizon and the bright colours distract from their view."
+		"text": "This is a good and affordable option, but is it sufficient in light of our obligations under the Ramsar and Bonn Conventions? I also foresee legal claims from the tourist industry. Tourists like to see the horizon and the colours distract from their view."
 	},
 	{
 		"type": "system",
@@ -147,7 +152,7 @@
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "If you combine this with painting the blades, I am confident we would satisfy our obligations under the Ramsar and Bonn Conventions. It does however mean the project generates up to 10% less energy, threatening our progress towards SDG 13 and the Paris Agreement."
+		"text": "if you combine this with the painting of the blades, I am confident that we would satisfy our obligations pursuant to the Ramsar and Bonn Conventions. It does however mean that the project generates up to 10% less energy, thereby threatening our progress towards SDG 13 and the Paris Agreement."
 	},
 	{
 		"type": "system",
@@ -164,7 +169,7 @@
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "This is a bad idea. It seriously threatens our progress towards SDG 13 and the Paris Agreement, unless we place more wind turbines. Lower wind turbines will reduce energy output by 40%."
+		"text": "This is a bad idea, as it seriously threatens our progress towards SDG 13 and the Paris Agreement, unless we place more wind turbines. Lower wind turbines will reduce the energy output of the project with 40%."
 	},
 	{
 		"type": "character",
@@ -178,13 +183,11 @@
 		"speaker_name": "Fishers Guild",
 		"text": "If the solution is placing more wind turbines, there is no future for Arcadian fishers."
 	},
-
 	{
 		"type": "system",
 		"title": "Point of Interest: Wind Turbine Cluster (SDGs 1, 2, 8, 14)",
 		"text": "The wind turbine cluster affects fishing livelihoods and marine biodiversity. Two key issues must be addressed."
 	},
-
 	{
 		"type": "system",
 		"title": "Issue A: Fishing Grounds",
@@ -194,43 +197,43 @@
 		"type": "character",
 		"speaker_id": "fishers_guild",
 		"speaker_name": "Fishers Guild",
-		"text": "Fishing is deeply tied to the cultural identity and livelihood of Arcadian fishermen. Given our dependence on bottom-trawling and limited economic alternatives, we are particularly vulnerable."
+		"text": "Fishing is deeply tied to the cultural identity and livelihood of Arcadian fishermen. Given our dependence on conventional fishing techniques (bottom-trawling) and limited economic alternatives, we are particularly vulnerable to the disruption caused by the wind park, as its underwater structures make fishing grounds unsuitable for bottom trawling."
 	},
 	{
 		"type": "character",
 		"speaker_id": "fishers_guild",
 		"speaker_name": "Fishers Guild",
-		"text": "The wind park's underwater structures make fishing grounds unsuitable for bottom trawling. Other suitable grounds are too far from the coast and we cannot afford to adjust our techniques. The project negatively impacts SDGs 1, 2 and 8. It violates our cultural rights and our rights to work and an adequate standard of living."
+		"text": "Other suitable fishing grounds are too far removed from the coast and we do not have the means to adjust our fishing techniques to make them suitable for fishing in and around the site of the wind park. The project thus negatively impacts SDGs 1,2 and 8 and it violates our cultural rights and our rights to work and to an adequate standard of living."
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "The rights to work and an adequate standard of living entail best efforts obligations. Nonetheless, the measures will make the fishers worse off and international human rights law formulates a strong presumption against regression."
+		"text": "The rights to work and an adequate standard of living entail best efforts obligations."
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "As for their cultural rights, it is debatable whether the use of specific fishing techniques is an intrinsic part of their culture."
+		"text": "Nonetheless, the measures will make the fishers worse off and international human rights law formulates a strong presumption against regression. As for their cultural rights, it is debatable whether the use of specific fishing techniques is an intrinsic part of their culture."
 	},
 	{
 		"type": "character",
 		"speaker_id": "aquanautilus",
 		"speaker_name": "AquaNautilus",
-		"text": "We are concerned about the underwater noise and vibrations caused by the construction and operation of the wind parks. This may affect communication, navigation and feeding of marine mammals and fish, and may lead to habitat displacement."
+		"text": "We are concerned about the underwater noise and vibrations caused by the construction and operation of the wind parks."
 	},
 	{
 		"type": "character",
 		"speaker_id": "aquanautilus",
 		"speaker_name": "AquaNautilus",
-		"text": "Without mitigating measures, the project will negatively impact SDG 14 and Arcadia will breach its environmental obligations under UNCLOS."
+		"text": "This may affect the communication, navigation and feeding of marine mammals and fish and may even lead to habitat displacement. Without mitigating measures, the project will negatively impact SDG 14 and Arcadia will breach its environmental obligations under the UNCLOS."
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "Arcadia has an obligation to prevent, reduce and control pollution under Article 194 UNCLOS. A key question is whether underwater noise falls under the definition of pollution under Article 1(1)(4). If so, Arcadia must take measures using the best practicable means at its disposal."
+		"text": "Arcadia has an obligation to prevent, reduce and control pollution under Art. 194 UNCLOS. A key question is whether underwater noise falls under the definition of pollution under Article 1(1)(4) UNCLOS. If so, Art. 194 UNCLOS requires Arcadia to take measures to prevent, reduce and control the noise and vibrations, using the best practicable means at their disposal."
 	},
 	{
 		"type": "system",
@@ -241,13 +244,17 @@
 		"type": "choice",
 		"speaker_id": "coordinator",
 		"speaker_name": "Coordinator",
-		"text": "How would you like to address the impact on fishing?",
+		"text": "How would you like to \naddress the impact on fishing?",
 		"options": [
 			{
-				"label": "Move the wind park further from the coast"
+				"label": "Moving the wind park to a different location, further away from the coast",
+				"branch_end": 44,
+				"skip_to": 50
 			},
 			{
-				"label": "Facilitate the development of artificial reefs"
+				"label": "Facilitating the development of artificial reefs",
+				"branch_end": 49,
+				"skip_to": 50
 			}
 		]
 	},
@@ -266,13 +273,13 @@
 		"type": "character",
 		"speaker_id": "aquanautilus",
 		"speaker_name": "AquaNautilus",
-		"text": "We are strongly opposed to this option. We need to put an end to the destructive bottom-trawling practices of the Fishers Guild. In addition, moving the wind park away from the coast is even worse for marine biodiversity — it would threaten the breeding grounds of our seal colony. Please reconsider!"
+		"text": "We are strongly opposed to this option, as we need to put an end to the destructive bottom-trawling practices of the FishersGuild. In addition, from the moving the wind park away from the coast is even worse for marine biodiversity. It would threaten the breeding grounds of our seal colony. Please reconsider!"
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "If you move the wind park, there is no other option than to position it outside our territorial sea. This is problematic, as we do not have full sovereignty over the EEZ."
+		"text": "if you move the wind park, there is no other option than to position it outside our territorial sea. This is problematic, as we do not have full sovereignty over the EEZ."
 	},
 	{
 		"type": "system",
@@ -289,13 +296,13 @@
 		"type": "character",
 		"speaker_id": "fishers_guild",
 		"speaker_name": "Fishers Guild",
-		"text": "The reefs create new opportunities for us. They can be used as breeding grounds for oysters and mussels, providing us with new sources of income. We will also benefit from the increase in fish near the wind park."
+		"text": "The reefs also create new opportunities for us. The reefs can be used as breeding grounds for oysters and mussels that could provide us with new sources of income. We will likewise benefit from the increase in fish in the immediate vicinity of the wind park."
 	},
 	{
 		"type": "character",
 		"speaker_id": "fishers_guild",
 		"speaker_name": "Fishers Guild",
-		"text": "The only problem is that we need to significantly adapt our fishing techniques. This is both expensive and requires training. Can you provide us financial compensation to help us transition?"
+		"text": "The only problem is that we need to significantly adapt our fishing techniques. This is both expensive and requires training. Can you provide us financial compensation to help us transitioning?"
 	},
 	{
 		"type": "character",
@@ -312,13 +319,17 @@
 		"type": "choice",
 		"speaker_id": "coordinator",
 		"speaker_name": "Coordinator",
-		"text": "Which method would you like to use to reduce underwater noise?",
+		"text": "Which method would you \nlike to use to reduce \nunderwater noise?",
 		"options": [
 			{
-				"label": "Use suction buckets as foundation"
+				"label": "Using suction buckets as foundation for the wind turbines",
+				"branch_end": 54,
+				"skip_to": 58
 			},
 			{
-				"label": "Wrap bubble curtains around the poles"
+				"label": "Wrapping bubble curtains around the poles",
+				"branch_end": 57,
+				"skip_to": 58
 			}
 		]
 	},
@@ -331,7 +342,7 @@
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "This is an eco-friendly and affordable option. However, as this is an experimental technique, I would advise against it. Little is known about its impact on the stability of the wind turbines in the long term."
+		"text": "This is an eco-friendly and affordable option. However, as this is an experimental technique, I would advise against it, as little is known about its impact on the stability of the wind turbines in the long-term."
 	},
 	{
 		"type": "character",
@@ -348,7 +359,7 @@
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "This option is scientifically sound and without risks. It is more in line with the precautionary principle, even though it is more costly."
+		"text": "This option is scientifically sound and without risks. It is therefore more in line with the precautionary principle, even though it’s more costly."
 	},
 	{
 		"type": "character",
@@ -356,7 +367,6 @@
 		"speaker_name": "AquaNautilus",
 		"text": "This is indeed the safest option, but it is more intrusive for marine life."
 	},
-
 	{
 		"type": "system",
 		"title": "Point of Interest: Port (SDGs 8, 9, 13, 14)",
@@ -371,31 +381,31 @@
 		"type": "character",
 		"speaker_id": "blue_arcadia",
 		"speaker_name": "BlueArcadia Port Authority",
-		"text": "We welcome the project — it will help the port become more sustainable, contributing to SDG 9. We are however concerned about our competitiveness."
+		"text": "we welcome the project, as it will help the port to become more sustainable, thus contributing to SDG 9."
 	},
 	{
 		"type": "character",
 		"speaker_id": "blue_arcadia",
 		"speaker_name": "BlueArcadia Port Authority",
-		"text": "If ships need to make a detour to reach the port, they may prefer to go to Babylonia's port instead. We could lose our position as a global transport hub. The detour also negatively impacts SDGs 13 and 14 — increased fuel use means higher greenhouse gas emissions and marine pollution."
+		"text": "We are however concerned about our competitiveness: if ships need to make a detour to reach the port, they may prefer to go to Babylonia’s port instead and we may thus lose our position as a global transport hub."
 	},
 	{
 		"type": "character",
 		"speaker_id": "blue_arcadia",
 		"speaker_name": "BlueArcadia Port Authority",
-		"text": "Arcadia would aggravate the very GHG emissions it seeks to reduce through this project. This cannot be Arcadia's intention."
+		"text": "The detour also negatively impacts SDGs 13 and 14, as it will increase the use of fuel by ships, causing higher emissions of greenhouse gases into the atmosphere and pollution to the marine environment. Arcadia will thus aggrevate its GHG emissions that it precisely seeks to reduce through this project. We believe that this cannot be Arcadia’s intention."
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "Arcadia has an obligation to prevent, reduce and control pollution of the marine environment under Article 194 UNCLOS. The International Tribunal for the Law of the Sea has determined that anthropogenic GHG emissions constitute pollution of the marine environment within the meaning of Article 1(1)(4)."
+		"text": "Arcadia has an obligation to prevent, reduce and control pollution of the marine environment under Art. 194 UNCLOS."
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "As for climate obligations under the Paris Agreement, Arcadia has discretion as to how it reduces its GHG emissions, so long as the totality of its measures is ambitious and reflects its capacities."
+		"text": "The International Tribunal for the Law of the Sea has determined that anthropogenic GHG emissions into the atmosphere constitute pollution of the marine environment within the meaning of Article 1(1)(4) UNCLOS. As for its climate obligations under the Paris Agreement, Arcadia has discretion as to how it reduces its GHG emissions, so long as the totality of its measures is ambitious and reflects its capacities."
 	},
 	{
 		"type": "system",
@@ -406,13 +416,17 @@
 		"type": "choice",
 		"speaker_id": "coordinator",
 		"speaker_name": "Coordinator",
-		"text": "What would you like to do about the port?",
+		"text": "What would you \nlike to do about the port?",
 		"options": [
 			{
-				"label": "Leave the port where it is"
+				"label": "Leave the port where it is",
+				"branch_end": 69,
+				"skip_to": 73
 			},
 			{
-				"label": "Move the port to the island of Kalymera"
+				"label": "Move the port to the island of Kalymera",
+				"branch_end": 72,
+				"skip_to": 73
 			}
 		]
 	},
@@ -425,13 +439,13 @@
 		"type": "character",
 		"speaker_id": "blue_arcadia",
 		"speaker_name": "BlueArcadia Port Authority",
-		"text": "You do realise that you jeopardise Arcadia's position as a global transport hub?"
+		"text": "You do realise that you jeopardise Arcadia’s position as a global transport hub?"
 	},
 	{
 		"type": "character",
 		"speaker_id": "aquanautilus",
 		"speaker_name": "AquaNautilus",
-		"text": "This is a bad idea. The additional GHG emissions will negatively impact marine life."
+		"text": "This is a bad idea, as the additional GHG emissions will negatively impact marine life."
 	},
 	{
 		"type": "system",
@@ -442,12 +456,12 @@
 		"type": "character",
 		"speaker_id": "blue_arcadia",
 		"speaker_name": "BlueArcadia Port Authority",
-		"text": "We very much welcome your decision. It will not only help us remain competitive, but it will also enable us to invest in new infrastructure that is more sustainable."
+		"text": "We very much welcome your decision, as it will not only help us remain competitive, but it will also enable us to invest in new infrastructure that is more sustainable."
 	},
 	{
 		"type": "character",
 		"speaker_id": "legal_advisor",
 		"speaker_name": "Legal Advisor",
-		"text": "I do not have any concerns from a legal perspective. But keep in mind that moving the port is a costly matter."
+		"text": "I do not have any concerns from a legal perspective, but do keep in mind that moving the port is a costly matter."
 	}
 ]

@@ -1,94 +1,61 @@
 [
 	{
 		"type": "system",
-		"title": "System",
+		"title": "OWECS Consultation Interface",
 		"text": "Incoming briefing...\nSynchronizing stakeholder files...\nChannel ready."
 	},
 	{
 		"type": "system",
-		"title": "OWECS Consultation Interface",
-		"text": "Welcome to the OWECS Consultation Interface.\n\nRole assigned: Legal-Policy Advisor.\n\nLocation: Republic of Arcadia.\n\nProject: Offshore Wind Energy in the Conan Sea."
+		"title": "Role Assignment",
+		"text": "Role assigned: Manager of the OWECS Project.\n\nLocation: Ministry of Infrastructure, Energy, Water and Ocean Affairs.\nRepublic of Arcadia.\n\nProject: Offshore Wind Energy in the Conan Sea (OWECS)."
 	},
 	{
 		"type": "character",
 		"speaker_id": "coordinator",
 		"speaker_name": "Coordinator",
-		"text": "You have been invited to support Arcadia's stakeholder consultation on the OWECS project.",
-		"portrait_path": "res://assets/Story/portraits/coordinator_1.png"
+		"text": "Welcome. I will brief you on Arcadia's energy situation and the OWECS project before we consult the stakeholders."
+	},
+	{
+		"type": "system",
+		"title": "Background — Arcadia",
+		"text": "Arcadia is a highly industrialised and densely populated country, strategically positioned as a transit hub for global goods transportation.\n\nIt has a thriving export sector in agricultural products and chemicals, alongside a small-scale fishing industry integral to local communities."
+	},
+	{
+		"type": "system",
+		"title": "Background — Energy Challenge",
+		"text": "Arcadia's economy relies heavily on substantial energy consumption. To align with the Paris Agreement and the SDGs, it must reduce its dependence on fossil fuels and strive towards net zero emissions.\n\nArcadia has an extensive coastline, making offshore wind parks a promising avenue for renewable energy — contributing to SDG 7 (Affordable and Clean Energy) and SDG 13 (Climate Action)."
+	},
+	{
+		"type": "system",
+		"title": "Background — Expected Benefits",
+		"text": "The OWECS wind park is expected to:\n- Generate ~50% of the energy required to sustain local industry\n- Satisfy 10% of household energy demands using residual industrial heat\n- Provide 30% of the electricity needed to power Arcadia's trains\n\nThe proposed location is within Arcadia's territorial sea."
 	},
 	{
 		"type": "character",
 		"speaker_id": "coordinator",
 		"speaker_name": "Coordinator",
-		"text": "This proposal could help transform Arcadia's energy future.",
-		"portrait_path": "res://assets/Story/portraits/coordinator_1.png"
+		"text": "The precise design of the wind park is not yet set in stone. Our Ministry attaches great importance to a balanced approach that considers the views of all stakeholders."
+	},
+	{
+		"type": "system",
+		"title": "Guiding Principle",
+		"text": "Given the limited space available, equitable and multifunctional use of space is needed, creating an equilibrium between economic, social and ecological needs.\n\nThe area reserved for wind turbines must also contribute to other economic, social and ecological objectives."
 	},
 	{
 		"type": "character",
 		"speaker_id": "coordinator",
 		"speaker_name": "Coordinator",
-		"text": "But it may also affect livelihoods, ecosystems, and regional shipping.",
-		"portrait_path": "res://assets/Story/portraits/coordinator_1.png"
-	},
-	{
-		"type": "character",
-		"speaker_id": "fisher_representative",
-		"speaker_name": "Fisher Representative",
-		"text": "You get power. \nWe lose our fishing grounds.",
-		"portrait_path": "res://assets/Story/portraits/fisher_representative.png"
-	},
-	{
-		"type": "character",
-		"speaker_id": "fisher_representative",
-		"speaker_name": "Fisher Representative",
-		"text": "These wind farms could take away our catch, our livelihood, and the life our communities have built around this sea.",
-		"portrait_path": "res://assets/Story/portraits/fisher_representative.png"
-	},
-	{
-		"type": "character",
-		"speaker_id": "environmental_activist",
-		"speaker_name": "Environmental Activist",
-		"text": "You call it clean energy. \nWe see fragile ecosystems pushed closer to the edge.",
-		"portrait_path": "res://assets/Story/portraits/environmental_activist.png"
-	},
-	{
-		"type": "character",
-		"speaker_id": "environmental_activist",
-		"speaker_name": "Environmental Activist",
-		"text": "These wind farms could disrupt migratory routes, damage marine habitats, and leave scars that last far beyond construction.",
-		"portrait_path": "res://assets/Story/portraits/environmental_activist.png"
-	},
-	{
-		"type": "character",
-		"speaker_id": "shipping_representative",
-		"speaker_name": "Shipping Representative",
-		"text": "You redraw lines on a map. \nWe face the delays at sea.",
-		"portrait_path": "res://assets/Story/portraits/shipping_representative.png"
-	},
-	{
-		"type": "character",
-		"speaker_id": "shipping_representative",
-		"speaker_name": "Shipping Representative",
-		"text": "These wind farms could force longer routes, tighter corridors, and rising costs across the region.",
-		"portrait_path": "res://assets/Story/portraits/shipping_representative.png"
+		"text": "As you assess mitigation measures, keep two questions in mind:\n\n1. Which measures should be implemented to reach an optimal result — the least possible trade-offs between relevant SDGs?\n\n2. Are your solutions in conformity with Arcadia's obligations under international law?"
 	},
 	{
 		"type": "character",
 		"speaker_id": "coordinator",
 		"speaker_name": "Coordinator",
-		"text": "Your task is not to defend one side too quickly.",
-		"portrait_path": "res://assets/Story/portraits/coordinator_2.png"
-	},
-	{
-		"type": "character",
-		"speaker_id": "coordinator",
-		"speaker_name": "Coordinator",
-		"text": "Review the case materials, examine the project area, and consider what a balanced response could look like.",
-		"portrait_path": "res://assets/Story/portraits/coordinator_2.png"
+		"text": "Top scores go to measures that reduce trade-offs the most while remaining in line with international law. Review the case materials, examine the project area, and consider what a balanced response could look like."
 	},
 	{
 		"type": "system",
 		"title": "Objective Updated",
-		"text": "- Review stakeholder concerns\n- Inspect the project area\n- Begin the consultation briefing"
+		"text": "- Review each Point of Interest on the map\n- Hear stakeholder concerns and legal perspectives\n- Choose mitigation measures that balance the SDGs"
 	}
 ]

@@ -9,13 +9,13 @@ var _is_in_game := false
 @onready var dim: ColorRect = $BackgroundDim
 @onready var panel_container: PanelContainer = $PanelContainer
 @onready var panel_vbox: VBoxContainer = $PanelContainer/VBoxContainer
-@onready var close_button: Button = panel_vbox.get_node("HeaderBar/CloseButton")
+@onready var close_button: TextureButton = panel_vbox.get_node("HeaderBar/CloseButton")
 @onready var content: VBoxContainer = panel_vbox.get_node("ScrollContainer/Content")
 @onready
 var fullscreen_check: CheckButton = content.get_node("DisplaySection/FullscreenRow/FullscreenCheck")
 @onready var volume_slider: HSlider = content.get_node("AudioSection/VolumeRow/HSlider")
 @onready var volume_label: Label = content.get_node("AudioSection/VolumeRow/VolumeValue")
-@onready var return_button: Button = content.get_node("GameSection/ReturnButton")
+@onready var return_button: TextureButton = content.get_node("GameSection/ReturnButton")
 @onready var version_label: Label = content.get_node("AboutSection/VBoxContainer/VersionLabel")
 
 

@@ -8,14 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://d1sh2kun5mjg" path="res://Scenes/gui.tscn" id="4_myvm1"]
 [ext_resource type="PackedScene" uid="uid://bmvm8od20tde2" path="res://Scenes/cargo_ship_offsetted.tscn" id="5_5qtum"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="5_w7jjh"]
-[ext_resource type="PackedScene" uid="uid://bwa1rovu000sq" path="res://Scenes/OpeningDialogue.tscn" id="6_opening"]
-[ext_resource type="MeshLibrary" uid="uid://d4a614nnh7lqm" path="res://assets/mesh_lib/country-border.tres" id="9_4c2oa"]
-[ext_resource type="PackedScene" uid="uid://csq7kykyguixi" path="res://assets/terrain_tilesets/industry.glb" id="10_olcgw"]
-[ext_resource type="PackedScene" uid="uid://glq111kngyc" path="res://Scenes/kalymera_nature.tscn" id="11_dlo4w"]
-[ext_resource type="Script" uid="uid://cd1s3pw4qgvof" path="res://Scripts/harbor.gd" id="7_olcgw"]
+[ext_resource type="PackedScene" uid="uid://bicbo0ddif0pe" path="res://Scenes/Conversation.tscn" id="6_conversation"]
+[ext_resource type="Script" path="res://Scripts/harbor.gd" id="7_olcgw"]
 [ext_resource type="PackedScene" uid="uid://docamqda4t5eg" path="res://assets/harbor_assets/harbor_tile.tscn" id="9_4c2oa"]
-[ext_resource type="Script" uid="uid://mhldxp3a728q" path="res://Scripts/points_of_interests.gd" id="9_q6lx1"]
-[ext_resource type="Script" uid="uid://cvwvwmytwxak4" path="res://Scripts/windmil_logic.gd" id="10_5qtum"]
+[ext_resource type="Script" path="res://Scripts/points_of_interests.gd" id="9_q6lx1"]
+[ext_resource type="Script" path="res://Scripts/windmil_logic.gd" id="10_5qtum"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myvm1"]
 transparency = 1
@@ -107,6 +104,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="ArcadiaOverlay" type="MeshInstance3D" parent="GridMap" unique_id=1927263752]
 transform = Transform3D(2.025954, 0, 0, 0, 2.6518825e-07, 0.99999994, 0, -2.0222664, 1.3113414e-07, 256.875, 5, -260.86)
+visible = false
 material_override = SubResource("StandardMaterial3D_myvm1")
 mesh = SubResource("QuadMesh_q0mm3")
 
@@ -291,7 +289,10 @@ highlight = NodePath("../GridMap/Highlight")
 
 [node name="GUI" parent="." unique_id=1419050564 instance=ExtResource("4_myvm1")]
 
-[node name="OpeningDialogue" parent="." unique_id=348558240 instance=ExtResource("6_opening")]
+[node name="OpeningDialogue" parent="." unique_id=1813793275 instance=ExtResource("6_conversation")]
+start_on_ready = true
+close_on_finish = true
+block_gameplay_input = true
 
 [node name="Cargo_ship_offsetted" parent="." unique_id=1577024735 instance=ExtResource("5_5qtum")]
 transform = Transform3D(-0.6691305, 0, -0.74314487, 0, 1, 0, 0.74314487, 0, -0.6691305, -25.737013, 20.1929, 284.9525)

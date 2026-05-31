@@ -1,0 +1,99 @@
+[
+	{
+		"type": "system",
+		"title": "Point of Interest: Port (SDGs 8, 9, 13, 14)",
+		"text": "The port is a key stakeholder. If ships need to make a detour, Arcadia's position as a global transport hub could be at risk."
+	},
+	{
+		"type": "system",
+		"title": "Phase 1 — Exploration",
+		"text": "Hear from the Port Authority, Legal Advisor, and AquaNautilus."
+	},
+	{
+		"type": "character",
+		"speaker_id": "blue_arcadia",
+		"speaker_name": "BlueArcadia Port Authority",
+		"text": "we welcome the project, as it will help the port to become more sustainable, thus contributing to SDG 9."
+	},
+	{
+		"type": "character",
+		"speaker_id": "blue_arcadia",
+		"speaker_name": "BlueArcadia Port Authority",
+		"text": "We are however concerned about our competitiveness: if ships need to make a detour to reach the port, they may prefer to go to Babylonia’s port instead and we may thus lose our position as a global transport hub."
+	},
+	{
+		"type": "character",
+		"speaker_id": "blue_arcadia",
+		"speaker_name": "BlueArcadia Port Authority",
+		"text": "The detour also negatively impacts SDGs 13 and 14, as it will increase the use of fuel by ships, causing higher emissions of greenhouse gases into the atmosphere and pollution to the marine environment. Arcadia will thus aggrevate its GHG emissions that it precisely seeks to reduce through this project. We believe that this cannot be Arcadia’s intention."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "Arcadia has an obligation to prevent, reduce and control pollution of the marine environment under Art. 194 UNCLOS."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "The International Tribunal for the Law of the Sea has determined that anthropogenic GHG emissions into the atmosphere constitute pollution of the marine environment within the meaning of Article 1(1)(4) UNCLOS. As for its climate obligations under the Paris Agreement, Arcadia has discretion as to how it reduces its GHG emissions, so long as the totality of its measures is ambitious and reflects its capacities."
+	},
+	{
+		"type": "system",
+		"title": "Phase 2 — Intervention",
+		"text": "Two options are available regarding the port."
+	},
+	{
+		"type": "choice",
+		"speaker_id": "coordinator",
+		"speaker_name": "Coordinator",
+		"text": "What would you \nlike to do about the port?",
+		"options": [
+			{
+				"label": "Leave the port where it is",
+				"branch_end": 11,
+				"skip_to": 15
+			},
+			{
+				"label": "Move the port to the island of Kalymera",
+				"branch_end": 14,
+				"skip_to": 15
+			}
+		]
+	},
+	{
+		"type": "system",
+		"title": "Option: Leave Port",
+		"text": "Leaving the port in its current location will result in longer shipping routes."
+	},
+	{
+		"type": "character",
+		"speaker_id": "blue_arcadia",
+		"speaker_name": "BlueArcadia Port Authority",
+		"text": "You do realise that you jeopardise Arcadia’s position as a global transport hub?"
+	},
+	{
+		"type": "character",
+		"speaker_id": "aquanautilus",
+		"speaker_name": "AquaNautilus",
+		"text": "This is a bad idea, as the additional GHG emissions will negatively impact marine life."
+	},
+	{
+		"type": "system",
+		"title": "Option: Move Port to Kalymera",
+		"text": "Moving the port to the island of Kalymera. Costly but more sustainable in the long run."
+	},
+	{
+		"type": "character",
+		"speaker_id": "blue_arcadia",
+		"speaker_name": "BlueArcadia Port Authority",
+		"text": "We very much welcome your decision, as it will not only help us remain competitive, but it will also enable us to invest in new infrastructure that is more sustainable."
+	},
+	{
+		"type": "character",
+		"speaker_id": "legal_advisor",
+		"speaker_name": "Legal Advisor",
+		"text": "I do not have any concerns from a legal perspective, but do keep in mind that moving the port is a costly matter."
+	}
+]

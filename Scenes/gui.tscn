@@ -1,29 +1,16 @@
 [gd_scene format=3 uid="uid://d1sh2kun5mjg"]
 
 [ext_resource type="Script" uid="uid://dmgaid25ggus1" path="res://Scripts/follow_mouse_pos.gd" id="2_bm56d"]
-[ext_resource type="Script" uid="uid://ckn4iu2l3iwrc" path="res://Scripts/current_day.gd" id="2_q8o8l"]
-[ext_resource type="Script" path="res://Scripts/left_slide_bar.gd" id="3_n5m23"]
+[ext_resource type="Script" uid="uid://p3s7jti0t3ck" path="res://Scripts/left_slide_bar.gd" id="3_n5m23"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="4_8kag3"]
 [ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_3w84o"]
 [ext_resource type="Script" uid="uid://dyq03ifteki1v" path="res://Scripts/windmill_editor.gd" id="6_3w84o"]
-[ext_resource type="PackedScene" uid="uid://dgchistorysidebar" path="res://Scenes/dialogue_history_sidebar.tscn" id="7_sidebar"]
-[ext_resource type="Texture2D" uid="uid://cabbenm8ihnn" path="res://assets/icons/convo_history_icon.png" id="7_bf1fa"]
-[ext_resource type="Texture2D" uid="uid://dfthk1my22kfr" path="res://assets/icons/settings_icon.png" id="8_q52sk"]
-[ext_resource type="Script" path="res://Scripts/gui.gd" id="9_gui"]
-
-[sub_resource type="GDScript" id="GDScript_80edf"]
-script/source = "extends Button
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-"
+[ext_resource type="PackedScene" uid="uid://dp8qd54pl7rnx" path="res://Scenes/dialogue_history_sidebar.tscn" id="7_sidebar"]
+[ext_resource type="Script" uid="uid://b708fvs761jje" path="res://Scripts/gui.gd" id="9_gui"]
+[ext_resource type="Texture2D" uid="uid://t7u62rqveknm" path="res://assets/icons/gear_icon_normal.png" id="10_gear"]
+[ext_resource type="Texture2D" uid="uid://cdlue0cbwmr8s" path="res://assets/icons/gear_icon_hover.png" id="11_gearh"]
+[ext_resource type="Texture2D" uid="uid://r6hij04deh8s" path="res://assets/icons/history_icon_normal.png" id="12_hist"]
+[ext_resource type="Texture2D" uid="uid://dt31df8e33gqu" path="res://assets/icons/history_icon_hover.png" id="13_histh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm56d"]
 bg_color = Color(0.9166399, 0.91663986, 0.9166398, 1)
@@ -94,35 +81,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_gui")
 
-[node name="Top" type="Control" parent="." unique_id=693588554]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-
-[node name="Top Panel" type="Panel" parent="Top" unique_id=802650601]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 31.0
-grow_horizontal = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Top" unique_id=573515709]
-layout_direction = 3
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 12.0
-offset_right = -27.0
-offset_bottom = 31.0
-grow_horizontal = 2
-
-[node name="Current Day" type="Label" parent="Top/HBoxContainer" unique_id=1697106258]
-layout_direction = 3
-layout_mode = 2
-text = "Current Day: Null"
-script = ExtResource("2_q8o8l")
-
 [node name="follow mouse pos" type="Control" parent="." unique_id=1016460331]
 anchors_preset = 0
 script = ExtResource("2_bm56d")
@@ -156,39 +114,8 @@ offset_right = 134.0
 offset_bottom = 86.0
 text = "Harbor"
 
-[node name="Control" type="Control" parent="." unique_id=393404647]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Ordering" type="HBoxContainer" parent="Control" unique_id=1853284130]
-layout_direction = 3
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = -47.0
-offset_right = -13.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Next Day" type="Button" parent="Control/Ordering" unique_id=1515686552]
-layout_direction = 3
-layout_mode = 2
-action_mode = 0
-text = " Next Day "
-alignment = 2
-autowrap_trim_flags = 0
-script = SubResource("GDScript_80edf")
-
 [node name="Left" type="Control" parent="." unique_id=1386416037]
+visible = false
 anchors_preset = 0
 offset_left = -267.0
 offset_right = -227.0
@@ -389,33 +316,39 @@ text = "Close"
 anchors_preset = 0
 offset_left = 12.0
 offset_top = 36.0
-offset_right = 100.0
-offset_bottom = 76.0
+offset_right = 237.0
+offset_bottom = 105.0
 mouse_filter = 1
 
-[node name="HistoryButton" type="Button" parent="TopLeftButtons" unique_id=354887452]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-icon = ExtResource("7_bf1fa")
-flat = true
-expand_icon = true
-icon_alignment = 1
+[node name="HistoryButton" type="TextureButton" parent="TopLeftButtons" unique_id=354887452]
+layout_mode = 1
+offset_right = 80.0
+offset_bottom = 80.0
+texture_normal = ExtResource("13_histh")
+texture_pressed = ExtResource("12_hist")
+texture_hover = ExtResource("12_hist")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="SettingsButton" type="Button" parent="TopLeftButtons" unique_id=596574786]
-layout_mode = 0
-offset_left = 48.0
-offset_right = 88.0
-offset_bottom = 40.0
-icon = ExtResource("8_q52sk")
-flat = true
-expand_icon = true
-icon_alignment = 1
+[node name="SettingsButton" type="TextureButton" parent="TopLeftButtons" unique_id=596574786]
+layout_mode = 1
+offset_left = 112.0
+offset_right = 192.0
+offset_bottom = 80.0
+texture_normal = ExtResource("11_gearh")
+texture_pressed = ExtResource("10_gear")
+texture_hover = ExtResource("10_gear")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="DialogueHistorySidebar" parent="." unique_id=1025775619 instance=ExtResource("7_sidebar")]
+layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="mouse_exited" from="follow mouse pos/Popup" to="follow mouse pos" method="_on_popup_mouse_exited"]
-[connection signal="pressed" from="Control/Ordering/Next Day" to="Top/HBoxContainer/Current Day" method="_on_next_day_pressed"]
 [connection signal="pressed" from="TopLeftButtons/HistoryButton" to="DialogueHistorySidebar" method="_toggle"]
 [connection signal="pressed" from="TopLeftButtons/SettingsButton" to="." method="_on_settings_pressed"]

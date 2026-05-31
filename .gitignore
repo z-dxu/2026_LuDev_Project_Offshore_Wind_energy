@@ -28,3 +28,5 @@ reports/*
 # Different versions of gdUnit4, breaks each other, install locally your own version of gdUnit4
 # addons/gdUnit4/*
 
+.tmp files
+*.tmp

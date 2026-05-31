@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bwa1rovu000sq"]
+[gd_scene format=3 uid="uid://cdowjkxy3t8cx"]
 
 [ext_resource type="FontFile" uid="uid://hba1s05qn7hc" path="res://assets/Fonts/Denk_One/DenkOne-Regular.ttf" id="1_font"]
-[ext_resource type="Script" uid="uid://ohttol63j6ji" path="res://Scripts/dialogue_controller.gd" id="2_script"]
+[ext_resource type="Script" path="res://Scripts/dialogue_controller.gd" id="2_script"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_system_panel"]
 content_margin_left = 18.0
