@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="ARCADIA"
+config/version="0.1.9"
 run/main_scene="uid://c2ouw0y45v3an"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
