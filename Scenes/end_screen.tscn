@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://dv5sppgvmmlxb"]
+
+[ext_resource type="Script" uid="uid://da2issvvuxowb" path="res://Scripts/end_screen.gd" id="1_bhpww"]
+[ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="2_1gwaw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1gwaw"]
+load_path = "res://.godot/imported/Background_Endscreen.png-c4a027b63598bb92ed47869a03f8195e.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+content_margin_left = 18.0
+content_margin_top = 12.0
+content_margin_right = 18.0
+content_margin_bottom = 12.0
+bg_color = Color(0.961, 0.914, 0.784, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22745098, 0.18039216, 0.101960786, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0)
+shadow_size = 12
+shadow_offset = Vector2(4, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
+bg_color = Color(0.85, 0.79, 0.65, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_env"]
+bg_color = Color(0.29, 0.482, 0.247, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_soc"]
+bg_color = Color(0.68774486, 0.30886754, 0.14030269, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="EndScreen" type="Control" unique_id=1918144344]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bhpww")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=379613324]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_1gwaw")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="EndTitle" type="Label" parent="." unique_id=1048121081]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.08
+anchor_right = 1.0
+anchor_bottom = 0.28
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.72, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_1gwaw")
+theme_override_font_sizes/font_size = 86
+text = "THE END"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThanksLabel" type="Label" parent="." unique_id=1992121059]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.68
+anchor_top = 0.945
+anchor_right = 0.99
+anchor_bottom = 0.99
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.94, 0.72, 0.38)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.2)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_1gwaw")
+theme_override_font_sizes/font_size = 16
+text = "Thank you for playing!!"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="." unique_id=62353242]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.945
+anchor_top = 0.02
+anchor_right = 0.99
+anchor_bottom = 0.085
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.92, 0.58, 0.75)
+theme_override_colors/font_pressed_color = Color(1, 0.94, 0.72, 1)
+theme_override_colors/font_hover_color = Color(1, 0.96, 0.72, 0.95)
+theme_override_fonts/font = ExtResource("2_1gwaw")
+theme_override_font_sizes/font_size = 36
+text = "X"
+flat = true
+
+[node name="Scores" type="VBoxContainer" parent="." unique_id=1594723637]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.52
+anchor_right = 0.48
+anchor_bottom = 0.83
+offset_left = 97.840004
+offset_top = 15.040009
+offset_right = 97.839966
+offset_bottom = 70.160034
+theme_override_constants/separation = 27
+
+[node name="EnvironmentCard" type="PanelContainer" parent="Scores" unique_id=530387290]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="VBox" type="VBoxContainer" parent="Scores/EnvironmentCard" unique_id=1461836882]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Header" type="HBoxContainer" parent="Scores/EnvironmentCard/VBox" unique_id=1772591833]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Scores/EnvironmentCard/VBox/Header" unique_id=884907024]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.038608775, 0.021499252, 0.01653566, 1)
+theme_override_fonts/font = ExtResource("2_1gwaw")
+theme_override_font_sizes/font_size = 28
+text = "Environment"
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="Scores/EnvironmentCard/VBox/Header" unique_id=1015667474]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.137, 0.078, 1)
+theme_override_fonts/font = ExtResource("2_1gwaw")
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bar" type="ProgressBar" parent="Scores/EnvironmentCard/VBox" unique_id=20815948]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bar_env")
+show_percentage = false
+
+[node name="Control" type="Control" parent="Scores/EnvironmentCard/VBox" unique_id=1350479865]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Caption" type="Label" parent="Scores/EnvironmentCard/VBox" unique_id=1102669538]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.039215688, 0.019607844, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("2_1gwaw")
+theme_override_font_sizes/font_size = 22
+text = "-"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SocialCard" type="PanelContainer" parent="Scores" unique_id=1442286154]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="VBox" type="VBoxContainer" parent="Scores/SocialCard" unique_id=1874397682]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Header" type="HBoxContainer" parent="Scores/SocialCard/VBox" unique_id=1005702950]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Scores/SocialCard/VBox/Header" unique_id=690833281]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.039215688, 0.019607844, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("2_1gwaw")
+theme_override_font_sizes/font_size = 28
+text = "Social"
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="Scores/SocialCard/VBox/Header" unique_id=1541674514]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.137, 0.078, 1)
+theme_override_fonts/font = ExtResource("2_1gwaw")
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bar" type="ProgressBar" parent="Scores/SocialCard/VBox" unique_id=1564332688]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bar_soc")
+show_percentage = false
+
+[node name="Control" type="Control" parent="Scores/SocialCard/VBox" unique_id=820527391]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Caption" type="Label" parent="Scores/SocialCard/VBox" unique_id=1819679961]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.039215688, 0.019607844, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("2_1gwaw")
+theme_override_font_sizes/font_size = 23
+text = "-"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
