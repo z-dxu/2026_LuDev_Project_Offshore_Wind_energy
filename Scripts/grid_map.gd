@@ -6,7 +6,6 @@ extends GridMap
 #@export var sdg_offset:Vector3 = Vector3(0,21,0)
 @export var building_range = 5
 @export var sdg_range: int = 5
-var test_mode = false
 var sdg_data = GameController.sdg_data
 # Vector3i -> {
 #	"sdg_name" -> {"score": 0}
@@ -32,8 +31,6 @@ var ship = null
 
 
 func _ready() -> void:
-	if test_mode:
-		return
 	if Engine.is_editor_hint():
 		return
 
@@ -131,6 +128,7 @@ func open_windmill_editor_for(windmill: Node3D) -> void:
 	else:
 		print("Windmill editor node not found")
 
+
 #
 #func _spawn_sdg_goals():
 #for cel_pos in food_pos:
@@ -146,13 +144,14 @@ func open_windmill_editor_for(windmill: Node3D) -> void:
 #sdg_images.add_child(food)
 #
 #
-#func _get_cell_in_range(center: Vector3i):
-#var result = []
-#for x in range(center.x - sdg_range, center.x + sdg_range + 1):
-#for z in range(center.z - sdg_range, center.z + sdg_range + 1):
-#var pos = Vector3i(x, center.y, z)
-#result.append(pos)
-#return result
+func _get_cell_in_range(center: Vector3i):
+	var result = []
+	for x in range(center.x - sdg_range, center.x + sdg_range + 1):
+		for z in range(center.z - sdg_range, center.z + sdg_range + 1):
+			var pos = Vector3i(x, center.y, z)
+			result.append(pos)
+	return result
+
 #
 #
 #func _get_total_score_type(cel_pos: Vector3i, type: String):

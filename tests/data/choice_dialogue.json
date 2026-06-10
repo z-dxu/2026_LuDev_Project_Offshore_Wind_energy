@@ -1,0 +1,38 @@
+[
+    {
+        "type": "system",
+        "title": "Before",
+        "text": "Before the choice."
+    },
+    {
+        "type": "choice",
+        "text": "Pick a path:",
+        "options": [
+            {
+                "label": "Path A",
+                "skip_to": 4,
+                "branch_end": 2
+            },
+            {
+                "label": "Path B",
+                "skip_to": 3,
+                "branch_end": 1
+            }
+        ]
+    },
+    {
+        "type": "system",
+        "title": "Path A",
+        "text": "You chose path A."
+    },
+    {
+        "type": "system",
+        "title": "Path B",
+        "text": "You chose path B."
+    },
+    {
+        "type": "system",
+        "title": "Merge",
+        "text": "Both paths converge."
+    }
+]

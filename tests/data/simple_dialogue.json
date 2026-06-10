@@ -1,0 +1,17 @@
+[
+    {
+        "type": "system",
+        "title": "Test System",
+        "text": "System message here."
+    },
+    {
+        "type": "character",
+        "speaker_name": "Test Speaker",
+        "text": "Character message here."
+    },
+    {
+        "type": "system",
+        "title": "Final",
+        "text": "End of test dialogue."
+    }
+]
