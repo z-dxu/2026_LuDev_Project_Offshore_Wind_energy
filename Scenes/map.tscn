@@ -285,6 +285,21 @@ path_joined = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 curve = SubResource("Curve3D_olcgw")
 
+[node name="Cargo_ship_offsetted" parent="GridMap" unique_id=1577024735 instance=ExtResource("5_5qtum")]
+transform = Transform3D(-0.6691305, 0, -0.74314487, 0, 1, 0, 0.74314487, 0, -0.6691305, -25.737013, 20.1929, 284.9525)
+
+[node name="Samsar_wetland" parent="GridMap" unique_id=340147482 instance=ExtResource("14_ie368")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.839367, 0, 6.1717753)
+
+[node name="FishHouseReadySceneLOAD" parent="GridMap" unique_id=1839888850 instance=ExtResource("15_k63oc")]
+transform = Transform3D(-0.24592187, 0, 6.152544, 0, 6.1570005, 0, -6.460322, 0, -0.2342059, 47.130592, 1.3119278, 28.6613)
+
+[node name="AquaNautilus" parent="GridMap" unique_id=1088874726 instance=ExtResource("16_j4oe2")]
+transform = Transform3D(-3.8498683, 0, 0.0318501, 0, 3.85, 0, -0.0318501, 0, -3.8498683, 206.97537, 3.4025192, -126.377815)
+
+[node name="Bird_Preservation_Building" parent="GridMap" unique_id=770813887 instance=ExtResource("17_riaky")]
+transform = Transform3D(1.985, 0, 0, 0, 1.985, 0, 0, 0, 1.985, 398.71594, 3.4025192, -71.81669)
+
 [node name="Camera" parent="." unique_id=1413821494 node_paths=PackedStringArray("grid_map", "highlight") instance=ExtResource("2_26yhd")]
 transform = Transform3D(0.70710677, -0.5, 0.50000006, 0, 0.7071068, 0.70710677, -0.7071068, -0.49999997, 0.5, 313, 119.36841, -59.467834)
 drag_speed = 0.2
@@ -298,20 +313,5 @@ start_on_ready = true
 close_on_finish = true
 block_gameplay_input = true
 
-[node name="Cargo_ship_offsetted" parent="." unique_id=1577024735 instance=ExtResource("5_5qtum")]
-transform = Transform3D(-0.6691305, 0, -0.74314487, 0, 1, 0, 0.74314487, 0, -0.6691305, -25.737013, 20.1929, 284.9525)
-
-[node name="Samsar_wetland" parent="." unique_id=340147482 instance=ExtResource("14_ie368")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.839367, 0, 6.1717753)
-
-[node name="FishHouseReadySceneLOAD" parent="." unique_id=1839888850 instance=ExtResource("15_k63oc")]
-transform = Transform3D(-0.24592187, 0, 6.152544, 0, 6.1570005, 0, -6.460322, 0, -0.2342059, 47.130592, 1.3119278, 28.6613)
-
-[node name="AquaNautilus" parent="." unique_id=1088874726 instance=ExtResource("16_j4oe2")]
-transform = Transform3D(-3.8498683, 0, 0.0318501, 0, 3.85, 0, -0.0318501, 0, -3.8498683, 206.97537, 3.4025192, -126.377815)
-
-[node name="Bird_Preservation_Building" parent="." unique_id=770813887 instance=ExtResource("17_riaky")]
-transform = Transform3D(1.985, 0, 0, 0, 1.985, 0, 0, 0, 1.985, 398.71594, 3.4025192, -71.81669)
-
-[editable path="Cargo_ship_offsetted"]
-[editable path="Cargo_ship_offsetted/cargo_ship"]
+[editable path="GridMap/Cargo_ship_offsetted"]
+[editable path="GridMap/Cargo_ship_offsetted/cargo_ship"]
