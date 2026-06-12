@@ -7,7 +7,7 @@
 * Select folder containing the project.godot file
 * Open the project.
 * Press F5 or click Run Project.
-# Running a Released Build
+# Running a Released Build (Windows Only)
 * Download the latest release from the Releases page.
 * Extract the downloaded archive.
 * Run the executable
