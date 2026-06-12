@@ -1,178 +1,105 @@
-# ✨ Welcome to your team’s GitHub repository! ✨
+# ✨ Arcadia: Offshore Wind Energy Simulation✨
+# How to Run the Game
+# Running from the Godot Editor
+* Clone the repository:
+* Open Godot Engine.
+* Click Import.
+* Select folder containing the project.godot file
+* Open the project.
+* Press F5 or click Run Project.
+# Running a Released Build
+* Download the latest release from the Releases page.
+* Extract the downloaded archive.
+* Run the executable
+# Controls
+* left-clieck to interact with the point of interests and to continue the dialgoue
+* right-click to move the camera around
 
-This repository will be the home of your project.
-You will use it throughout the course to design, implement, test, and document your software.
-The text below is intended to help you get started.
-Feel free to modify or remove it once you are familiar with the workflow.
-More information about this can also be found within the course's content.
+# Overview
 
-Good luck, and work professionally.
+Arcadia is an interactive game that places players in the role of a government decision maker responsible for overseeing the development of an offshore wind park.
 
-## Project organization
+Players must balance competing interests from environmental organizations, fishing communities, tourism representatives, energy experts, and legal advisors while working toward sustainable development goals (SDGs).
 
-A GitHub **Project** has been prepared to help you organize your work by acting as a Scrum board:
-- Use **Milestones** to represent sprints.
-- Associate **Issues** with milestones.
-- Use the board to track progress.
+Every decision has consequences. Choices affect environmental protection, renewable energy production, economic development, food security, and compliance with international law.
 
-## Repository usage
+#Learning Objectives
 
-- Commit **only source code** written by your team; do not commit binaries or similar.
-- Do **not** copy the source code of external dependencies into this repository.
-  - Use package managers or **git submodules** (see the *Learn more* section below) where appropriate.
+The game aims to help players:
 
-## Licensing
+* Understand the complexity of sustainable development decisions.
+* Explore trade-offs between competing SDGs.
+* Learn about international environmental agreements and obligations.
+* Evaluate stakeholder perspectives in policy-making.
+* Experience the challenges of balancing environmental, social, and economic priorities.
 
-This repository currently uses the **MIT License**, but you may choose a different license if needed.
+# Sustainable Development Goals
 
-> [!IMPORTANT]
-> If a client intends to distribute a **closed-source or commercial** version of the software, special care must be taken when selecting:
-> - Your project license
-> - Licenses of all dependencies (frameworks, libraries, tools, SDKs, etc.)
->
-> Always verify license compatibility before integrating dependencies.  
-> Helpful resource: https://choosealicense.com
+The game focuses on several UN Sustainable Development Goals:
+* SDG 1 – No Poverty
+* SDG 2 – Zero Hunger
+* SDG 7 – Affordable and Clean Energy
+* SDG 8 – Decent Work and Economic Growth
+* SDG 13 – Climate Action
+* SDG 14 – Life Below Water
+* SDG 15 – Life on Land
 
-## Extended GitHub features
+# Gameplay
+# Phase 1: Exploration
+Players visit Points of Interest (POIs) and gather information from stakeholders.
+Each stakeholder presents different concerns and priorities.
+* Phase 2: Intervention
+After gathering information, players must choose how to respond to challenges.
+Examples include:
 
-You can also use:
-- **GitHub Wiki** for design notes and documentation
-- **GitHub Actions** for CI/CD (testing, linting, formatting, deployment, …)
-- **GitHub Pages** for static demo hosting
-- **Releases** and **tags** for versioning
+* Creating artificial reefs
+* Supporting fishers during economic transitions
+* Painting turbine blades
+* Seasonal turbine shutdowns
+* Using suction bucket foundations
+* Installing bubble curtains
+# Phase 3: Evaluation
+The game evaluates the player's decisions and determines an outcome based on the combined effects of their choices.
+Possible outcomes include:
 
-## Learn more
+* Good Ending
+* Mixed Ending
+* Bad Ending
 
-If this is your first time using GitHub, the following resources are strongly recommended:
+# Dialogue System
 
-- Git and GitHub basics:  
-  https://docs.github.com/en/get-started
+The game uses JSON-based dialogue files.
 
-- Issues and Projects:  
-  https://docs.github.com/en/issues  
-  https://docs.github.com/en/issues/planning-and-tracking-with-projects
+Example:
+```
+{
+  "speaker": "LEGAL ADVISOR",
+  "text": "Arcadia must balance environmental protection and economic development."
+}
+```
+Choices can be defined as:
+```
+{
+  "type": "choice",
+  "text": "How should Arcadia respond?",
+  "options": [
+    {
+      "label": "Create artificial reefs"
+    },
+    {
+      "label": "Move the wind park"
+    }
+  ]
+}
+```
+Scoring
+Player choices contribute to sustainability outcomes across multiple SDGs.
+The final score is based on the choices the player made
 
-- Pull requests and code reviews:  
-  https://docs.github.com/en/pull-requests
+This project was developed as an educational game exploring sustainability challenges surrounding offshore wind energy development.
 
-- GitHub Actions (CI/CD):  
-  https://docs.github.com/en/actions
+License
 
-- GitHub Wiki:  
-  https://docs.github.com/en/communities/documenting-your-project-with-wikis
-
-- GitHub Pages:  
-  https://docs.github.com/en/pages
-
-- Git submodules:  
-  https://git-scm.com/book/en/v2/Git-Tools-Submodules
-
-## Common full-stack web development stacks
-
-If you have been matched to a project involving web development and are starting from scratch, selecting an appropriate set of tools can seem daunting.
-
-The following **full-stack setups** are widely used, well-documented, and suitable for most projects.
-Each example includes a typical runtime and package manager.
-You are, of course, free to choose a different stack if it better fits your project requirements or your group's experience!
-
-> [!TIP]
-> Most modern IDEs provide plugins that extend their support for specific frameworks. These can add features such as syntax highlighting for templating languages, framework-aware code completion, and inline documentation.
-
-### JavaScript / TypeScript
-
-**Frontend frameworks**
-
-- React — https://react.dev  
-- Vue — https://vuejs.org/guide  
-- Angular — https://angular.io/docs  
-- Svelte — https://svelte.dev  
-
-**Full-stack frameworks**
-
-- Next.js (React-based)  
-  https://nextjs.org/docs  
-
-- SvelteKit (Svelte-based)  
-  https://kit.svelte.dev/docs  
-
-- Nuxt (Vue-based)  
-  https://nuxt.com/docs  
-
-**API backends**
-
-- Express — https://expressjs.com  
-- NestJS — https://docs.nestjs.com  
-- Fastify — https://www.fastify.io/docs/latest  
-- Hono — https://hono.dev  
-
-**Runtime and package management**
-
-- Node.js with npm (default)  
-  https://nodejs.org/en/docs  
-  https://docs.npmjs.com  
-
-- Bun (runtime and package manager)  
-  https://bun.sh/docs  
-
----
-
-### Python
-
-**Web frameworks**
-
-- Django (full-stack: ORM, templates, authentication included)  
-  https://docs.djangoproject.com  
-
-- FastAPI (API-first, commonly paired with a separate frontend)  
-  https://fastapi.tiangolo.com  
-
-**Runtime and package management**
-
-- Python with pip  
-  https://pip.pypa.io  
-
-- uv (fast package and environment manager)  
-  https://docs.astral.sh/uv  
-
----
-
-### PHP
-
-**Full-stack frameworks**
-
-- Laravel  
-  https://laravel.com/docs  
-
-- Symfony  
-  https://symfony.com/doc  
-
-*Both Laravel and Symfony can also be used as API backends in combination with modern frontend frameworks.*
-
-**Runtime and package management**
-
-- PHP with Composer  
-  https://getcomposer.org/doc  
-
----
-
-### Java
-
-**Web frameworks**
-
-- Spring Boot (backend or full-stack)  
-  https://spring.io/projects/spring-boot  
-
-  - Commonly used as an API backend with modern frontend frameworks  
-  - Can also be used with server-side rendering (e.g., Thymeleaf)  
-    https://www.thymeleaf.org/documentation.html  
-
-**Runtime and package management**
-
-- Java (JDK)  
-  https://docs.oracle.com/en/java  
-
-- Maven or Gradle  
-  https://maven.apache.org/guides  
-  https://docs.gradle.org  
+This project is provided for educational purposes.
 
 # Group 9
