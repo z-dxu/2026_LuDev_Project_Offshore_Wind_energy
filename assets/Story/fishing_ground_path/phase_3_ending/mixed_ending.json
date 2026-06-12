@@ -1,0 +1,20 @@
+[
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "Marine biodiversity has benefited from the artificial reefs, and construction noise was partially mitigated."
+	},
+	{
+		"speaker": "FISHERS GUILD",
+		"text": "The transition remains costly, but the new opportunities created by the reefs provide some economic security."
+	},
+	{
+		"type":"flag",
+		"speaker": "LEGAL ADVISOR",
+		"text": "Arcadia has reduced several environmental and social risks, though significant trade-offs remain.",
+		"signal": "next_phase",
+		"flag": {
+			"name": "fishing_ending",
+			"story_flag": "mixed"
+		}
+	}
+]

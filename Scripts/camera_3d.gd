@@ -6,12 +6,16 @@ extends Camera3D
 @export var min_zoom := 50
 @export var grid_map: GridMap
 @export var highlight: Node3D
-
+@export var min_bounds := Vector3(-50, 0, -50)
+@export var max_bounds := Vector3(50, 0, 50)
 var dragging := false
 var last_mouse_pos := Vector2.ZERO
 var hover_poi_button = false
 var selected_poi_button = null
 var hovered_cell: Vector3i = Vector3i.ZERO
+var quest_marker = null
+
+@onready var grid_map_helper: Node3D = $"../GridMapHelper"
 
 
 func _process(_delta: float) -> void:
@@ -23,31 +27,36 @@ func _process(_delta: float) -> void:
 		var to = from + project_ray_normal(mouse_pos) * 1000
 		var space_state = get_world_3d().direct_space_state
 		var query = PhysicsRayQueryParameters3D.create(from, to)
-
 		# query.exclude = [self] # exclude self to avoid self-intersection
-		query.collision_mask = 2
-
+		query.collide_with_areas = true  # Questmarker
+		#query.collision_mask = 2 # gridcells for highlighter
+		query.collision_mask = 2 | 28  #Gridmap_helper checks
 		var result = space_state.intersect_ray(query)
 		if result:
-			var hit_pos = result.position
-			var local_pos_gridmap = grid_map.to_local(hit_pos)
+			quest_marker = null
+			if result.collider is Area3D:
+				var area: Area3D = result.collider
+				quest_marker = area.get_parent()  # parent has the script ( the node3d)
 
-			# convert mouse global pos to a cell position
-			var cell = grid_map.local_to_map(local_pos_gridmap)
-			hovered_cell = cell
-
-			var poi_button = GameController.poi_positions
-			if cell in poi_button:
-				hover_poi_button = true
-				selected_poi_button = cell
-			else:
-				hover_poi_button = false
-				selected_poi_button = null
-
-			highlight.position = grid_map.map_to_local(cell) + Vector3(0, 1, 0)
-			highlight.visible = true
-		else:
-			highlight.visible = false
+			# DEBUG function to show where the cells are by using mouse click
+			#var hit_pos = result.position
+			#var local_pos_gridmap = grid_map.to_local(hit_pos)
+			## convert mouse global pos to a cell position
+			#var cell = grid_map.local_to_map(local_pos_gridmap)
+			#hovered_cell = cell
+			#
+			#var poi_button = GameController.poi_positions
+			#if cell in poi_button:
+			#hover_poi_button = true
+			#selected_poi_button = cell
+			#else:
+			#hover_poi_button = false
+			#selected_poi_button = null
+			#
+			#highlight.position = grid_map.map_to_local(cell) + Vector3(0, 1, 0)
+			#highlight.visible = true
+			#else:
+			#highlight.visible = false
 
 
 func _input(event):
@@ -70,18 +79,13 @@ func zoom(event):
 			size = max(min_zoom, size - zoom_speed)
 
 		elif event.is_action_pressed("left_click"):
-			print("Left click at hovered cell: ", hovered_cell)
-
-			var windmill = grid_map.get_windmill_at_cell(hovered_cell)
-			if windmill != null:
-				print("Clicked a windmill at cell: ", hovered_cell)
-				grid_map.open_windmill_editor_for(windmill)
-			elif hover_poi_button:
-				print("Clicked a POI at cell: ", selected_poi_button)
-				GameController.poi_button_pressed.emit(hover_poi_button, selected_poi_button)
-			else:
-				print("Clicked empty cell: ", hovered_cell)
-				GameController.poi_button_pressed.emit(hover_poi_button, selected_poi_button)
+			#DEBUG Function to help check what ui element the mouse is clicking on
+			#print("hovering on this control: " + str(get_viewport().gui_get_hovered_control()))
+			if quest_marker:
+				quest_marker.clicked()
+				quest_marker = null
+			#DEBUG FUNCTION : to help getting the cell vector3i
+			#print("Left click at hovered cell: ", hovered_cell)
 
 
 func camera_movement(event):
@@ -96,3 +100,15 @@ func camera_movement(event):
 
 		var move_dir = cam_right * delta.x + cam_forward * -delta.y
 		grid_map.translate(move_dir * drag_speed)
+		grid_map_helper.translate(move_dir * drag_speed)
+		clamp_world_position(grid_map)
+		clamp_world_position(grid_map_helper)
+
+
+func clamp_world_position(node: Node3D):
+	var pos = node.global_position
+
+	pos.x = clamp(pos.x, min_bounds.x, max_bounds.x)
+	pos.z = clamp(pos.z, min_bounds.z, max_bounds.z)
+
+	node.global_position = pos

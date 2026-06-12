@@ -1,0 +1,23 @@
+[
+	{
+		"speaker": "BLUEARCADIA PORT AUTHORITY",
+		"text": "We very much welcome your decision. It will help us remain competitive while investing in more sustainable infrastructure."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "I do not have concerns from a legal perspective, but keep in mind that moving the port is costly."
+	},
+	{
+		"speaker": "INFRASTRUCTURE MINISTRY",
+		"text": "To make the relocation work, Arcadia will now have to construct a road bridge to Kalymera, turning a port decision into a major coastal infrastructure project."
+	},
+	{
+		"type": "flag",
+		"speaker": "LEGAL ADVISOR",
+		"text": "Moving the port to Kalymera protects the port's long-term role and avoids increased shipping emissions, but it requires a major budget commitment.",
+		"flag": {
+			"name": "port_intervention_report",
+			"story_flag": "port_relocation_cost"
+		}
+	}
+]

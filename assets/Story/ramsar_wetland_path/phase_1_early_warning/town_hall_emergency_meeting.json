@@ -1,0 +1,78 @@
+[
+	{
+		"speaker": "SECRETARY-GENERAL", 
+		"text": "The first mitigation measure has now been incorporated into the project plan."
+	},
+	{
+		"speaker": "SECRETARY-GENERAL", 
+		"text": "Environmental groups have welcomed the government's response, but several organizations argue that additional action may still be necessary."
+	},
+	{
+		"speaker": "ENERGY MINISTER", 
+		"text": "The wind park remains a cornerstone of Arcadia's climate strategy and contributes significantly to SDGs 7 and 13."
+	},
+	{
+		"speaker": "ENERGY MINISTER", 
+		"text": "However, every additional environmental measure affects project costs or energy production.",
+	},
+	
+	
+	
+	{
+		"speaker": "LEGAL ADVISOR", 
+		"text": "The question is no longer whether we should protect migratory birds.",
+	},
+	{
+		"speaker": "LEGAL ADVISOR", 
+		"text": "The question is how far we are willing to go while maintaining the project's economic and energy objectives.",
+	},
+	{
+		"speaker": "LEGAL ADVISOR", 
+		"text": "Some options may better protect the wetland and strengthen compliance with international obligations, but they may also affect tourism, fisheries, or renewable energy generation.",
+	},
+	{
+		"speaker": "SECRETARY-GENERAL", 
+		"text": "The Cabinet has approved funding for one additional mitigation measure.",
+	},
+	{
+		"speaker": "ENERGY MINISTER", 
+		"text": "However, every additional environmental measure affects project costs or energy production.",
+	},
+	{
+		"type": "choice",
+		"speaker": "SECRETARY-GENERAL", 
+		"text": "Which measure should be added?",
+		"options":[
+			{
+				"label": "Paint turbine blades",
+				"signal": "next_phase",
+				"flag":
+					{
+						"name": "choice_2",
+						"story_flag":"Painting the rotor blades"
+					},
+			},
+			{
+				"label": "Seasonal shutdowns",
+				"signal": "next_phase",
+				"flag":
+					{
+						"name": "choice_2",
+						"story_flag":"Seasonal Shutdown"
+					},
+			},
+			{
+				"label": "Lower turbines",
+				"signal": "next_phase",
+				"flag":
+					{
+						"name": "choice_2",
+						"story_flag":"Lower Turbines"
+					},
+			},
+			]
+		
+	},
+
+
+]

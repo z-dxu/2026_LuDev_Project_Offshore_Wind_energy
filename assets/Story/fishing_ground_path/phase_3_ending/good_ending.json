@@ -1,0 +1,20 @@
+[
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "The artificial reefs have strengthened marine habitats, while suction bucket foundations minimized underwater disturbance during construction."
+	},
+	{
+		"speaker": "FISHERS GUILD",
+		"text": "Although adapting our practices was challenging, new opportunities around the reefs have provided a sustainable future for our communities."
+	},
+	{
+		"type":"flag",
+		"speaker": "LEGAL ADVISOR",
+		"text": "Arcadia has taken meaningful steps to balance SDGs 1, 2, 8 and 14 while respecting its environmental obligations.",
+		"signal": "next_phase",
+		"flag": {
+			"name": "fishing_ending",
+			"story_flag": "good"
+		}
+	}
+]

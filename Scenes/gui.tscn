@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://d1sh2kun5mjg"]
 
-[ext_resource type="Script" uid="uid://dmgaid25ggus1" path="res://Scripts/follow_mouse_pos.gd" id="2_bm56d"]
 [ext_resource type="Script" uid="uid://p3s7jti0t3ck" path="res://Scripts/left_slide_bar.gd" id="3_n5m23"]
 [ext_resource type="Texture2D" uid="uid://k32qy6rrbbxu" path="res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png" id="4_8kag3"]
 [ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="5_3w84o"]
@@ -73,17 +72,19 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="GUI" type="Control" unique_id=1419050564]
+z_index = -5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("9_gui")
 
 [node name="follow mouse pos" type="Control" parent="." unique_id=1016460331]
+visible = false
 anchors_preset = 0
-script = ExtResource("2_bm56d")
 
 [node name="Popup" type="Panel" parent="follow mouse pos" unique_id=1828714949]
 layout_mode = 0
@@ -120,6 +121,7 @@ anchors_preset = 0
 offset_left = -267.0
 offset_right = -227.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("3_n5m23")
 
 [node name="Panel" type="Panel" parent="Left" unique_id=611819923]
@@ -313,11 +315,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bf1fa")
 text = "Close"
 
 [node name="TopLeftButtons" type="Control" parent="." unique_id=1656443051]
-anchors_preset = 0
-offset_left = 12.0
-offset_top = 36.0
-offset_right = 237.0
-offset_bottom = 105.0
+layout_mode = 1
+anchor_right = 0.25
+anchor_bottom = 0.2
 mouse_filter = 1
 
 [node name="HistoryButton" type="TextureButton" parent="TopLeftButtons" unique_id=354887452]

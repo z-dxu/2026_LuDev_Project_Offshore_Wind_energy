@@ -1,0 +1,27 @@
+[
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "We are concerned about underwater noise and vibrations caused by construction and operation of the wind park."
+	},
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "This may affect communication, navigation and feeding of marine mammals and fish."
+	},
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "Without mitigation, the project may lead to habitat displacement and negatively impact SDG 14."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "Arcadia has an obligation to prevent, reduce and control pollution under Article 194 UNCLOS."
+	},
+	{
+		"type":"flag",
+		"speaker": "LEGAL ADVISOR",
+		"text": "If underwater noise qualifies as pollution, Arcadia must use the best practicable means at its disposal.",
+		"flag": {
+			"name": "marine_biodiversity_report",
+			"story_flag": "done"
+		}
+	}
+]

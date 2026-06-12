@@ -13,6 +13,7 @@ const SYSTEM_SPEAKER := "System"
 @export var close_on_finish := false
 @export var block_gameplay_input := false
 @export_dir var portrait_folder := "res://assets/Story/portraits"
+#var state: State = State.IDLE
 
 var dialogue_json
 var tween
@@ -21,7 +22,7 @@ var _choice_skip_to := -1
 var _choice_branch_end := -1
 var _choice_active := false
 var _choice_buttons: Array[TextureButton] = []
-
+var _dialogue_running = false
 @onready var background: NinePatchRect = $DialoguePanel/Background
 @onready var panel_dim: ColorRect = $DialoguePanel/Dim
 @onready var speaker_name_label: Label = $DialoguePanel/Background/SpeakerName
@@ -30,14 +31,16 @@ var _choice_buttons: Array[TextureButton] = []
 @onready var portrait_pic: TextureRect = $DialoguePanel/Background/PortraitContainer/Portrait
 @onready var dialogue_text: RichTextLabel = $DialoguePanel/Background/DialogueText
 @onready var choice_container: VBoxContainer = $DialoguePanel/Background/ChoiceContainer
+@onready var dialogue_panel: CanvasLayer = $DialoguePanel
+@onready var choice_panel: CanvasLayer = $ChoicePanel
 
 
 func _ready() -> void:
-	mouse_filter = Control.MOUSE_FILTER_STOP
 	if block_gameplay_input:
 		previous_highlighter_move = GameController.allow_highlighter_move
 		GameController.allow_highlighter_move = false
-
+	dialogue_panel.visible = false
+	choice_panel.visible = false
 	dialogue_json = _load_dialogue_json(dialogue_path)
 
 	# Wire up the pre-designed choice buttons
@@ -53,12 +56,6 @@ func _ready() -> void:
 	if dialogue_json == null or dialogue_json.is_empty():
 		push_error("Dialogue file is empty or invalid: " + dialogue_path)
 		return
-
-	if start_on_ready:
-		_start_dialogue(dialogue_json)
-	else:
-		await lmb_clicked
-		_start_dialogue(dialogue_json)
 
 
 func _input(event) -> void:
@@ -77,7 +74,7 @@ func _input(event) -> void:
 	)
 
 	if advance_pressed and not _choice_active:
-		get_viewport().set_input_as_handled()
+		#get_viewport().set_input_as_handled()
 		lmb_clicked.emit()
 
 
@@ -92,7 +89,12 @@ func _load_dialogue_json(path):
 
 
 func _start_dialogue(txt_script):
+	if _dialogue_running:
+		print("a dialogue is already running")  #Only 1 dialogue should be running
+		return
+	_dialogue_running = true
 	# Show the dialogue panel background elements
+	dialogue_panel.visible = true
 	panel_dim.visible = false
 	background.visible = true
 	portrait_container.visible = true
@@ -124,22 +126,25 @@ func _start_dialogue(txt_script):
 			_choice_active = true
 			var chosen_idx = await _show_choice_page(entry)
 			var chosen = entry["options"][chosen_idx]
-			_choice_skip_to = chosen["skip_to"]
-			_choice_branch_end = chosen["branch_end"]
+			_choice_skip_to = chosen.get("skip_to", -1)
+			_choice_branch_end = chosen.get("branch_end", -1)
+			store_flags(chosen)
 			_hide_choice_page()
 			_choice_active = false
 			idx += 1
 			continue
 
-		# Render character or system entry
 		_update_speaker_display(entry)
 		_show_dialogue_text(entry.get("text", ""))
 
 		# Append to global dialogue history
+		await get_tree().process_frame  # prevent skipping the first idx
+		await lmb_clicked
+		# Render character or system entry
+		if entry_type == "flag":  # no choices but has a flag (to continue story)
+			store_flags(entry)
 		GameController.dialogue_history.append(entry.duplicate())
 		GameController.dialogue_history_updated.emit()
-
-		await lmb_clicked
 		idx += 1
 
 	# Cleanup
@@ -148,6 +153,7 @@ func _start_dialogue(txt_script):
 	portrait_pic.visible = false
 	speaker_name_label.visible = false
 	choice_container.visible = false
+	_dialogue_running = false
 	if block_gameplay_input:
 		GameController.allow_highlighter_move = previous_highlighter_move
 	dialogue_finished.emit()
@@ -221,7 +227,6 @@ func _ready_choice_buttons() -> void:
 func _show_choice_page(entry: Dictionary) -> int:
 	dialogue_text.visible = false
 	choice_container.visible = true
-
 	# Show the choice prompt in the dialogue text area
 	_show_dialogue_text(entry.get("text", "Please choose:"))
 	dialogue_text.visible = true
@@ -230,6 +235,14 @@ func _show_choice_page(entry: Dictionary) -> int:
 	for idx in _choice_buttons.size():
 		var btn := _choice_buttons[idx]
 		if idx < options_arr.size():
+			# check if the previous choice is already chosen, this is for ramsar path
+			if options_arr[idx].get("flag", ""):
+				var text = [options_arr[idx]["flag"]["story_flag"]]
+				var previous_choice = GameController.story_flags.get("choice_1", "")
+				if previous_choice in text:
+					continue
+
+			# showing buttons
 			btn.visible = true
 			var label: Label = btn.get_node_or_null("ChoiceText") as Label
 			if label:
@@ -249,7 +262,6 @@ func _hide_choice_page() -> void:
 
 
 func _on_option_pressed(opt_idx: int) -> void:
-	print("Option pressed: ", opt_idx)
 	option_chosen.emit(opt_idx)
 
 
@@ -257,6 +269,23 @@ func _show_dialogue_text(text: String):
 	dialogue_text.text = ""
 	dialogue_text.visible = true
 	dialogue_text.text = text
+
+
+func store_flags(chosen: Dictionary):
+	if chosen.has("windmill_location"):
+		GameController.story_flags["windmill_location"] = chosen.get("windmill_location", "")
+		GameController.story_flags["build_positions"] = chosen.get("build_positions", [])
+		GameController.story_flag_appended.emit()
+	if chosen.has("flag"):
+		var flag = chosen["flag"]
+		var flag_name = flag.get("name")
+		var flag_value = flag.get("story_flag")
+		GameController.story_flags[flag_name] = flag_value
+		GameController.story_flag_appended.emit()
+	if chosen.has("signal"):
+		match chosen.get("signal"):
+			"next_phase":
+				GameController.next_phase.emit()
 
 
 # ── Static helper: instantiate a conversation at any POI ──

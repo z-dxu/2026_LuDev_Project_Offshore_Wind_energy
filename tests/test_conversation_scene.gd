@@ -2,6 +2,10 @@ extends GdUnitTestSuite
 ## Async scene-instantiation tests for Conversation.tscn with a 3-entry
 ## dialogue: renders system and character entries, accumulates history,
 ## and hides the background panel on completion.
+##
+## Note: The intro_cutscene conversation system starts via _start_dialogue()
+## directly, not via lmb_clicked in _ready(). History appends AFTER each
+## lmb_clicked, not before.
 
 const TEST_DIALOGUE := "res://tests/data/simple_dialogue.json"
 
@@ -20,7 +24,8 @@ func before_test() -> void:
 
 
 func test_renders_first_entry() -> void:
-	conversation.lmb_clicked.emit()
+	# Start dialogue directly — _ready() no longer triggers on lmb_clicked
+	conversation._start_dialogue(conversation.dialogue_json)
 	await get_tree().process_frame
 
 	var speaker_label: Label = conversation.find_child("SpeakerName")
@@ -31,9 +36,10 @@ func test_renders_first_entry() -> void:
 
 
 func test_advances_to_character_entry() -> void:
-	conversation.lmb_clicked.emit()
+	conversation._start_dialogue(conversation.dialogue_json)
 	await get_tree().process_frame
 
+	# Advance past first entry — history appends AFTER this click
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame
 
@@ -45,10 +51,15 @@ func test_advances_to_character_entry() -> void:
 
 
 func test_dialogue_history_accumulates() -> void:
+	conversation._start_dialogue(conversation.dialogue_json)
+	await get_tree().process_frame
+	# Click 1: entry 0 appended, entry 1 rendered
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame
+	# Click 2: entry 1 appended, entry 2 rendered
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame
+	# Click 3: entry 2 appended, loop exits
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame
 
@@ -59,7 +70,7 @@ func test_dialogue_history_accumulates() -> void:
 
 
 func test_hides_panel_on_completion() -> void:
-	conversation.lmb_clicked.emit()
+	conversation._start_dialogue(conversation.dialogue_json)
 	await get_tree().process_frame
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame

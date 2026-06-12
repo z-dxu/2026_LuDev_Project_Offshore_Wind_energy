@@ -50,6 +50,10 @@ func set_blades_red(enabled: bool) -> void:
 				blades.set_surface_override_material(i, null)
 
 
+func shorten_windmill():
+	windmill.scale.y = 0.7
+
+
 func toggle_blade_color() -> void:
 	set_blades_red(!blades_red)
 

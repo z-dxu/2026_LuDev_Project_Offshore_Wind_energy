@@ -1,0 +1,31 @@
+[
+	{
+		"speaker": "FEATHERWINGS",
+		"text": "The painting of turbine blades has been completed, and monitoring shows a significant reduction in bird collisions along migration routes."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "This measure strengthens Arcadia’s compliance with its obligations under the Ramsar and Bonn Conventions, supporting SDG 15."
+	},
+	{
+		"speaker": "TOURISM BOARD REPRESENTATIVE",
+		"text": "However, the altered visual appearance of the wind farm is having a noticeable impact on coastal tourism experiences."
+	},
+	{
+		"speaker": "TOURISM BOARD REPRESENTATIVE",
+		"text": "Visitor satisfaction is declining in key viewing areas, and local businesses report reduced seasonal revenue."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "This creates a trade-off between ecological protection (SDG 15) and coastal economic sustainability (SDG 8)."
+	},
+	{
+		"type": "flag",
+		"speaker": "SECRETARY-GENERAL",
+		"text": "The implementation phase is complete. The Cabinet will now evaluate the combined policy outcomes.",
+		"flag": {
+			"name": "painting_report",
+			"story_flag": "done"
+		}
+	}
+]

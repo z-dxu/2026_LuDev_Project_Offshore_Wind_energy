@@ -1,0 +1,24 @@
+[
+	{
+		"speaker": "SECRETARY-GENERAL",
+		"text": "The port decision has consequences for the project budget, shipping emissions and Arcadia's infrastructure strategy."
+	},
+	{
+		"speaker": "SECRETARY-GENERAL",
+		"text": "We should now record the final assessment for this path."
+	},
+	{
+		"type": "choice",
+		"text": "Finalize the port assessment?",
+		"options": [
+			{
+				"label": "Finalize assessment",
+				"signal": "next_phase",
+				"flag": {
+					"name": "port_budget_review",
+					"story_flag": "done"
+				}
+			}
+		]
+	}
+]

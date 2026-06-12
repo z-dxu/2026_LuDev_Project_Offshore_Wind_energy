@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bicbo0ddif0pe"]
 
-[ext_resource type="Script" uid="uid://cp5utc5tk8qc7" path="res://Scripts/conversation.gd" id="1_ser5k"]
+[ext_resource type="Script" uid="uid://cjo06a4gqbosu" path="res://Scripts/conversation.gd" id="1_ser5k"]
 [ext_resource type="Texture2D" uid="uid://e03mpp04axyn" path="res://assets/dialogue_ui/new_bg_1.png" id="2_0ye4w"]
 [ext_resource type="FontFile" uid="uid://dini68y7k1uns" path="res://assets/Fonts/Courier_Prime/Courier Prime.ttf" id="3_0ye4w"]
 [ext_resource type="Texture2D" uid="uid://bgpx23akris6y" path="res://assets/dialogue_ui/char_name.png" id="4_gukgg"]
@@ -13,13 +13,15 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1"]
 shader = ExtResource("5_shader")
 
-[node name="Conversation" type="Control" unique_id=938298517]
+[node name="Conversation" type="Control" unique_id=909271851]
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_ser5k")
 
 [node name="DialoguePanel" type="CanvasLayer" parent="." unique_id=388491742]
@@ -140,6 +142,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_0ye4w")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="ChoiceButton3" type="TextureButton" parent="DialoguePanel/Background/ChoiceContainer" unique_id=2050271177]
 custom_minimum_size = Vector2(0, 70)
@@ -220,7 +223,6 @@ texture = ExtResource("6_gukgg")
 expand_mode = 1
 
 [node name="ChoicePanel" type="CanvasLayer" parent="." unique_id=673829451]
-visible = false
 
 [node name="BackgroundDim" type="ColorRect" parent="ChoicePanel" unique_id=856173942]
 anchors_preset = 15

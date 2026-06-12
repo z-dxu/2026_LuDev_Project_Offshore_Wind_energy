@@ -1,0 +1,20 @@
+[
+	{
+		"speaker": "BLUEARCADIA PORT AUTHORITY",
+		"text": "The unchanged port location has made shipping routes longer and weakened Arcadia's transport position."
+	},
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "The additional emissions and marine pollution are now creating avoidable pressure on ocean life."
+	},
+	{
+		"type": "flag",
+		"speaker": "LEGAL ADVISOR",
+		"text": "Arcadia has left significant trade-offs unresolved for SDGs 8, 13 and 14.",
+		"signal": "next_phase",
+		"flag": {
+			"name": "port_ending",
+			"story_flag": "bad"
+		}
+	}
+]

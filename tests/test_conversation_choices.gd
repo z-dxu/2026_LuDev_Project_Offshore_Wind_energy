@@ -2,6 +2,9 @@ extends GdUnitTestSuite
 ## Async tests for the conversation branch-jump engine: verifies that
 ## choosing option 0 routes to Path A content, option 1 routes to Path B
 ## content, and both paths converge at the same merge point.
+##
+## Note: The intro_cutscene conversation system starts via _start_dialogue()
+## directly, not via lmb_clicked in _ready().
 
 const CHOICE_DIALOGUE := "res://tests/data/choice_dialogue.json"
 const CONVERSATION_SCENE := preload("res://Scenes/Conversation.tscn")
@@ -21,47 +24,45 @@ func before_test() -> void:
 
 
 func test_choice_path_a() -> void:
-	# Start dialogue
-	conversation.lmb_clicked.emit()
-	await get_tree().process_frame  # entry 0 rendered
+	# Start dialogue directly
+	conversation._start_dialogue(conversation.dialogue_json)
+	await get_tree().process_frame  # entry 0 renders, awaits lmb_clicked
 
-	# Advance to choice
+	# Advance past entry 0 — choice page shown
 	conversation.lmb_clicked.emit()
-	await get_tree().process_frame  # choice page shown
+	await get_tree().process_frame  # entry 0 → history, choice page awaits
 
 	# Pick option 0 (Path A: branch_end=2, skip_to=4)
 	conversation.option_chosen.emit(0)
-	await get_tree().process_frame  # branch jump: idx 2 rendered
+	await get_tree().process_frame  # branch jump: entry 2 renders
 
 	var dialogue_text: RichTextLabel = conversation.find_child("DialogueText")
 	assert_str(dialogue_text.text).is_equal("You chose path A.")
 
-	# Advance to merge
+	# Advance — entry 2 → history, jump to entry 4 (merge)
 	conversation.lmb_clicked.emit()
-	await get_tree().process_frame  # jump triggered: idx 4
+	await get_tree().process_frame
 
 	assert_str(dialogue_text.text).is_equal("Both paths converge.")
 
 
 func test_choice_path_b() -> void:
-	# Start dialogue
-	conversation.lmb_clicked.emit()
+	conversation._start_dialogue(conversation.dialogue_json)
 	await get_tree().process_frame
 
-	# Advance to choice
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame
 
 	# Pick option 1 (Path B: branch_end=1, skip_to=3)
 	conversation.option_chosen.emit(1)
-	await get_tree().process_frame  # jump immediately: idx 3
+	await get_tree().process_frame  # jump immediately: entry 3 renders
 
 	var dialogue_text: RichTextLabel = conversation.find_child("DialogueText")
 	assert_str(dialogue_text.text).is_equal("You chose path B.")
 
 	# Advance to merge
 	conversation.lmb_clicked.emit()
-	await get_tree().process_frame  # idx 4
+	await get_tree().process_frame  # entry 4 renders
 
 	assert_str(dialogue_text.text).is_equal("Both paths converge.")
 
@@ -70,7 +71,7 @@ func test_both_paths_converge() -> void:
 	var dialogue_text: RichTextLabel = conversation.find_child("DialogueText")
 
 	# Path A
-	conversation.lmb_clicked.emit()
+	conversation._start_dialogue(conversation.dialogue_json)
 	await get_tree().process_frame
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame
@@ -94,7 +95,7 @@ func test_both_paths_converge() -> void:
 	var dt2: RichTextLabel = conv2.find_child("DialogueText")
 
 	# Path B
-	conv2.lmb_clicked.emit()
+	conv2._start_dialogue(conv2.dialogue_json)
 	await get_tree().process_frame
 	conv2.lmb_clicked.emit()
 	await get_tree().process_frame

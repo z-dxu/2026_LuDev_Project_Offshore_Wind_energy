@@ -244,6 +244,7 @@ shape = SubResource("BoxShape3D_k6l21")
 
 [node name="Grass" type="MeshInstance3D" parent="." unique_id=847184675]
 visible = false
+layers = 3
 mesh = ExtResource("13_jrwuk")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmdi7")
 

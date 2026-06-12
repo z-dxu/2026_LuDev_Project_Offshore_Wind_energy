@@ -14,10 +14,6 @@ func _ready() -> void:
 	self.visible = false
 	position = Vector2(-267.0, 0)
 	prev_pos = position  # for tween animation
-	GameController.poi_button_pressed.connect(_show_left_slide_bar)
-	sdg_data = GameController.sdg_data
-	sdg_imgs = GameController.sdg_imgs
-	_update_sdg_scores()  # init images, scores
 
 
 func _show_left_slide_bar(mouse_hover: bool, _poi_cel_pos):

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqc35rup2ci8e"
+path="res://.godot/imported/old city theme.mp3-ec303ea8e22d333618eb809c33fb6ede.mp3str"
+
+[deps]
+
+source_file="res://assets/music/old city theme.mp3"
+dest_files=["res://.godot/imported/old city theme.mp3-ec303ea8e22d333618eb809c33fb6ede.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

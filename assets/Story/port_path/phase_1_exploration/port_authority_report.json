@@ -1,0 +1,19 @@
+[
+	{
+		"speaker": "BLUEARCADIA PORT AUTHORITY",
+		"text": "We welcome the wind park, as it can help the port become more sustainable and contribute to SDG 9."
+	},
+	{
+		"speaker": "BLUEARCADIA PORT AUTHORITY",
+		"text": "We are concerned about competitiveness. If ships need to make a detour to reach us, they may prefer Babylonia's port instead."
+	},
+	{
+		"type": "flag",
+		"speaker": "BLUEARCADIA PORT AUTHORITY",
+		"text": "Arcadia could lose its position as a global transport hub, affecting SDG 8 and long-term infrastructure planning.",
+		"flag": {
+			"name": "port_authority_report",
+			"story_flag": "detour_risk"
+		}
+	}
+]

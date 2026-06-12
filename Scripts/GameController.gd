@@ -1,40 +1,23 @@
 extends Node
 #signal that every script can read cuz this is a global script set by me -zdxu
 signal spawn_building(data: BuildingData)
-# caller: camera3d.
-# Listener: LeftSideBar,Gridmap
-signal poi_button_pressed(hover: bool)
-signal get_poi_score(requester)
+signal relocate_wind_park(positions: Array)
+signal build_kalymera_bridge
+signal relocate_port_to_kalymera
 
+signal story_flag_appended
+signal next_phase
+# Dialogue history — populated by dialogue_controller.gd as player advances
 # Dialogue history — populated by conversation.gd as player advances
 signal dialogue_history_updated
 var dialogue_history: Array[Dictionary] = []
 
-var allow_highlighter_move := true  #allows the highlighter to move around
-var poi_total_score: int = 0  # helper variable for leftSideBar
-# Gridmap.gd variables
-var food_pos = [
-	Vector3i(23, 1, -21),
-	Vector3i(23, 1, -20),
-	Vector3i(22, 1, -20),
-	Vector3i(23, 1, -19),
-]
+# al of these should be reset to these same value
+var story_flags = {"phase": 0, "ending": "null", "ending_score": 0}
+var all_windmills = []
+#allows the highlighter to move around, and prevent moving during animation
+var allow_highlighter_move := true
 
-var poi_positions = [Vector3i(23, 0, -16)]
+# ship pathing
+var total_endings = []
 var harbor_pos = []
-var sdg_data = {}
-# Vector3i -> {
-#	"sdg_name" -> {"score": 0}
-#}
-var sdg_imgs = {
-	"food": preload("res://assets/SDG_imgs/E_WEB_INVERTED_02-removebg-preview.png"),
-}
-
-
-func _ready() -> void:
-	pass  # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass

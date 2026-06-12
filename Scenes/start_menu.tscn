@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c2ouw0y45v3an"]
+[gd_scene format=3 uid="uid://dooem6rr3gh2l"]
 
 [ext_resource type="Script" uid="uid://dfqbm241jod6k" path="res://Scripts/start_menu.gd" id="1_juhg0"]
 [ext_resource type="Texture2D" uid="uid://kdr2k21be6vq" path="res://assets/start_menu/main_menu_bg.png" id="2_lfskg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bux4rvgfdkp8q" path="res://assets/start_menu/menu_buttons/settings_onhover.png" id="6_00l4x"]
 [ext_resource type="Texture2D" uid="uid://bin7xxbxs6jrc" path="res://assets/start_menu/menu_buttons/exit.png" id="7_7vuks"]
 [ext_resource type="Texture2D" uid="uid://cp3w6my5p13oy" path="res://assets/start_menu/menu_buttons/exit_onhover.png" id="8_lfskg"]
+[ext_resource type="AudioStream" uid="uid://cqc35rup2ci8e" path="res://assets/music/old city theme.mp3" id="9_ru7em"]
 
 [node name="StartMenu" type="Control" unique_id=1034537012]
 layout_mode = 3
@@ -80,6 +81,22 @@ offset_bottom = 211.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
+
+[node name="Transition" type="ColorRect" parent="." unique_id=702501859]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=66010703]
+stream = ExtResource("9_ru7em")
+volume_db = -7.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Start Game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://dvljjlq5b1lwa"]
+
+[ext_resource type="FontFile" uid="uid://dini68y7k1uns" path="res://assets/Fonts/Courier_Prime/Courier Prime.ttf" id="1_bxiex"]
+[ext_resource type="Script" uid="uid://b2rnhkn4ax7h" path="res://Scripts/ending.gd" id="1_ib4ol"]
+[ext_resource type="FontFile" uid="uid://4f8mjv6py2t1" path="res://assets/Fonts/Courier_Prime/Courier Prime Bold.ttf" id="2_ib4ol"]
+[ext_resource type="FontFile" uid="uid://c8n6hj370506j" path="res://assets/Fonts/Courier_Prime/Courier Prime Bold Italic.ttf" id="3_bfdlc"]
+[ext_resource type="FontFile" uid="uid://clbjfk0mrp7j1" path="res://assets/Fonts/Courier_Prime/Courier Prime Italic.ttf" id="4_8w7g3"]
+[ext_resource type="AudioStream" uid="uid://cqc35rup2ci8e" path="res://assets/music/old city theme.mp3" id="6_bfdlc"]
+
+[node name="Ending" type="Control" unique_id=872110635]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ib4ol")
+speed = 80
+
+[node name="Background" type="ColorRect" parent="." unique_id=1813501470]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=985911352]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.085
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("1_bxiex")
+theme_override_fonts/bold_font = ExtResource("2_ib4ol")
+theme_override_fonts/bold_italics_font = ExtResource("3_bfdlc")
+theme_override_fonts/italics_font = ExtResource("4_8w7g3")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 50
+theme_override_font_sizes/bold_italics_font_size = 16
+bbcode_enabled = true
+text = "[b]Thank you for playing our short game[/b]
+
+
+[b]Hope you enjoyed it [/b]
+
+
+
+
+
+
+
+[b]Credits: [/b]
+
+Client: Prof. mr. dr. D.A. Dam-de Jong 
+
+Project Manager: Hussein Al-Amodi
+ 
+Game Director & Lead Programmer: David Xu
+
+
+Level Dressing: 
+Jake Monster
+WangBo Tao
+Yusuf Yusofov 
+Hussein Al-Amodi
+David Xu
+
+Asset Acquisition:
+Kasra Amirani
+David Xu
+ Hussein Al-Amodi
+
+UI Prototype:
+David Xu
+Jake Monster
+
+UI Development:
+WangBo Tao
+
+UI Finalization:
+Hussein Al-Amodi
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=76879171]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="score_label" type="RichTextLabel" parent="." unique_id=1418353312]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("1_bxiex")
+theme_override_fonts/bold_font = ExtResource("2_ib4ol")
+theme_override_fonts/bold_italics_font = ExtResource("3_bfdlc")
+theme_override_fonts/italics_font = ExtResource("4_8w7g3")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 50
+theme_override_font_sizes/bold_italics_font_size = 16
+bbcode_enabled = true
+text = "[b]Your score: [/b]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1023145954]
+stream = ExtResource("6_bfdlc")
+volume_db = -7.0
+autoplay = true
+parameters/looping = true

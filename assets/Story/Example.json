@@ -3,4 +3,12 @@
 	{"speaker":"NPC", "text":"Npc is speaking here, so it works if u are able to see this"},
 	{"speaker":"Player", "text":"It should switch back to player dialogue so if this can be seen it works"},
 	{"speaker": "NPC", "text": "NPC speaks again, and yay it works"},
+	{
+		"speaker": "NPC", 
+		"text": " now here comes the question",
+		"choices":[
+			{"text": "yes"},	
+			{"text": "no"},
+			]
+	},
 ]

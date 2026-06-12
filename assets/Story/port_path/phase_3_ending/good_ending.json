@@ -1,0 +1,20 @@
+[
+	{
+		"speaker": "BLUEARCADIA PORT AUTHORITY",
+		"text": "The move to Kalymera allows the port to remain competitive while supporting cleaner, more efficient maritime infrastructure."
+	},
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "Avoiding longer shipping routes also reduces pressure on the marine environment."
+	},
+	{
+		"type": "flag",
+		"speaker": "LEGAL ADVISOR",
+		"text": "Arcadia has balanced SDGs 8, 9, 13 and 14, although the relocation remains costly.",
+		"signal": "next_phase",
+		"flag": {
+			"name": "port_ending",
+			"story_flag": "good"
+		}
+	}
+]

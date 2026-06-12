@@ -1,0 +1,35 @@
+[
+	{
+		"speaker": "FEATHERWINGS",
+		"text": "Seasonal shutdowns during peak migration periods are now in effect and are successfully preventing bird fatalities."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "This intervention represents one of the strongest forms of compliance with international biodiversity obligations under SDG 15."
+	},
+	{
+		"speaker": "ENERGY MINISTER",
+		"text": "However, energy production has declined during peak demand periods as a direct result of the shutdown schedule."
+	},
+	{
+		"speaker": "ENERGY MINISTER",
+		"text": "This reduction is placing pressure on grid stability and slowing progress toward national renewable energy targets under SDG 7 and SDG 13."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "The current situation reflects a trade-off between biodiversity protection and energy security commitments."
+	},
+	{
+		"speaker": "ENERGY MINISTER",
+		"text": "Further system adjustments may require compensatory infrastructure or alternative energy capacity planning."
+	},
+	{
+		"type": "flag",
+		"speaker": "ENERGY MINISTER",
+		"text": "The implementation report is complete. The Cabinet will now review the combined policy outcomes.",
+		"flag": {
+			"name": "energy_report",
+			"story_flag": "done"
+		}
+	}
+]

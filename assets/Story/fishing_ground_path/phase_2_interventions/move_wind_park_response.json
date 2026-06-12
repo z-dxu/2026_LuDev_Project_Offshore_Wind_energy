@@ -1,0 +1,27 @@
+[
+	{
+		"speaker": "FISHERS GUILD",
+		"text": "Thank you for giving priority to our interests."
+	},
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "We strongly oppose this option. Moving the wind park away from the coast is worse for marine biodiversity."
+	},
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "It would threaten the breeding grounds of our seal colony."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "If you move the wind park, there is no other option than to position it outside Arcadia's territorial sea."
+	},
+	{
+		"type":"flag",
+		"speaker": "LEGAL ADVISOR",
+		"text": "That is problematic, because Arcadia does not have full sovereignty over the EEZ.",
+		"flag": {
+			"name": "fishing_intervention_report",
+			"story_flag": "offshore_move_risk"
+		}
+	}
+]

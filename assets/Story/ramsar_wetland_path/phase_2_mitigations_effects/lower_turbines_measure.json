@@ -1,0 +1,39 @@
+[
+	{
+		"speaker": "FEATHERWINGS",
+		"text": "Lower turbine installations have been completed and are significantly reducing bird collision risk."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "From a conservation perspective, this measure provides a strong improvement in alignment with SDG 15 objectives."
+	},
+	{
+		"speaker": "ENERGY MINISTER",
+		"text": "However, lowering turbine height has reduced overall energy efficiency across the wind farm."
+	},
+	{
+		"speaker": "ENERGY MINISTER",
+		"text": "Maintaining output may require future expansion or additional infrastructure investments."
+	},
+	{
+		"speaker": "FISHERS GUILD REPRESENTATIVE",
+		"text": "Any expansion into adjacent coastal zones would overlap with fishing grounds and threaten local livelihoods and food security."
+	},
+	{
+		"speaker": "FISHERS GUILD REPRESENTATIVE",
+		"text": "We strongly oppose any further industrial expansion into these waters."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "This situation highlights a conflict between biodiversity protection (SDG 15), economic livelihoods (SDG 8), and food system stability (SDGs 1 and 2)."
+	},
+	{
+		"type": "flag",
+		"speaker": "SECRETARY-GENERAL",
+		"text": "All implementation outcomes have been recorded. The Cabinet will now proceed to the final integrated evaluation.",
+		"flag": {
+			"name": "lower_turbine_report",
+			"story_flag": "done"
+		}
+	}
+]

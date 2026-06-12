@@ -1,0 +1,37 @@
+[
+	{
+		"speaker": "SECRETARY-GENERAL", 
+		"text": "The final assessment of Arcadia’s wind energy project is complete."
+	},
+	{
+		"speaker": "SECRETARY-GENERAL", 
+		"text": "The combination of blade painting and reduced turbine height has significantly reduced bird collisions."
+	},
+	{
+		"speaker": "FEATHERWINGS", 
+		"text": "Migration disruption has decreased, though not entirely eliminated."
+	},
+	{
+		"speaker": "LEGAL ADVISOR", 
+		"text": "Arcadia is broadly compliant with international conservation obligations, but outcomes are less robust than optimal mitigation strategies."
+	},
+	
+	{
+		"speaker": "ENERGY MINISTER", 
+		"text": "Lower turbine height has significantly reduced energy efficiency, requiring consideration of additional infrastructure to meet SDG 7 and SDG 13 targets."
+	},
+	{
+		"speaker": "FISHERS GUILD REPRESENTATIVE", 
+		"text": "Any expansion to compensate for energy loss risks further disruption of fishing zones and coastal livelihoods."
+	},
+	{
+		"speaker": "TOURISM BOARD REPRESENTATIVE", 
+		"text": "The painted turbines remain a visual concern for coastal tourism, affecting scenic value in peak seasons."
+	},
+	{
+		"type": "flag",
+		"signal": "next_phase",
+		"speaker": "SECRETARY-GENERAL", 
+		"text": "Arcadia has achieved partial ecological success, but at a clear cost to economic and energy performance."
+	},
+]

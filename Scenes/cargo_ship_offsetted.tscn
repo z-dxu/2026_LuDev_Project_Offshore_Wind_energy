@@ -2,7 +2,31 @@
 
 [ext_resource type="PackedScene" uid="uid://865665re88if" path="res://assets/harbor_assets/cargo_ship/cargo_ship.tscn" id="1_cfn6i"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cfn6i"]
+direction = Vector3(0, 4, 40)
+spread = 23.711
+flatness = 1.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xa06"]
+shading_mode = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_b3013"]
+material = SubResource("StandardMaterial3D_7xa06")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
 [node name="Cargo_ship_offsetted" type="Node3D" unique_id=1577024735]
 
 [node name="cargo_ship" parent="." unique_id=718184434 instance=ExtResource("1_cfn6i")]
 transform = Transform3D(0.123, 0, 0, 0, 0.1, 0, 0, 0, 0.075, 4.2683, 0, -2.7)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="cargo_ship" unique_id=419345054]
+transform = Transform3D(8.130081, 0, 0, 0, 10, 0, 0, 0, 34.666664, -34.701626, 24.289837, 5.1681747)
+amount = 20
+lifetime = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_cfn6i")
+draw_pass_1 = SubResource("QuadMesh_b3013")

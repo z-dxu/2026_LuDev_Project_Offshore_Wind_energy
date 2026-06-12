@@ -1,0 +1,64 @@
+[
+	{
+		"speaker": "FEATHERWINGS", 
+		"text": "Our latest monitoring reports confirm that migratory birds are increasingly avoiding their traditional resting areas near the wetland."
+	},
+	{
+		"speaker": "FEATHERWINGS", 
+		"text": "The most concerning case is the red knot, a critically endangered species protected under the Bonn Convention."
+	},
+	{
+		"speaker": "FEATHERWINGS", 
+		"text": "If current trends continue, bird collisions and habitat disturbance may significantly damage local populations."
+	},
+	{
+		"speaker": "LEGAL ADVISOR", 
+		"text": "Arcadia has obligations under both the Ramsar Convention and the Bonn Convention."
+	},
+	{
+		"speaker": "LEGAL ADVISOR", 
+		"text": "International guidance encourages governments to take precautionary measures when developing wind energy projects near important migratory routes."
+	},
+	{
+		"speaker": "LEGAL ADVISOR", 
+		"text": "The project supports SDGs 7 and 13 by producing renewable energy and reducing emissions, but it may simultaneously undermine SDG 15 if adequate protections are not implemented."
+	},
+	{
+		"speaker": "FEATHERWINGS", 
+		"text": "We should consider mitigation measures before construction proceeds any further."
+	},
+	{
+		"type": "choice",
+		"speaker": "LEGAL ADVISOR", 
+		"text": "Which should be implemented?",
+		"options":[
+			{
+				"label": "Painting the rotor blades (in bright colours)",
+				"flag": 
+					{ 
+					"name":"choice_1",
+					"story_flag":"Painting the rotor blades"
+					}
+				},
+			{
+				"label": "Seasonal shutdown of the wind turbines",
+				"flag":
+					{ 
+					"name":"choice_1",
+					"story_flag":"Seasonal Shutdown"
+					}
+			},
+			{
+				"label": "Place lower turbines",
+				"flag":
+					{ 
+					"name":"choice_1",
+					"story_flag": "Lower Turbines"
+					}
+			},
+			]
+	},
+	
+	
+
+]

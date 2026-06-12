@@ -1,0 +1,44 @@
+[
+	{
+		"speaker": "BLUEARCADIA PORT AUTHORITY",
+		"text": "The wind park may force ships to take longer routes to reach Arcadia's port."
+	},
+	{
+		"speaker": "BLUEARCADIA PORT AUTHORITY",
+		"text": "That would threaten Arcadia's position as a global transport hub and increase emissions from shipping."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "If Arcadia builds here, it must address the impact on SDGs 8, 9, 13 and 14."
+	},
+	{
+		"type": "choice",
+		"text": "Build here?",
+		"options": [
+			{
+				"label": "yes",
+				"signal": "next_phase",
+				"windmill_location": "port",
+				"build_positions": [
+					[20, 0, -25],
+					[22, 0, -25],
+					[24, 0, -25],
+					[26, 0, -25],
+					[28, 0, -25],
+					[21, 0, -27],
+					[23, 0, -27],
+					[25, 0, -27],
+					[27, 0, -27],
+					[20, 0, -29],
+					[22, 0, -29],
+					[24, 0, -29],
+					[26, 0, -29],
+					[28, 0, -29]
+				]
+			},
+			{
+				"label": "no"
+			}
+		]
+	}
+]

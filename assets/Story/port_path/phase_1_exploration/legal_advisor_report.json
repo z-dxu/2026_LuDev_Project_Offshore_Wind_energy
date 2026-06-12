@@ -1,0 +1,19 @@
+[
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "Longer shipping routes would increase fuel use, greenhouse gas emissions and pollution of the marine environment."
+	},
+	{
+		"speaker": "LEGAL ADVISOR",
+		"text": "Arcadia has an obligation to prevent, reduce and control pollution of the marine environment under Article 194 UNCLOS."
+	},
+	{
+		"type": "flag",
+		"speaker": "LEGAL ADVISOR",
+		"text": "Anthropogenic greenhouse gas emissions can qualify as marine pollution under UNCLOS, and Arcadia's Paris Agreement measures must remain ambitious.",
+		"flag": {
+			"name": "port_legal_report",
+			"story_flag": "shipping_emissions_risk"
+		}
+	}
+]

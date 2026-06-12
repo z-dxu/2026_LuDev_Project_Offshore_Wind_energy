@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt2eyfchawtdv"
+path="res://.godot/imported/lost in the meadows_0.mp3-bec548344027d83ce1b91be39c0f63d0.mp3str"
+
+[deps]
+
+source_file="res://assets/music/lost in the meadows_0.mp3"
+dest_files=["res://.godot/imported/lost in the meadows_0.mp3-bec548344027d83ce1b91be39c0f63d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,35 @@
+[
+	{
+		"speaker": "Government Representative", 
+		"text": "Ah, there you are."
+	},
+	{
+		"speaker":"Government Representative", 
+		"text":"Welcome to the Republic of Arcadia."
+	},
+	{
+		"speaker":"Government Representative", 
+		"text":"I hope your journey across the Conan Sea was not too exhausting."
+	},
+	{
+		"speaker":"Government Representative", 
+		"text":"You are arriving at a critical moment for our country"
+	},
+	{
+		"speaker":"Government Representative", 
+		"text":"You arrived at a difficult time for our country."
+	},
+	{
+		"speaker":"Government Representative", 
+		"text":"Our industries continue to grow, our ports are busier than ever, and our energy demand is rising faster each year."
+	},
+	{
+		"speaker": "Government Representative", 
+		"text": "That is precisely why the Ministry requested your expertise for the Offshore Wind Energy in the Conan Sea project."
+	},
+	{
+		"speaker": "Government Representative", 
+		"text": "The future of Arcadia’s energy transition may depend on the decisions you make here."
+	},
+
+]

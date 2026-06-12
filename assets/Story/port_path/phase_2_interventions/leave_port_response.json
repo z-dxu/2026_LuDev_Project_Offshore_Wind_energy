@@ -1,0 +1,19 @@
+[
+	{
+		"speaker": "BLUEARCADIA PORT AUTHORITY",
+		"text": "You do realise that you jeopardise Arcadia's position as a global transport hub?"
+	},
+	{
+		"speaker": "AQUANAUTILUS",
+		"text": "This is a bad idea. The extra greenhouse gas emissions and marine pollution will negatively affect marine life."
+	},
+	{
+		"type": "flag",
+		"speaker": "LEGAL ADVISOR",
+		"text": "Leaving the port where it is creates avoidable pressure on SDGs 8, 13 and 14.",
+		"flag": {
+			"name": "port_intervention_report",
+			"story_flag": "detour_impacts_unresolved"
+		}
+	}
+]

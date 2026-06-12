@@ -1,0 +1,27 @@
+[
+	{
+		"speaker": "FISHERS GUILD",
+		"text": "Fishing is deeply tied to the cultural identity and livelihood of Arcadian fishers."
+	},
+	{
+		"speaker": "FISHERS GUILD",
+		"text": "Our communities depend on bottom-trawling and have few economic alternatives."
+	},
+	{
+		"speaker": "FISHERS GUILD",
+		"text": "The wind park's underwater structures make these fishing grounds unsuitable for bottom-trawling."
+	},
+	{
+		"speaker": "FISHERS GUILD",
+		"text": "Other suitable fishing grounds are too far from the coast, and we do not have the means to adapt our techniques."
+	},
+	{
+		"type": "flag",
+		"speaker": "FISHERS GUILD",
+		"text": "The project negatively impacts SDGs 1, 2 and 8, and threatens our rights to work and to an adequate standard of living.",
+		"flag": {
+			"name": "fishers_guild_report",
+			"story_flag": "done"
+		}
+	}
+]

@@ -1,0 +1,34 @@
+[
+	{
+		"speaker": "TOURISM ASSOCIATION", 
+		"text": "The wind turbines are already affecting coastal tourism."
+	},
+	{
+		"speaker": "TOURISM ASSOCIATION", 
+		"text": "Visitors come here for natural scenery and untouched coastlines."
+	},
+	{
+		"speaker": "TOURISM ASSOCIATION", 
+		"text": "We are concerned that additional visual modifications to the turbines may make matters worse."
+	},
+	{
+		"speaker": "TOURISM ASSOCIATION", 
+		"text": "Several local businesses already fear declining visitor numbers."
+	},
+	{
+		"speaker": "GOVERNMENT REPRESENTATIVE", 
+		"text": "The Ministry must balance environmental protection with economic stability."
+	},
+	{
+		"type": "flag",
+		"speaker": "GOVERNMENT REPRESENTATIVE", 
+		"text": "Every mitigation measure carries consequences for another sector.",
+		"flag": 
+				{ 
+				"name":"tourism_report",
+				"story_flag":"done"
+				}
+	},
+
+
+]

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://chpuyimaesoas"]
+
+[ext_resource type="Script" uid="uid://1iuyqirgwsq4" path="res://Scripts/exclamation_marker.gd" id="1_2pm2v"]
+[ext_resource type="Texture2D" uid="uid://bs4coehueshiv" path="res://assets/icons/exclamation_marker.png" id="1_r0xfe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0xfe"]
+size = Vector3(22.229, 21.089, 22.513)
+
+[sub_resource type="Animation" id="Animation_r0xfe"]
+resource_name = "Hovering"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2pm2v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 10, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pkym"]
+_data = {
+&"Hovering": SubResource("Animation_r0xfe"),
+&"RESET": SubResource("Animation_2pm2v")
+}
+
+[node name="QuestMarker" type="Node3D" unique_id=1711835843]
+script = ExtResource("1_2pm2v")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=7099590]
+collision_layer = 8
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D" unique_id=114674133]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 10, 0)
+layers = 2
+billboard = 1
+texture = ExtResource("1_r0xfe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=905179224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09033203, -0.1437378, 0.2267456)
+shape = SubResource("BoxShape3D_r0xfe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=928293434]
+libraries/ = SubResource("AnimationLibrary_0pkym")
+autoplay = &"Hovering"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]

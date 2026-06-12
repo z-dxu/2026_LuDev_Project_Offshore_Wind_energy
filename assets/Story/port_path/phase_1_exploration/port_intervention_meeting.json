@@ -1,0 +1,32 @@
+[
+	{
+		"speaker": "SECRETARY-GENERAL",
+		"text": "The Ministry has received the port authority and legal reports."
+	},
+	{
+		"speaker": "SECRETARY-GENERAL",
+		"text": "You must decide how Arcadia responds to the port impacts of the wind park."
+	},
+	{
+		"type": "choice",
+		"text": "What would you like to do about the port?",
+		"options": [
+			{
+				"label": "Leave the port where it is",
+				"signal": "next_phase",
+				"flag": {
+					"name": "port_strategy",
+					"story_flag": "leave_port"
+				}
+			},
+			{
+				"label": "Move the port to Kalymera",
+				"signal": "next_phase",
+				"flag": {
+					"name": "port_strategy",
+					"story_flag": "move_port"
+				}
+			}
+		]
+	}
+]

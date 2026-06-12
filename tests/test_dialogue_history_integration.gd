@@ -1,6 +1,6 @@
 extends GdUnitTestSuite
 ## Tests GameController dialogue history: signal fires on append, entries
-## preserve insertion order, back() returns the last entry, and sdg_data
+## preserve insertion order, back() returns the last entry
 ## stores, retrieves, and mutates nested score dictionaries.
 
 var _signal_fired := false
@@ -8,7 +8,6 @@ var _signal_fired := false
 
 func before_test() -> void:
 	GameController.dialogue_history.clear()
-	GameController.sdg_data.clear()
 
 
 func _on_history_updated() -> void:
@@ -48,15 +47,3 @@ func test_dialogue_history_back_returns_last_entry() -> void:
 
 	var last = GameController.dialogue_history.back()
 	assert_str(last.get("title")).is_equal("B")
-
-
-func test_sdg_data_stores_and_mutates() -> void:
-	var cell = Vector3i(10, 0, 10)
-	GameController.sdg_data[cell] = {"food": {"score": 5}}
-	assert_int(GameController.sdg_data[cell]["food"]["score"]).is_equal(5)
-
-	GameController.sdg_data[cell]["food"]["score"] += 3
-	assert_int(GameController.sdg_data[cell]["food"]["score"]).is_equal(8)
-
-	GameController.sdg_data[cell]["energy"] = {"score": 10}
-	assert_int(GameController.sdg_data[cell]["energy"]["score"]).is_equal(10)
