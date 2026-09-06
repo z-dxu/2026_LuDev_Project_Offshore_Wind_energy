@@ -1,39 +1,23 @@
 [
 	{
-		"speaker": "FISHERS GUILD",
-		"text": "These waters are among the most productive fishing grounds in Arcadia."
+		"speaker": "SECRETARY-GENERAL",
+		"text": "The construction plans have been approved."
 	},
 	{
-		"speaker": "FISHERS GUILD",
-		"text": "For generations, our communities have relied on bottom-trawling in this area to support our livelihoods and local food supplies."
+		"speaker": "ENERGY MINISTER",
+		"text": "The wind park will be constructed in the middle fishing grounds."
 	},
 	{
-		"speaker": "AQUANAUTILUS",
-		"text": "The area is also home to a diverse marine ecosystem that supports numerous fish species and marine mammals."
-	},
-	{
-		"speaker": "AQUANAUTILUS",
-		"text": "Construction activities could introduce underwater noise and habitat disturbance, placing pressure on marine biodiversity."
+		"speaker": "ENERGY MINISTER",
+		"text": "The project will provide a major increase in renewable electricity and contribute to Arcadia's climate targets."
 	},
 	{
 		"speaker": "LEGAL ADVISOR",
-		"text": "The proposed location offers favourable conditions for wind energy production and would contribute to Arcadia's renewable energy and climate objectives."
-	},
-	{
-		"speaker": "LEGAL ADVISOR",
-		"text": "However, building here may affect fishing livelihoods, food security, and marine ecosystems, raising concerns related to SDGs 1, 2, 8 and 14."
-	},
-	{
-		"speaker": "SECRETARY-GENERAL",
-		"text": "The Cabinet must determine whether the benefits of constructing the wind park in this location outweigh the potential social and environmental costs."
-	},
-	{
-		"speaker": "SECRETARY-GENERAL",
-		"text": "Should Arcadia proceed with construction at this site?"
+		"text": "Construction can proceed, but the government must carefully monitor its effects on the surrounding environment and affected communities."
 	},
 	{
 		"type": "choice",
-		"text": "Build here?",
+		"text": "Begin construction?",
 		"options": [
 			{ 
 				"label": "yes",

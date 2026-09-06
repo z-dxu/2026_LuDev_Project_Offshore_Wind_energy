@@ -1,0 +1,44 @@
+[
+ {
+  "speaker": "PORT AUTHORITY",
+  "text": "The wind park is also changing how vessels approach and operate around the port."
+ },
+ {
+  "speaker": "PORT AUTHORITY",
+  "text": "Some shipping routes now need to be adjusted to account for the turbine installations."
+ },
+ {
+  "speaker": "PORT AUTHORITY",
+  "text": "This increases sailing distances for certain vessels and creates additional planning requirements for shipping companies."
+ },
+ {
+  "speaker": "PORT AUTHORITY",
+  "text": "Our concern is that these changes could make Arcadia's port less attractive compared with competing ports in the region."
+ },
+ {
+  "speaker": "ENERGY MINISTER",
+  "text": "At the same time, the wind park strengthens Arcadia's renewable energy capacity and supports our climate commitments."
+ },
+ {
+  "speaker": "PORT AUTHORITY",
+  "text": "We are not opposed to renewable energy development."
+ },
+ {
+  "speaker": "PORT AUTHORITY",
+  "text": "However, the government must ensure that the energy transition does not undermine another important part of Arcadia's economy."
+ },
+ {
+  "speaker": "LEGAL ADVISOR",
+  "text": "The project therefore involves another difficult balance between environmental objectives and economic competitiveness."
+ },
+ {
+	"type":"flag",
+	"speaker": "PORT AUTHORITY",
+	"text": "The challenge is to keep both the wind park and the port economically viable in the long term.",
+	"signal": "next_phase",
+	"flag": {
+		"name": "port",
+		"story_flag": "done"
+		}  
+}
+]

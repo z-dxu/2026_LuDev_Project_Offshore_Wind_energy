@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://brlqghb2gbftn"]
+
+[ext_resource type="PackedScene" uid="uid://dbhsimta3is5y" path="res://assets/Bird_Preservation/House_05.fbx" id="1_4wmrb"]
+
+[node name="Feather_Wings" type="Node3D" unique_id=234392501]
+
+[node name="House_05" parent="." unique_id=1381831277 instance=ExtResource("1_4wmrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

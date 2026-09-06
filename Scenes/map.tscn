@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dgsdchjqqxkmx" path="res://assets/buildings_kenney_yusuf/Commercial/building-skyscraper-e.fbx" id="13_macow"]
 [ext_resource type="PackedScene" uid="uid://bl6i8tkluk8c4" path="res://Scenes/samsar_wetland.tscn" id="14_ie368"]
 [ext_resource type="PackedScene" uid="uid://bt8q5uijoplsx" path="res://assets/buildings_kenney_yusuf/Commercial/building-b.fbx" id="14_ltf6m"]
-[ext_resource type="PackedScene" path="res://Scenes/Exclamation_marker.tscn" id="14_x5dfk"]
+[ext_resource type="PackedScene" uid="uid://chpuyimaesoas" path="res://Scenes/Exclamation_marker.tscn" id="14_x5dfk"]
 [ext_resource type="PackedScene" uid="uid://blub2g4md7s1r" path="res://assets/Fishers_Guild/source/FishHouseReadySceneLOAD.fbx" id="15_k63oc"]
 [ext_resource type="PackedScene" uid="uid://bo3evc1rj1lgc" path="res://assets/Nature Pack/Trees/Willow_Tree_Spring.fbx" id="15_wpvg5"]
 [ext_resource type="PackedScene" uid="uid://cr7s7rsdg1020" path="res://Scenes/aqua_nautilus.tscn" id="16_j4oe2"]
@@ -708,15 +708,14 @@ func _ready() -> void:
 	#panning to ramsar sites to show point of interest 
 	ConversationManager._start_dialogue(ConversationManager._load_dialogue_json(INTRO_CUTSCENE_PART_4))
 	tween = create_tween()
-	tween.parallel().tween_property(intro_camera,\"size\",100,1)
-	tween.parallel().tween_property(intro_camera,\"position\",Vector3(-384,119,-308),0.7)
+	tween.tween_property(intro_camera,\"size\",100,1)
 	await tween.finished
 	await get_tree().create_timer(1).timeout
-	tween = create_tween()
-	# pan to the shore point of interest
-	tween.tween_property(intro_camera,\"position\",Vector3(-80,119,-561),0.7)
-	await tween.finished
-	await get_tree().create_timer(1).timeout
+	#tween = create_tween()
+	## pan to the shore point of interest
+	#tween.tween_property(intro_camera,\"position\",Vector3(-80,119,-561),0.7)
+	#await tween.finished
+	#await get_tree().create_timer(1).timeout
 	
 	tween = create_tween()
 	tween.tween_property(intro_camera,\"position\",Vector3(-186,123.832,-483.12),0.7)
@@ -752,7 +751,9 @@ func build_windmill_cutscene():
 func windmill_quest_markers(debounce :bool):
 	questmarkers.visible = debounce
 	for c in questmarkers.get_children():
-		c.visible = debounce
+		if c.name != \"ramsar\" and c.name != \"shore\": # remove later, for now this
+			c.visible =	 debounce
+	
 "
 
 [sub_resource type="GDScript" id="GDScript_ie368"]
@@ -1290,7 +1291,7 @@ mesh = SubResource("QuadMesh_q0mm3")
 [node name="intro_cutscene_player" type="AnimationPlayer" parent="Animations/Intro" unique_id=1570020856]
 libraries/ = SubResource("AnimationLibrary_ie368")
 script = SubResource("GDScript_5qtum")
-debug_skip_cutscene = false
+debug = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Animations/Intro/intro_cutscene_player" unique_id=869929241]
 
@@ -1387,7 +1388,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Cargo_ship_offsetted" parent="Animations/Outro/outro_player/animation_helper" unique_id=1899514469 instance=ExtResource("5_5qtum")]
-transform = Transform3D(0.17364816, 0, 0.9848074, 0, 1, 0, -0.9848074, 0, 0.17364816, 249.3077, 2.939001, -214.32898)
+transform = Transform3D(0.17364813, 0, 0.98480725, 0, 1, 0, -0.98480725, 0, 0.17364813, 249.3077, 2.939001, -214.32898)
 visible = false
 
 [node name="outro_camera" parent="Animations/Outro/outro_player/animation_helper" unique_id=1870229353 instance=ExtResource("2_26yhd")]
@@ -1404,6 +1405,7 @@ script = ExtResource("5_x5dfk")
 
 [node name="ramsar" parent="GridMapHelper/Questmarkers/windmills_builds_quests" unique_id=1711835843 instance=ExtResource("14_x5dfk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.1915, 10, -27.84842)
+visible = false
 quest_path = "res://assets/Story/quests/Ramsar_werland_windmil.json"
 
 [node name="fishing" parent="GridMapHelper/Questmarkers/windmills_builds_quests" unique_id=447459098 instance=ExtResource("14_x5dfk")]
@@ -1412,9 +1414,11 @@ quest_path = "res://assets/Story/quests/Fishing_ground_windmill.json"
 
 [node name="shore" parent="GridMapHelper/Questmarkers/windmills_builds_quests" unique_id=989490552 instance=ExtResource("14_x5dfk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.87927, 10, -251.7583)
+visible = false
 quest_path = "res://assets/Story/quests/Port_windmill.json"
 
 [node name="ramsar_path" type="Node3D" parent="GridMapHelper/Questmarkers" unique_id=809861167]
+visible = false
 
 [node name="Phase1" type="Node3D" parent="GridMapHelper/Questmarkers/ramsar_path" unique_id=1229561592]
 visible = false
@@ -1466,19 +1470,20 @@ transform = Transform3D(5, 0, -1.4901161e-08, 0, 5, 0, 1.4901161e-08, 0, 5, 0, 1
 modulate = Color(1, 0, 0, 1)
 
 [node name="fishing_ground_path" type="Node3D" parent="GridMapHelper/Questmarkers" unique_id=1177925152]
-visible = false
 
 [node name="Phase1" type="Node3D" parent="GridMapHelper/Questmarkers/fishing_ground_path" unique_id=1024435667]
-visible = false
 
-[node name="fishers_guild_report" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase1" unique_id=943993807 instance=ExtResource("14_x5dfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 10, -292)
+[node name="fisher" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase1" unique_id=943993807 instance=ExtResource("14_x5dfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 37, 25)
 
-[node name="marine_biodiversity_report" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase1" unique_id=487366076 instance=ExtResource("14_x5dfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 10, -292)
+[node name="aquanautilus" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase1" unique_id=487366076 instance=ExtResource("14_x5dfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210, 24, -133)
 
-[node name="fishing_intervention_meeting" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase1" unique_id=488264903 instance=ExtResource("14_x5dfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 10, -292)
+[node name="featherwings" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase1" unique_id=488264903 instance=ExtResource("14_x5dfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 396, 23, -64)
+
+[node name="port" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase1" unique_id=71741362 instance=ExtResource("14_x5dfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 10, -218)
 
 [node name="Phase2" type="Node3D" parent="GridMapHelper/Questmarkers/fishing_ground_path" unique_id=1372048124]
 visible = false
@@ -1497,6 +1502,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 10, -382)
 
 [node name="port_path" type="Node3D" parent="GridMapHelper/Questmarkers" unique_id=1490203180]
+visible = false
 
 [node name="Phase1" type="Node3D" parent="GridMapHelper/Questmarkers/port_path" unique_id=1438017836]
 visible = false
@@ -2347,9 +2353,10 @@ parameters/looping = true
 [editable path="GridMapHelper/Questmarkers/ramsar_path/Phase2/phase2_2"]
 [editable path="GridMapHelper/Questmarkers/ramsar_path/Phase2/phase2_3"]
 [editable path="GridMapHelper/Questmarkers/ramsar_path/Phase2/phase2_4"]
-[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/fishers_guild_report"]
-[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/marine_biodiversity_report"]
-[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/fishing_intervention_meeting"]
+[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/fisher"]
+[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/aquanautilus"]
+[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/featherwings"]
+[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/port"]
 [editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/fishing_intervention_response"]
 [editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/underwater_noise_meeting"]
 [editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase3/fishing_ending"]

@@ -1,54 +1,42 @@
 [
-	{
-		"speaker":"Secretary-General", 
-		"text":"Thank you for accepting this assignment."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"The Offshore Wind Energy in the Conan Sea project is one of the largest infrastructure projects Arcadia has ever attempted."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"The proposed offshore wind park could provide nearly half of the electricity required by our industries."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"It may also power a large part of our railway network and reduce our dependence on imported fossil fuels."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"This project is central to Arcadia’s commitments under the Paris Agreement and the Sustainable Development Goals."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"However, constructing the wind park will not be simple."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"The Conan Sea is already heavily used by many different groups."
-	},	
-	{
-		"speaker":"Secretary-General", 
-		"text":"The government has adopted a principle of equitable and multifunctional maritime use."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"In simple terms: the sea is limited, and everyone wants to use it."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"The wind park must therefore balance economic, ecological, and social interests."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"Your decisions will affect biodiversity, trade, employment, food production, and climate policy."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"You must also ensure Arcadia remains compliant with international law obligations."
-	},
-	{
-		"speaker":"Secretary-General", 
-		"text":"A poorly planned project could damage ecosystems, harm local communities, and expose Arcadia to legal consequences."
-	},
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "After extensive consultations, the Cabinet has selected the offshore location in the Conan Sea for the wind park."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "The location offers strong wind conditions and is considered suitable for meeting Arcadia's renewable energy targets."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "The decision has been made. The wind park will be constructed at this location."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "Your task is to oversee the project and respond to the consequences that arise once construction begins."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "The Conan Sea is already heavily used by fishing communities, shipping interests and marine ecosystems."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "The wind park will therefore affect several stakeholders in different ways."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "You will need to monitor these impacts and determine which measures Arcadia should take to reduce them."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "Your decisions will affect biodiversity, trade, employment, food production and climate policy."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "You must also ensure that Arcadia continues to meet its obligations under international law."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "The construction team is ready. The wind park will now be built at the selected location."
+ }
 ]

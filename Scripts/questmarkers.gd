@@ -208,10 +208,13 @@ func _get_story_flag(flag_name: String, fallback: String = "") -> String:
 func load_fishing_content():
 	fishing_ground_path.visible = false
 	var phase = GameController.story_flags["phase"]
+
+	# make prev phase questmarkers invisible
 	var prev_folder = fishing_ground_path.get_child(phase - 2)
 	if prev_folder != null:
 		for c in prev_folder.get_children():
 			c.visible = false
+
 	var phase_folder = fishing_ground_path.get_child(phase - 1)
 	if !phase_folder:
 		print("fishing phase: " + str(phase) + " folder does not exist")
@@ -228,11 +231,15 @@ func load_fishing_content():
 			fishing_quest_markers[0].quest_path = (
 				FISHING_PATH_STORY_FOLDER + "phase_1_exploration/fishers_guild_report.json"
 			)
+			#aquanautulis
 			fishing_quest_markers[1].quest_path = (
 				FISHING_PATH_STORY_FOLDER + "phase_1_exploration/marine_biodiversity_report.json"
 			)
 			fishing_quest_markers[2].quest_path = (
-				FISHING_PATH_STORY_FOLDER + "phase_1_exploration/fishing_intervention_meeting.json"
+				FISHING_PATH_STORY_FOLDER + "phase_1_exploration/featherwings.json"
+			)
+			fishing_quest_markers[3].quest_path = (
+				FISHING_PATH_STORY_FOLDER + "phase_1_exploration/port.json"
 			)
 			_show_next_fishing_quest_markers()
 		2:

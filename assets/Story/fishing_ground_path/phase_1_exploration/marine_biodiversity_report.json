@@ -1,27 +1,43 @@
 [
-	{
-		"speaker": "AQUANAUTILUS",
-		"text": "We are concerned about underwater noise and vibrations caused by construction and operation of the wind park."
-	},
-	{
-		"speaker": "AQUANAUTILUS",
-		"text": "This may affect communication, navigation and feeding of marine mammals and fish."
-	},
-	{
-		"speaker": "AQUANAUTILUS",
-		"text": "Without mitigation, the project may lead to habitat displacement and negatively impact SDG 14."
-	},
-	{
-		"speaker": "LEGAL ADVISOR",
-		"text": "Arcadia has an obligation to prevent, reduce and control pollution under Article 194 UNCLOS."
-	},
-	{
-		"type":"flag",
-		"speaker": "LEGAL ADVISOR",
-		"text": "If underwater noise qualifies as pollution, Arcadia must use the best practicable means at its disposal.",
-		"flag": {
-			"name": "marine_biodiversity_report",
-			"story_flag": "done"
-		}
+ {
+  "speaker": "AQUANAUTILUS",
+  "text": "The turbines may be above the water, but their effects do not stop at the surface."
+ },
+ {
+  "speaker": "AQUANAUTILUS",
+  "text": "Construction and operation of the wind park generate underwater noise and vibrations."
+ },
+ {
+  "speaker": "AQUANAUTILUS",
+  "text": "These disturbances can interfere with the communication, navigation and feeding behaviour of fish and marine mammals."
+ },
+ {
+  "speaker": "AQUANAUTILUS",
+  "text": "Prolonged disturbance may also cause species to avoid parts of their traditional habitat."
+ },
+ {
+  "speaker": "AQUANAUTILUS",
+  "text": "At the same time, the structures themselves could potentially provide new habitats for marine species."
+ },
+ {
+  "speaker": "LEGAL ADVISOR",
+  "text": "Arcadia has obligations under UNCLOS to prevent, reduce and control pollution of the marine environment."
+ },
+ {
+  "speaker": "LEGAL ADVISOR",
+  "text": "The legal status of underwater noise as marine pollution is still subject to interpretation, but precautionary measures can reduce Arcadia's environmental and legal risks."
+ },
+ {
+  "speaker": "AQUANAUTILUS",
+  "text": "The challenge is therefore not simply whether the wind park affects marine life, but how we can reduce those effects."
+ },
+ {
+  "type":"flag",
+  "speaker": "AQUANAUTILUS",
+  "text": "This is an important part of Arcadia's responsibility under SDG 14.",
+  "flag": {
+		"name": "marine_biodiversity_report",
+		"story_flag": "done"
 	}
+ },
 ]

@@ -1,0 +1,43 @@
+[
+ {
+  "speaker": "FEATHERWINGS",
+  "text": "Now that the wind park is operational, we have begun monitoring its effects on migratory birds."
+ },
+ {
+  "speaker": "FEATHERWINGS",
+  "text": "The nearby Ramsar wetland is an important resting site for more than 20,000 migratory birds."
+ },
+ {
+  "speaker": "FEATHERWINGS",
+  "text": "Among them is the red knot, a critically endangered species that relies on this area during its migration."
+ },
+ {
+  "speaker": "FEATHERWINGS",
+  "text": "We have already observed changes in some traditional flight and resting routes around the wind park."
+ },
+ {
+  "speaker": "FEATHERWINGS",
+  "text": "There is also a significant risk of birds colliding with the turbine blades."
+ },
+ {
+  "speaker": "LEGAL ADVISOR",
+  "text": "Arcadia has international obligations to protect migratory birds and the ecological character of the Ramsar wetland."
+ },
+ {
+  "speaker": "LEGAL ADVISOR",
+  "text": "The Bonn Convention also requires particular attention to endangered migratory species such as the red knot."
+ },
+ {
+  "speaker": "FEATHERWINGS",
+  "text": "The wind park therefore creates a significant challenge for SDG 15."
+ },
+ {
+	"type": "flag",
+	"speaker": "FEATHERWINGS",
+	"text": "The question is how we can reduce bird mortality while allowing the wind park to continue contributing to Arcadia's energy transition.",
+	"flag": {
+		"name": "featherwings",
+		"story_flag": "done"
+		}  
+}
+]

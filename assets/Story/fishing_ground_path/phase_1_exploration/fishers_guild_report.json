@@ -1,27 +1,44 @@
 [
-	{
-		"speaker": "FISHERS GUILD",
-		"text": "Fishing is deeply tied to the cultural identity and livelihood of Arcadian fishers."
-	},
-	{
-		"speaker": "FISHERS GUILD",
-		"text": "Our communities depend on bottom-trawling and have few economic alternatives."
-	},
-	{
-		"speaker": "FISHERS GUILD",
-		"text": "The wind park's underwater structures make these fishing grounds unsuitable for bottom-trawling."
-	},
-	{
-		"speaker": "FISHERS GUILD",
-		"text": "Other suitable fishing grounds are too far from the coast, and we do not have the means to adapt our techniques."
-	},
-	{
+	 {
+	  "speaker": "FISHERS GUILD",
+	  "text": "The wind park has changed these fishing grounds considerably."
+	 },
+	 {
+	  "speaker": "FISHERS GUILD",
+	  "text": "Our communities have depended on these waters for generations, both for our livelihoods and for local food supplies."
+	 },
+	 {
+	  "speaker": "FISHERS GUILD",
+	  "text": "The underwater structures make bottom-trawling impossible in much of the area."
+	 },
+	 {
+	  "speaker": "FISHERS GUILD",
+	  "text": "Unfortunately, most of our fishers do not have the equipment or training needed to switch to other fishing techniques."
+	 },
+	 {
+	  "speaker": "FISHERS GUILD",
+	  "text": "The alternative fishing grounds are also much further from the coast, making them difficult and expensive to reach."
+	 },
+	 {
+	  "speaker": "LEGAL ADVISOR",
+	  "text": "The project therefore places pressure on the fishers' livelihoods, local employment and access to food."
+	 },
+	 {
+	  "speaker": "LEGAL ADVISOR",
+	  "text": "These impacts are particularly relevant to SDGs 1, 2 and 8."
+	 },
+	 {
+	  "speaker": "FISHERS GUILD",
+	  "text": "We understand that Arcadia needs renewable energy, but we should not be expected to carry the cost of the transition alone."
+	 },
+	 {
 		"type": "flag",
 		"speaker": "FISHERS GUILD",
-		"text": "The project negatively impacts SDGs 1, 2 and 8, and threatens our rights to work and to an adequate standard of living.",
+		"text": "We need a way to continue supporting our communities while the wind park remains in operation.",
 		"flag": {
 			"name": "fishers_guild_report",
 			"story_flag": "done"
-		}
-	}
+		} 
+	},
+
 ]
