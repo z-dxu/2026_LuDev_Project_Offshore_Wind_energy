@@ -53,6 +53,7 @@ func test_advances_to_character_entry() -> void:
 func test_dialogue_history_accumulates() -> void:
 	conversation._start_dialogue(conversation.dialogue_json)
 	await get_tree().process_frame
+	await get_tree().process_frame
 	# Click 1: entry 0 appended, entry 1 rendered
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame

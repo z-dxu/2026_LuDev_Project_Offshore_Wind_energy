@@ -36,7 +36,7 @@ func test_choice_path_a() -> void:
 	conversation.option_chosen.emit(0)
 	await get_tree().process_frame  # branch jump: entry 2 renders
 
-	var dialogue_text: RichTextLabel = conversation.find_child("DialogueText")
+	var dialogue_text: RichTextLabel = conversation.find_child("HalfDialogueText")
 	assert_str(dialogue_text.text).is_equal("You chose path A.")
 
 	# Advance — entry 2 → history, jump to entry 4 (merge)
@@ -57,7 +57,7 @@ func test_choice_path_b() -> void:
 	conversation.option_chosen.emit(1)
 	await get_tree().process_frame  # jump immediately: entry 3 renders
 
-	var dialogue_text: RichTextLabel = conversation.find_child("DialogueText")
+	var dialogue_text: RichTextLabel = conversation.find_child("HalfDialogueText")
 	assert_str(dialogue_text.text).is_equal("You chose path B.")
 
 	# Advance to merge
@@ -68,7 +68,7 @@ func test_choice_path_b() -> void:
 
 
 func test_both_paths_converge() -> void:
-	var dialogue_text: RichTextLabel = conversation.find_child("DialogueText")
+	var dialogue_text: RichTextLabel = conversation.find_child("HalfDialogueText")
 
 	# Path A
 	conversation._start_dialogue(conversation.dialogue_json)
