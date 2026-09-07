@@ -18,9 +18,9 @@ func _ready() -> void:
 		total_endings.append(ending_title)
 
 	var score_label_text = "[b]Your score:" + str(ending_score) + "/10 [/b]" + "\n"
-	score_label_text += (
-		"[b]You achieved " + str(total_endings.size()) + "/8 total endings [/b]" + "\n\n\n\n"
-	)
+	#score_label_text += (
+	#"[b]You achieved " + str(total_endings.size()) + "/8 total endings [/b]" + "\n\n\n\n"
+	#)
 	score_label.text = score_label_text
 
 	# position credits below the screen
@@ -49,17 +49,39 @@ func get_choices():
 	var label_text = ""
 	var c1 = ""
 	var c2 = ""
+	var c3 = ""
+	var c4 = ""
 	match location:
 		"ramsar":
 			c1 = GameController.story_flags.get("choice_1", "")
 			c2 = GameController.story_flags.get("choice_2", "")
 		"fishing":
 			c1 = GameController.story_flags.get("fishing_strategy", "")
-			c2 = GameController.story_flags.get("noise_strategy", "")
+			c2 = GameController.story_flags.get("bird_strategy", "")
+			c4 = GameController.story_flags.get("port_strategy", "")
+			c3 = GameController.story_flags.get("noise_strategy", "")
 		"port":
 			c1 = GameController.story_flags.get("port_strategy", "")
-	label_text += "[b]You chose to build on " + str(location) + " location [/b]" + "\n\n"
-	label_text += '[b]You chose for the option "' + str(c1) + '" [/b]' + "\n\n"
-	if c2 != "":  # special case for port
-		label_text += '[b]You chose for the option "' + str(c2) + '" [/b]' + "\n\n"
+	#label_text += "[b]You chose to build on " + str(location) + " location [/b]" + "\n\n"
+	label_text += (
+		(
+			'[b]You chose for the option "'
+			+ str(c1)
+			+ '" [/b]'
+			+ "\n\n"
+			+ '[b]You chose for the option "'
+			+ str(c2)
+			+ '" [/b]'
+			+ "\n\n"
+			+ '[b]You chose for the option "'
+			+ str(c3)
+			+ '" [/b]'
+			+ "\n\n"
+			+ '[b]You chose for the option "'
+			+ str(c4)
+			+ '" [/b]'
+			+ "\n\n"
+		)
+		. replace("_", " ")
+	)
 	return label_text

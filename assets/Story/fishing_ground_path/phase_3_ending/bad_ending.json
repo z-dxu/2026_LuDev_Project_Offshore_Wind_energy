@@ -1,20 +1,21 @@
 [
-	{
-		"speaker": "AQUANAUTILUS",
-		"text": "Relocating the wind park has transferred environmental pressures to sensitive offshore habitats."
-	},
-	{
-		"speaker": "LEGAL ADVISOR",
-		"text": "The new location has also introduced legal uncertainty due to Arcadia's limited authority within the Exclusive Economic Zone."
-	},
-	{
-		"speaker": "FISHERS GUILD",
-		"text": "Our fishing grounds were preserved, but the broader conflict between marine protection, energy development and jurisdiction remains unresolved."
-	},
+	
+	{"speaker":"SECRETARY-GENERAL","text":"The monitoring period has come to an end."},
+	{"speaker":"SECRETARY-GENERAL","text":"The final reports have revealed serious problems surrounding the wind park."},
+	{"speaker":"FEATHERWINGS","text":"Bird populations around the wind park continue to show signs of disturbance. The measures taken were not enough to adequately protect the most vulnerable species."},
+	{"speaker":"AQUANAUTILUS","text":"Marine ecosystems have also suffered significant disturbance. The effects of underwater noise and construction have been more severe than expected."},
+	{"speaker":"FISHERS GUILD","text":"Many fishing families have lost access to their traditional fishing grounds. Without sufficient alternatives, some communities are struggling to maintain their livelihoods."},
+	{"speaker":"PORT AUTHORITY","text":"The restrictions created by the wind park have placed additional pressure on the port and our shipping routes."},
+	{"speaker":"LEGAL ADVISOR","text":"Arcadia has taken some measures to address these problems, but they have not been sufficient to manage the project's overall impacts."},
+	{"speaker":"SECRETARY-GENERAL","text":"The wind park has increased Arcadia's renewable energy capacity, but the project has come at a considerable environmental, social and economic cost."},
+	{"speaker":"SECRETARY-GENERAL","text":"We focused too heavily on the benefits of the project and did not do enough to manage its consequences."},
+	{"speaker":"SECRETARY-GENERAL","text":"The experience has shown us that sustainable infrastructure cannot be judged by a single objective."},
+	{"speaker":"SECRETARY-GENERAL","text":"Arcadia will now have to address the damage and unresolved problems left by the project."},
+	{"speaker":"SECRETARY-GENERAL","text":"Your assignment is complete. The government will learn from this experience when planning future infrastructure projects."},
 	{
 		"type":"flag",
 		"speaker": "SECRETARY-GENERAL",
-		"text": "The project continues, but its long-term sustainability is now subject to significant uncertainty.",
+		"text": "Your ship is waiting at the harbour. We wish you a safe journey home across the Conan Sea.",
 		"signal": "next_phase",
 		"flag": {
 			"name": "fishing_ending",

@@ -1,16 +1,22 @@
 [
-	{
-		"speaker": "AQUANAUTILUS",
-		"text": "The artificial reefs have strengthened marine habitats, while suction bucket foundations minimized underwater disturbance during construction."
-	},
-	{
-		"speaker": "FISHERS GUILD",
-		"text": "Although adapting our practices was challenging, new opportunities around the reefs have provided a sustainable future for our communities."
-	},
+	
+	{"speaker":"SECRETARY-GENERAL","text":"The monitoring period has come to an end."},
+	{"speaker":"SECRETARY-GENERAL","text":"The results show that the wind park is producing a significant amount of renewable energy for Arcadia, while the measures you introduced have substantially reduced its negative impacts."},
+	{"speaker":"FEATHERWINGS","text":"The seasonal shutdowns have made a significant difference during the most sensitive migration periods. Bird activity around the wind park has improved."},
+	{"speaker":"AQUANAUTILUS","text":"The use of suction buckets has greatly reduced underwater disturbance during construction. Marine life has been given a better chance to adapt to the new environment."},
+	{"speaker":"FISHERS GUILD","text":"The artificial reefs have created new habitats for fish and other marine species. They have also created new opportunities for fishing communities."},
+	{"speaker":"PORT AUTHORITY","text":"Moving the port has protected Arcadia's shipping connections and helped us maintain our competitive position."},
+	{"speaker":"LEGAL ADVISOR","text":"Arcadia has not eliminated every impact of the wind park. That would be unrealistic."},
+	{"speaker":"LEGAL ADVISOR","text":"Instead, the government has taken meaningful measures to prevent, reduce and manage those impacts."},
+	{"speaker":"SECRETARY-GENERAL","text":"The wind park has shown us what sustainable infrastructure requires."},
+	{"speaker":"SECRETARY-GENERAL","text":"Clean energy was only one part of the challenge. We also had to consider biodiversity, fishing communities, marine ecosystems and Arcadia's economy."},
+	{"speaker":"SECRETARY-GENERAL","text":"You considered these interests together and chose measures that significantly reduced the project's negative consequences."},
+	{"speaker":"SECRETARY-GENERAL","text":"Arcadia can now move forward with a wind park that contributes to our climate goals while respecting the people and ecosystems that depend on the Conan Sea."},
+	{"speaker":"SECRETARY-GENERAL","text":"Your assignment is complete. You have successfully guided the project through its most difficult challenges."},
 	{
 		"type":"flag",
-		"speaker": "LEGAL ADVISOR",
-		"text": "Arcadia has taken meaningful steps to balance SDGs 1, 2, 8 and 14 while respecting its environmental obligations.",
+		"speaker": "SECRETARY-GENERAL",
+		"text": "Your ship is waiting at the harbour. We wish you a safe journey home across the Conan Sea.",
 		"signal": "next_phase",
 		"flag": {
 			"name": "fishing_ending",

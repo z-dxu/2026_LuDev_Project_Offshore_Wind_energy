@@ -27,5 +27,14 @@
   "speaker": "LEGAL ADVISOR",
   "text": "Suction buckets provide strong potential benefits for SDG 14, but their experimental nature creates additional project risk.",
 
- }
+ },
+{
+	"speaker": "SECRETARY-GENERAL",
+	"text": "Construction plans have now been finalized.",
+},
+{
+	"speaker": "LEGAL ADVISOR",
+	"text": "We will now assess how well the selected mitigation measures balance environmental protection, economic interests and international obligations.",
+
+}
 ]

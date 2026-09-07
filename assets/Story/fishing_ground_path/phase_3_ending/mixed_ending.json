@@ -1,16 +1,22 @@
 [
-	{
-		"speaker": "AQUANAUTILUS",
-		"text": "Marine biodiversity has benefited from the artificial reefs, and construction noise was partially mitigated."
-	},
-	{
-		"speaker": "FISHERS GUILD",
-		"text": "The transition remains costly, but the new opportunities created by the reefs provide some economic security."
-	},
+
+	{"speaker":"SECRETARY-GENERAL","text":"The monitoring period has come to an end."},
+	{"speaker":"SECRETARY-GENERAL","text":"The wind park is now producing a substantial amount of renewable energy for Arcadia. However, the final reports show that not all of its impacts have been successfully addressed."},
+	{"speaker":"FEATHERWINGS","text":"Some of the measures have helped reduce the impact on birds, but disturbances around the wind park are still being observed."},
+	{"speaker":"AQUANAUTILUS","text":"Marine ecosystems have also been affected. Some of the measures reduced the disturbance, but they could not eliminate it completely."},
+	{"speaker":"FISHERS GUILD","text":"The fishing communities have had to adapt to the changes caused by the wind park. Some new opportunities have emerged, but not everyone has benefited equally."},
+	{"speaker":"PORT AUTHORITY","text":"The changes to the maritime infrastructure have protected some of our interests, but they have also created additional costs and challenges."},
+	{"speaker":"LEGAL ADVISOR","text":"Arcadia has taken steps to address the project's impacts, but some of the consequences could have been reduced further."},
+	{"speaker":"SECRETARY-GENERAL","text":"The wind park has delivered important benefits for Arcadia's energy transition."},
+	{"speaker":"SECRETARY-GENERAL","text":"But this project has also shown that achieving one goal can create challenges for others."},
+	{"speaker":"SECRETARY-GENERAL","text":"Some of the decisions you made protected certain interests, while creating compromises elsewhere."},
+	{"speaker":"SECRETARY-GENERAL","text":"There is no perfect solution to a project of this scale. However, the consequences of each decision must be understood and carefully managed."},
+	{"speaker":"SECRETARY-GENERAL","text":"Arcadia will continue monitoring the wind park and addressing the problems that remain."},
+	{"speaker":"SECRETARY-GENERAL","text":"Your assignment is complete. Thank you for your work."},
 	{
 		"type":"flag",
-		"speaker": "LEGAL ADVISOR",
-		"text": "Arcadia has reduced several environmental and social risks, though significant trade-offs remain.",
+		"speaker": "SECRETARY-GENERAL",
+		"text": "Your ship is waiting at the harbour. We wish you a safe journey home across the Conan Sea.",
 		"signal": "next_phase",
 		"flag": {
 			"name": "fishing_ending",

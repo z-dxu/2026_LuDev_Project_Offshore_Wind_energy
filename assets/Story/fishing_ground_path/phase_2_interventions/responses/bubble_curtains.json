@@ -27,5 +27,14 @@
   "speaker": "LEGAL ADVISOR",
   "text": "Bubble curtains provide a reliable contribution to SDG 14, but they are more costly and do not reduce the environmental impact as much as the more experimental alternative.",
   
- }
+ },
+{
+	"speaker": "SECRETARY-GENERAL",
+	"text": "Construction plans have now been finalized.",
+},
+{
+	"speaker": "LEGAL ADVISOR",
+	"text": "We will now assess how well the selected mitigation measures balance environmental protection, economic interests and international obligations.",
+
+}
 ]

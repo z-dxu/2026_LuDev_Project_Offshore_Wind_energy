@@ -22,6 +22,17 @@ const FISHING_OFFSHORE_WIND_PARK_POSITIONS = [
 	[10, 0, -55],
 	[12, 0, -55],
 ]
+@export var points = {
+	"seasonal_shutdown": 3,
+	"paint_blades": 2.5,
+	"lower_turbines": 2,
+	"artificial_reefs": 2.5,
+	"relocate_wind_park": 1,
+	"keep_port": 1,
+	"move_port": 2,
+	"suction_buckets": 2.5,
+	"bubble_curtains": 2,
+}
 var ramsar_quest_markers: Array[Node3D] = []
 var fishing_quest_markers: Array[Node3D] = []
 var port_quest_markers: Array[Node3D] = []
@@ -262,25 +273,43 @@ func load_fishing_content():
 		3:
 			current_fishing_quest = 0
 			var fishing_strategy = _get_first_fishing_flag("fishing_strategy", "")
+			var port_strategy = _get_first_fishing_flag("port_strategy", "")
+			var bird_strategy = _get_first_fishing_flag("bird_strategy", "")
 			var noise_strategy = _get_first_fishing_flag("noise_strategy", "")
-			if fishing_strategy == "move_wind_park":
-				fishing_quest_markers[0].quest_path = (
-					FISHING_PATH_STORY_FOLDER + "phase_3_ending/bad_ending.json"
-				)
-				GameController.story_flags["ending_score"] = 3
-				GameController.story_flags["ending"] = "Fishing's bad ending"
-			elif noise_strategy == "suction_buckets":
-				fishing_quest_markers[0].quest_path = (
-					FISHING_PATH_STORY_FOLDER + "phase_3_ending/good_ending.json"
-				)
-				GameController.story_flags["ending_score"] = 6
-				GameController.story_flags["ending"] = "Fishing's somewhat good ending?"
+			var ending_score = GameController.story_flags["ending_score"]
+			var ending_path = null
+			for val in GameController.story_flags.values():
+				if val in points.keys():
+					ending_score += points[val]
+			GameController.story_flags["ending_score"] = ending_score
+			if ending_score == 10:
+				ending_path = FISHING_PATH_STORY_FOLDER + "phase_3_ending/good_ending.json"
+				GameController.story_flags["ending"] = "good ending"
+			elif ending_score >= 6:
+				ending_path = FISHING_PATH_STORY_FOLDER + "phase_3_ending/mixed_ending.json"
+				GameController.story_flags["ending"] = "somewhat good ending?"
 			else:
-				fishing_quest_markers[0].quest_path = (
-					FISHING_PATH_STORY_FOLDER + "phase_3_ending/mixed_ending.json"
-				)
-				GameController.story_flags["ending_score"] = 8
-				GameController.story_flags["ending"] = "Fishing's good ending"
+				ending_path = FISHING_PATH_STORY_FOLDER + "phase_3_ending/bad_ending.json"
+				GameController.story_flags["ending"] = "bad ending"
+			fishing_quest_markers[0].quest_path = ending_path
+			#if fishing_strategy == "move_wind_park":
+			#fishing_quest_markers[0].quest_path = (
+			#FISHING_PATH_STORY_FOLDER + "phase_3_ending/bad_ending.json"
+			#)
+			#GameController.story_flags["ending_score"] = 3
+			#GameController.story_flags["ending"] = "Fishing's bad ending"
+			#elif noise_strategy == "suction_buckets":
+			#fishing_quest_markers[0].quest_path = (
+			#FISHING_PATH_STORY_FOLDER + "phase_3_ending/good_ending.json"
+			#)
+			#GameController.story_flags["ending_score"] = 6
+			#GameController.story_flags["ending"] = "Fishing's somewhat good ending?"
+			#else:
+			#fishing_quest_markers[0].quest_path = (
+			#FISHING_PATH_STORY_FOLDER + "phase_3_ending/mixed_ending.json"
+			#)
+			#GameController.story_flags["ending_score"] = 8
+			#GameController.story_flags["ending"] = "Fishing's good ending"
 			_show_next_fishing_quest_markers()
 	fishing_ground_path.visible = true
 
@@ -395,15 +424,15 @@ func _show_next_fishing_quest_markers():
 	if !fishing_quest_markers or current_fishing_quest >= fishing_quest_markers.size():
 		return
 
-	var last_key = str(GameController.story_flags.values().back())
+	var last_key_val = str(GameController.story_flags.values().back())
 	if (
 		GameController.story_flags["phase"] == 2
 		and current_fishing_quest >= 1
-		and last_key != temp_holder
+		and last_key_val != temp_holder
 	):
-		var file = response_folder + last_key + ".json"
+		var file = response_folder + last_key_val + ".json"
 		await ConversationManager._start_dialogue(ConversationManager._load_dialogue_json(file))
-		temp_holder = last_key
+		temp_holder = last_key_val
 
 		# response to the decision made, another flag appended
 	if current_fishing_quest - 1 < 0:
