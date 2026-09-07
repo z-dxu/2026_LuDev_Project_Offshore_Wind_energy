@@ -234,7 +234,7 @@ func _show_choice_page(entry: Dictionary) -> int:
 	choice_container.visible = true
 	# Show the choice prompt in the dialogue text area
 	_show_dialogue_text(entry.get("text", "Please choose:"), half_dialogue_text)
-	_show_dialogue_text(entry.get("text", "Please choose:"), dialogue_text)
+	#_show_dialogue_text(entry.get("text", "Please choose:"), dialogue_text)
 	half_dialogue_text.visible = true
 
 	var options_arr = entry.get("options", [])

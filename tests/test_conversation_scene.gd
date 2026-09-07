@@ -38,11 +38,11 @@ func test_renders_first_entry() -> void:
 func test_advances_to_character_entry() -> void:
 	conversation._start_dialogue(conversation.dialogue_json)
 	await get_tree().process_frame
-
+	await get_tree().process_frame
 	# Advance past first entry — history appends AFTER this click
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame
-
+	await get_tree().process_frame
 	var speaker_label: Label = conversation.find_child("SpeakerName")
 	var dialogue_text: RichTextLabel = conversation.find_child("DialogueText")
 
@@ -73,11 +73,15 @@ func test_dialogue_history_accumulates() -> void:
 func test_hides_panel_on_completion() -> void:
 	conversation._start_dialogue(conversation.dialogue_json)
 	await get_tree().process_frame
-	conversation.lmb_clicked.emit()
 	await get_tree().process_frame
 	conversation.lmb_clicked.emit()
 	await get_tree().process_frame
+	await get_tree().process_frame
 	conversation.lmb_clicked.emit()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	conversation.lmb_clicked.emit()
+	await get_tree().process_frame
 	await get_tree().process_frame
 
 	var background = conversation.find_child("Background")
