@@ -72,6 +72,25 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 
+[node name="HalfDialogueText" type="RichTextLabel" parent="DialoguePanel/Background" unique_id=1167611530]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.52000004
+anchor_right = 0.446
+anchor_bottom = 0.53300005
+offset_left = 70.0
+offset_top = -75.88002
+offset_right = 4.1611023
+offset_bottom = 108.97298
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_0ye4w")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
 [node name="ChoiceContainer" type="VBoxContainer" parent="DialoguePanel/Background" unique_id=450362891]
 layout_mode = 1
 anchors_preset = 6

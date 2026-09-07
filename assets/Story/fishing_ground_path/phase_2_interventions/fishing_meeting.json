@@ -1,0 +1,43 @@
+[
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "The wind park has significantly affected the fishing grounds used by Arcadian communities."
+ },
+ {
+  "speaker": "FISHERS GUILD",
+  "text": "The turbines make traditional bottom-trawling impossible in this area."
+ },
+ {
+  "speaker": "FISHERS GUILD",
+  "text": "Without an alternative, many fishing families will struggle to maintain their livelihoods."
+ },
+ {
+  "speaker": "AQUANAUTILUS",
+  "text": "At the same time, the current location can create opportunities for marine habitats if the area is managed carefully."
+ },
+ {
+  "speaker": "LEGAL ADVISOR",
+  "text": "Arcadia therefore has to decide whether to adapt the fishing environment around the wind park or reconsider the location of the project."
+ },
+ {
+  "type": "choice",
+  "speaker": "SECRETARY-GENERAL",
+  "text": "How should Arcadia address the impact on the fishing communities?",
+  "options": [
+   {
+	"label": "Facilitate artificial reefs",
+	"flag": {
+	 "name": "fishing_strategy",
+	 "story_flag": "artificial_reefs"
+	}
+   },
+   {
+	"label": "Relocate the wind park",
+	"flag": {
+	 "name": "fishing_strategy",
+	 "story_flag": "relocate_wind_park"
+	}
+   }
+  ]
+ }
+]

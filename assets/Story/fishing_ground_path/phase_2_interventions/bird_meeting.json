@@ -1,0 +1,43 @@
+[
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "We have now heard the concerns regarding the Ramsar wetland and the risks posed to migratory birds."
+ },
+ {
+  "speaker": "SECRETARY-GENERAL",
+  "text": "The government must now decide how to reduce bird mortality while keeping the wind park operational."
+ },
+ {
+  "speaker": "LEGAL ADVISOR",
+  "text": "All three measures could reduce the risk to migratory birds, but they have different consequences for energy production and other sectors."
+ },
+ {
+  "type": "choice",
+  "speaker": "SECRETARY-GENERAL",
+  "text": "Which measure should Arcadia use to protect migratory birds?",
+  "options": [
+   {
+	"label": "Paint the rotor blades",
+	"flag": {
+	 "name": "bird_strategy",
+	 "story_flag": "paint_blades"
+	}
+   },
+   {
+	"label": "Seasonal shutdowns",
+
+	"flag": {
+	 "name": "bird_strategy",
+	 "story_flag": "seasonal_shutdown"
+	}
+   },
+   {
+	"label": "Lower the turbines",
+	"flag": {
+	 "name": "bird_strategy",
+	 "story_flag": "lower_turbines"
+	}
+   }
+  ]
+ }
+]

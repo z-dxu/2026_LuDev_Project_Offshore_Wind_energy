@@ -33,9 +33,11 @@ var _dialogue_running = false
 @onready var choice_container: VBoxContainer = $DialoguePanel/Background/ChoiceContainer
 @onready var dialogue_panel: CanvasLayer = $DialoguePanel
 @onready var choice_panel: CanvasLayer = $ChoicePanel
+@onready var half_dialogue_text: RichTextLabel = $DialoguePanel/Background/HalfDialogueText
 
 
 func _ready() -> void:
+	half_dialogue_text.visible = false
 	if block_gameplay_input:
 		previous_highlighter_move = GameController.allow_highlighter_move
 		GameController.allow_highlighter_move = false
@@ -89,10 +91,12 @@ func _load_dialogue_json(path):
 
 
 func _start_dialogue(txt_script):
+	await get_tree().process_frame
 	if _dialogue_running:
 		print("a dialogue is already running")  #Only 1 dialogue should be running
 		return
 	_dialogue_running = true
+	half_dialogue_text.visible = false
 	# Show the dialogue panel background elements
 	dialogue_panel.visible = true
 	panel_dim.visible = false
@@ -135,7 +139,7 @@ func _start_dialogue(txt_script):
 			continue
 
 		_update_speaker_display(entry)
-		_show_dialogue_text(entry.get("text", ""))
+		_show_dialogue_text(entry.get("text", ""), dialogue_text)
 
 		# Append to global dialogue history
 		await get_tree().process_frame  # prevent skipping the first idx
@@ -226,10 +230,11 @@ func _ready_choice_buttons() -> void:
 
 func _show_choice_page(entry: Dictionary) -> int:
 	dialogue_text.visible = false
+	half_dialogue_text.visible = false
 	choice_container.visible = true
 	# Show the choice prompt in the dialogue text area
-	_show_dialogue_text(entry.get("text", "Please choose:"))
-	dialogue_text.visible = true
+	_show_dialogue_text(entry.get("text", "Please choose:"), half_dialogue_text)
+	half_dialogue_text.visible = true
 
 	var options_arr = entry.get("options", [])
 	for idx in _choice_buttons.size():
@@ -265,10 +270,10 @@ func _on_option_pressed(opt_idx: int) -> void:
 	option_chosen.emit(opt_idx)
 
 
-func _show_dialogue_text(text: String):
-	dialogue_text.text = ""
-	dialogue_text.visible = true
-	dialogue_text.text = text
+func _show_dialogue_text(text: String, txt_box):
+	txt_box.text = ""
+	txt_box.visible = true
+	txt_box.text = text
 
 
 func store_flags(chosen: Dictionary):

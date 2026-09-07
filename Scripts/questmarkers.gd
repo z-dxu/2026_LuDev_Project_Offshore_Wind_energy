@@ -31,6 +31,7 @@ var current_fishing_quest = 0
 var current_port_quest = 0
 var windmills_built = false
 var wind_park_relocated_offshore = false
+var temp_holder = null
 @onready var windmills_builds_quests: Node3D = $windmills_builds_quests
 @onready var ramsar_path: Node3D = $ramsar_path
 @onready var fishing_ground_path: Node3D = $fishing_ground_path
@@ -244,18 +245,17 @@ func load_fishing_content():
 			_show_next_fishing_quest_markers()
 		2:
 			current_fishing_quest = 0
-			var fishing_strategy = _get_first_fishing_flag("fishing_strategy", "artificial_reefs")
-			if fishing_strategy == "move_wind_park":
-				_move_wind_park_outside_territorial_sea()
-				fishing_quest_markers[0].quest_path = (
-					FISHING_PATH_STORY_FOLDER + "phase_2_interventions/move_wind_park_response.json"
-				)
-			else:
-				fishing_quest_markers[0].quest_path = (
-					FISHING_PATH_STORY_FOLDER
-					+ "phase_2_interventions/artificial_reefs_response.json"
-				)
+			fishing_quest_markers[0].quest_path = (
+				FISHING_PATH_STORY_FOLDER + "phase_2_interventions/fishing_meeting.json"
+			)
+			#aquanautulis
 			fishing_quest_markers[1].quest_path = (
+				FISHING_PATH_STORY_FOLDER + "phase_2_interventions/port_meeting.json"
+			)
+			fishing_quest_markers[2].quest_path = (
+				FISHING_PATH_STORY_FOLDER + "phase_2_interventions/bird_meeting.json"
+			)
+			fishing_quest_markers[3].quest_path = (
 				FISHING_PATH_STORY_FOLDER + "phase_2_interventions/underwater_noise_meeting.json"
 			)
 			_show_next_fishing_quest_markers()
@@ -391,8 +391,21 @@ func _show_next_quest_markers():
 
 
 func _show_next_fishing_quest_markers():
+	var response_folder = "res://assets/Story/fishing_ground_path/phase_2_interventions/responses/"
 	if !fishing_quest_markers or current_fishing_quest >= fishing_quest_markers.size():
 		return
+
+	var last_key = str(GameController.story_flags.values().back())
+	if (
+		GameController.story_flags["phase"] == 2
+		and current_fishing_quest >= 1
+		and last_key != temp_holder
+	):
+		var file = response_folder + last_key + ".json"
+		await ConversationManager._start_dialogue(ConversationManager._load_dialogue_json(file))
+		temp_holder = last_key
+
+		# response to the decision made, another flag appended
 	if current_fishing_quest - 1 < 0:
 		fishing_quest_markers[current_fishing_quest].visible = true
 		current_fishing_quest += 1

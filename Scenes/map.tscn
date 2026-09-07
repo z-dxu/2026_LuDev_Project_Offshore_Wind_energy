@@ -10,9 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bmvm8od20tde2" path="res://Scenes/cargo_ship_offsetted.tscn" id="5_5qtum"]
 [ext_resource type="Script" uid="uid://bdv53smhuvilg" path="res://Scripts/questmarkers.gd" id="5_x5dfk"]
 [ext_resource type="Script" uid="uid://cd1s3pw4qgvof" path="res://Scripts/harbor.gd" id="7_olcgw"]
+[ext_resource type="Script" uid="uid://1iuyqirgwsq4" path="res://Scripts/exclamation_marker.gd" id="8_24pn0"]
 [ext_resource type="PackedScene" uid="uid://ib87v6p7765c" path="res://assets/Nature Pack/Trees/Pine_Tree_1_Spring.fbx" id="8_pmuo0"]
 [ext_resource type="PackedScene" uid="uid://docamqda4t5eg" path="res://assets/harbor_assets/harbor_tile.tscn" id="9_4c2oa"]
 [ext_resource type="PackedScene" uid="uid://b3uvpljo6dam" path="res://assets/Nature Pack/Plants and flowers/Flower_2.fbx" id="9_6nmmx"]
+[ext_resource type="Texture2D" uid="uid://bs4coehueshiv" path="res://assets/icons/exclamation_marker.png" id="9_58lef"]
 [ext_resource type="Script" uid="uid://cvwvwmytwxak4" path="res://Scripts/windmil_logic.gd" id="10_5qtum"]
 [ext_resource type="FontFile" uid="uid://cnf2t6550jkfa" path="res://assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="11_ie368"]
 [ext_resource type="PackedScene" uid="uid://b0ss4e5qu203m" path="res://assets/buildings_kenney_yusuf/Suburbs/building-type-b.fbx" id="12_1xwpj"]
@@ -1225,6 +1227,47 @@ func play_outro():
 	
 "
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0xfe"]
+size = Vector3(22.229, 21.089, 22.513)
+
+[sub_resource type="Animation" id="Animation_r0xfe"]
+resource_name = "Hovering"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2pm2v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/Sprite3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 10, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pkym"]
+_data = {
+&"Hovering": SubResource("Animation_r0xfe"),
+&"RESET": SubResource("Animation_2pm2v")
+}
+
 [sub_resource type="QuadMesh" id="QuadMesh_a0h6a"]
 lightmap_size_hint = Vector2i(2502, 2502)
 material = ExtResource("2_8cxpi")
@@ -1472,6 +1515,7 @@ modulate = Color(1, 0, 0, 1)
 [node name="fishing_ground_path" type="Node3D" parent="GridMapHelper/Questmarkers" unique_id=1177925152]
 
 [node name="Phase1" type="Node3D" parent="GridMapHelper/Questmarkers/fishing_ground_path" unique_id=1024435667]
+visible = false
 
 [node name="fisher" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase1" unique_id=943993807 instance=ExtResource("14_x5dfk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 37, 25)
@@ -1486,13 +1530,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 396, 23, -64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 10, -218)
 
 [node name="Phase2" type="Node3D" parent="GridMapHelper/Questmarkers/fishing_ground_path" unique_id=1372048124]
+
+[node name="fishing_intervention" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2" unique_id=1396220979 instance=ExtResource("14_x5dfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 25, -160)
 visible = false
 
-[node name="fishing_intervention_response" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2" unique_id=1396220979 instance=ExtResource("14_x5dfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 10, -342)
+[node name="Sprite3D" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/fishing_intervention/Area3D" parent_id_path=PackedInt32Array(1396220979, 7099590) index="0" unique_id=114674133]
+modulate = Color(0, 1, 1, 1)
+
+[node name="port_meeting" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2" unique_id=277414223 instance=ExtResource("14_x5dfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 25, -160)
+visible = false
+
+[node name="Sprite3D" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/port_meeting/Area3D" parent_id_path=PackedInt32Array(277414223, 7099590) index="0" unique_id=114674133]
+modulate = Color(1, 1, 0, 1)
+
+[node name="CollisionShape3D" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/port_meeting/Area3D" parent_id_path=PackedInt32Array(277414223, 7099590) index="1" unique_id=905179224]
+shape = SubResource("BoxShape3D_r0xfe")
+
+[node name="AnimationPlayer" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/port_meeting" index="1" unique_id=928293434]
+libraries/ = SubResource("AnimationLibrary_0pkym")
+
+[node name="bird_meeting" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2" unique_id=1812667654 instance=ExtResource("14_x5dfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 25, -160)
+visible = false
+
+[node name="Sprite3D" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/bird_meeting/Area3D" parent_id_path=PackedInt32Array(1812667654, 7099590) index="0" unique_id=114674133]
+modulate = Color(0.8802479, 0, 0.4356891, 1)
+
+[node name="CollisionShape3D" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/bird_meeting/Area3D" parent_id_path=PackedInt32Array(1812667654, 7099590) index="1" unique_id=905179224]
+shape = SubResource("BoxShape3D_r0xfe")
+
+[node name="AnimationPlayer" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/bird_meeting" index="1" unique_id=928293434]
+libraries/ = SubResource("AnimationLibrary_0pkym")
 
 [node name="underwater_noise_meeting" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2" unique_id=689167375 instance=ExtResource("14_x5dfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130, 10, -342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96, 24, -157)
+visible = false
+
+[node name="Sprite3D" parent="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/underwater_noise_meeting/Area3D" parent_id_path=PackedInt32Array(689167375, 7099590) index="0" unique_id=114674133]
+modulate = Color(0, 0, 1, 1)
 
 [node name="Phase3" type="Node3D" parent="GridMapHelper/Questmarkers/fishing_ground_path" unique_id=127823000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 232.7)
@@ -1519,8 +1596,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330, 10, -292)
 [node name="Phase2" type="Node3D" parent="GridMapHelper/Questmarkers/port_path" unique_id=2120048258]
 visible = false
 
-[node name="port_intervention_response" parent="GridMapHelper/Questmarkers/port_path/Phase2" unique_id=1536410610 instance=ExtResource("14_x5dfk")]
+[node name="port_intervention_response" type="Node3D" parent="GridMapHelper/Questmarkers/port_path/Phase2" unique_id=1536410610]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240, 10, -342)
+script = ExtResource("8_24pn0")
+
+[node name="Area3D" type="Area3D" parent="GridMapHelper/Questmarkers/port_path/Phase2/port_intervention_response" unique_id=7099590]
+collision_layer = 8
+
+[node name="Sprite3D" type="Sprite3D" parent="GridMapHelper/Questmarkers/port_path/Phase2/port_intervention_response/Area3D" unique_id=1423076197]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 10, 0)
+layers = 2
+billboard = 1
+texture = ExtResource("9_58lef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GridMapHelper/Questmarkers/port_path/Phase2/port_intervention_response/Area3D" unique_id=891804746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09033203, -0.1437378, 0.2267456)
+shape = SubResource("BoxShape3D_r0xfe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GridMapHelper/Questmarkers/port_path/Phase2/port_intervention_response" unique_id=1172902325]
+libraries/ = SubResource("AnimationLibrary_0pkym")
+autoplay = &"Hovering"
 
 [node name="port_budget_review" parent="GridMapHelper/Questmarkers/port_path/Phase2" unique_id=1250654306 instance=ExtResource("14_x5dfk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 320, 10, -342)
@@ -2343,6 +2438,9 @@ volume_db = -6.945
 autoplay = true
 parameters/looping = true
 
+[connection signal="visibility_changed" from="GridMapHelper/Questmarkers/port_path/Phase2/port_intervention_response" to="GridMapHelper/Questmarkers/port_path/Phase2/port_intervention_response" method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="GridMapHelper/Questmarkers/port_path/Phase2/port_intervention_response/Area3D" to="GridMapHelper/Questmarkers/port_path/Phase2/port_intervention_response" method="_on_area_3d_mouse_entered"]
+
 [editable path="Animations/Intro/intro_cutscene_player/animation_helper/Cargo_ship_offsetted"]
 [editable path="Animations/Intro/intro_cutscene_player/animation_helper/Cargo_ship_offsetted/cargo_ship"]
 [editable path="Animations/Outro/outro_player/animation_helper/outro_camera"]
@@ -2357,13 +2455,14 @@ parameters/looping = true
 [editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/aquanautilus"]
 [editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/featherwings"]
 [editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase1/port"]
-[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/fishing_intervention_response"]
+[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/fishing_intervention"]
+[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/port_meeting"]
+[editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/bird_meeting"]
 [editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase2/underwater_noise_meeting"]
 [editable path="GridMapHelper/Questmarkers/fishing_ground_path/Phase3/fishing_ending"]
 [editable path="GridMapHelper/Questmarkers/port_path/Phase1/port_authority_report"]
 [editable path="GridMapHelper/Questmarkers/port_path/Phase1/legal_advisor_report"]
 [editable path="GridMapHelper/Questmarkers/port_path/Phase1/port_intervention_meeting"]
-[editable path="GridMapHelper/Questmarkers/port_path/Phase2/port_intervention_response"]
 [editable path="GridMapHelper/Questmarkers/port_path/Phase2/port_budget_review"]
 [editable path="GridMapHelper/Questmarkers/port_path/Phase3/port_ending"]
 [editable path="GridMap/building-skyscraper-e"]
