@@ -1334,7 +1334,7 @@ mesh = SubResource("QuadMesh_q0mm3")
 [node name="intro_cutscene_player" type="AnimationPlayer" parent="Animations/Intro" unique_id=1570020856]
 libraries/ = SubResource("AnimationLibrary_ie368")
 script = SubResource("GDScript_5qtum")
-debug = true
+debug_skip_cutscene = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Animations/Intro/intro_cutscene_player" unique_id=869929241]
 
