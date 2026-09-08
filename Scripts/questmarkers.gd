@@ -272,15 +272,29 @@ func load_fishing_content():
 			_show_next_fishing_quest_markers()
 		3:
 			current_fishing_quest = 0
-			var fishing_strategy = _get_first_fishing_flag("fishing_strategy", "")
-			var port_strategy = _get_first_fishing_flag("port_strategy", "")
-			var bird_strategy = _get_first_fishing_flag("bird_strategy", "")
-			var noise_strategy = _get_first_fishing_flag("noise_strategy", "")
+			var strategies = [
+				_get_first_fishing_flag("fishing_strategy", ""),
+				_get_first_fishing_flag("port_strategy", ""),
+				_get_first_fishing_flag("bird_strategy", ""),
+				_get_first_fishing_flag("noise_strategy", ""),
+			]
+
 			var ending_score = GameController.story_flags["ending_score"]
 			var ending_path = null
 			for val in GameController.story_flags.values():
 				if val in points.keys():
 					ending_score += points[val]
+					match val:
+						"paint_blades":
+							for c in GameController.all_windmills:
+								c.set_blades_red(true)
+						"lower_turbines":
+							for c in GameController.all_windmills:
+								c.shorten_windmill()
+						"relocate_wind_park":
+							_move_wind_park_outside_territorial_sea()
+						"move_port":
+							_build_kalymera_bridge_for_port()
 			GameController.story_flags["ending_score"] = ending_score
 			if ending_score == 10:
 				ending_path = FISHING_PATH_STORY_FOLDER + "phase_3_ending/good_ending.json"
